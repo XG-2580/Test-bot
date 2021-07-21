@@ -1,0 +1,38 @@
+const {
+  MessageEmbed
+} = require("discord.js");
+const config = require("../../botconfig/config.json");
+var ee = require("../../botconfig/embed.json");
+const emoji = require(`../../botconfig/emojis.json`);
+const { MessageButton } = require('discord-buttons')
+module.exports = {
+  name: "invite",
+  category: "🔰 Info",
+  aliases: ["add"],
+  usage: "invite",
+  description: "Gives you an Invite link for this Bot",
+  run: async (client, message, args, cmduser, text, prefix) => {
+    let es = client.settings.get(message.guild.id, "embed")
+    try {
+      let button_support_dc = new MessageButton().setStyle('url').setLabel('Support Server').setURL("https://xg-bot.netlify.app/")
+      let button_invite = new MessageButton().setStyle('url').setLabel('Invite this Bot').setURL(`https://xg-bot.netlify.app/`)
+      //array of all buttons
+      const allbuttons = [button_public_invite, button_support_dc, button_invite]
+      message.channel.send({
+        embed: new MessageEmbed()
+          .setColor(ee.color)
+          .setTitle("Thanks for inviting XG Services")
+          .addField(`Bot Powered by XG`, `**[Invite Public Bot](https://xg-bot.netlify.app/`)
+          .setFooter("XG Services | powered by XG", "https://cdn.discordapp.com/attachments/867331565993852928/867370097169530900/xg.gif"),
+        buttons: allbuttons
+      });
+    } catch (e) {
+      console.log(String(e.stack).bgRed)
+      return message.channel.send(new MessageEmbed()
+        .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
+        .setTitle(`An error occurred`)
+        .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
+      );
+    }
+  }
+}
