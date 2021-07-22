@@ -25,13 +25,13 @@ module.exports = {
       }else{
         user = message.author;
       }
-      if(!user || user == null || user.id == null || !user.id) message.reply("<833101993668771842> Could not find the USER")
+      if(!user || user == null || user.id == null || !user.id) message.reply("<:no:833101993668771842> Could not find the USER")
       try{
         const member = message.guild.members.cache.get(user.id);
         //create the EMBED
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-        embeduserinfo.setAuthor("Permissions from:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://clan.milrato.eu")
+        embeduserinfo.setAuthor("Permissions from:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://xg-bot.netlify.app")
         embeduserinfo.addField('**<:arrow:832598861813776394> Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
         embeduserinfo.setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         embeduserinfo.setFooter(es.footertext, es.footericon)
@@ -41,7 +41,7 @@ module.exports = {
         //create the EMBED
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(user.displayAvatarURL({ dynamic: true, size: 512 }))
-        embeduserinfo.setAuthor("Permissions from:   " + user.username + "#" + user.discriminator, user.displayAvatarURL({ dynamic: true }), "https://clan.milrato.eu")
+        embeduserinfo.setAuthor("Permissions from:   " + user.username + "#" + user.discriminator, user.displayAvatarURL({ dynamic: true }), "https://xg-bot.netlify.app")
         embeduserinfo.addField('**<:arrow:832598861813776394> Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
         embeduserinfo.setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         embeduserinfo.setFooter(es.footertext, es.footericon)
@@ -54,7 +54,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> ERROR | An error occurred`)
+        .setTitle(`<:no:833101993668771842> ERROR | An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -62,10 +62,10 @@ module.exports = {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

@@ -20,7 +20,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Please add a Role via ping, @role!`)
+          .setTitle(`<:no:833101993668771842> Please add a Role via ping, @role!`)
         );
       //try to find the role in the guild just incase he pings a role of a different server
       try {
@@ -29,7 +29,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> It seems that the Role does not exist in this Server!`)
+          .setTitle(`<:no:833101993668771842> It seems that the Role does not exist in this Server!`)
         );
       }
       //if its not in the database return error
@@ -37,7 +37,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> This Role is already a DJ-ROLE!`)
+          .setTitle(`<:no:833101993668771842> This Role is already a DJ-ROLE!`)
         );
       //remove it from the Database
       client.settings.remove(message.guild.id, role.id, `djroles`);
@@ -52,7 +52,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<a833101995723194437> Removed the DJ ROLE \`${role.name}\``)
+        .setTitle(`<:yes:833101995723194437> Removed the DJ ROLE \`${role.name}\``)
         .setDescription(`All left Dj Roles:\n> ${leftb.substr(0, leftb.length - 3)}`)
       );
     } catch (e) {
@@ -60,10 +60,18 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
 						.setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> An error occurred`)
+            .setTitle(`<:no:833101993668771842> An error occurred`)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
     }
   }
 };
-
+/**
+  * @INFO
+  * Bot Coded by Limsathya
+  * @INFO
+  * Work for Milrato Development | https://xg-bot.netlify.app
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

@@ -48,19 +48,19 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Could not find: \`${args[0]}\``)
+          .setTitle(`<:no:833101993668771842> Could not find: \`${args[0]}\``)
         );
       }
       if (reload)
         return message.channel.send(new MessageEmbed()
           .setColor(es.color)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<a833101995723194437> Reloaded \`${args[0]}\``)
+          .setTitle(`<:yes:833101995723194437> Reloaded \`${args[0]}\``)
         );
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Could not reload: \`${args[0]}\``)
+        .setTitle(`<:no:833101993668771842> Could not reload: \`${args[0]}\``)
       );
     } catch (e) {
       console.log(String(e.stack).bgRed)
@@ -75,10 +75,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

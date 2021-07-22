@@ -38,7 +38,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       var channel = message.mentions.channels.filter(ch=>ch.guild.id==message.guild.id).first() || message.guild.channels.cache.get(args[0]) || message.channel;
@@ -47,14 +47,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You didn't ping a Valid Channel`)
+          .setTitle(`<:no:833101993668771842> You didn't ping a Valid Channel`)
           .setDescription(`Usage: \`${prefix}copymessage <#Channel> <Message_ID>\``)
         );
         if (!id || id.length != 18)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You didn't add a Valid Message ID`)
+          .setTitle(`<:no:833101993668771842> You didn't add a Valid Message ID`)
           .setDescription(`Usage: \`${prefix}copymessage <#Channel> <Message_ID>\``)
         );
 
@@ -72,14 +72,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<a833101995723194437> Check your DMS!`)
+          .setTitle(`<:yes:833101995723194437> Check your DMS!`)
         );
       }).catch(e=>{
         console.log(String(e.stack).bgRed)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${e.stack}\`\`\``)
         );
       })
@@ -107,7 +107,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${e.stack}\`\`\``)
       );
     }
@@ -115,10 +115,10 @@ module.exports = {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846| https://github.com/Tomato6966/Discord-Js-Handler-Template
+ * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

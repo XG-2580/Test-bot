@@ -130,11 +130,11 @@ var {
   };
   /**
    * @INFO
-   * Bot Coded by XG#2846
+   * Bot Coded by Limsathya
    * @INFO
-   * Work for XG | https://xg-bot.netlify.app/
+   * Work for Milrato Development | https://xg-bot.netlify.app
    * @INFO
-   * Please mention XG#2846, when using this Code!
+   * Please mention Him / Milrato Development, when using this Code!
    * @INFO
    */
   

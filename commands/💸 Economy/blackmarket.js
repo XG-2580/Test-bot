@@ -1,5 +1,6 @@
 const {MessageEmbed} = require("discord.js");
 const config = require(`../../botconfig/config.json`);
+
 var ee = require(`../../botconfig/embed.json`);
 const emoji = require(`../../botconfig/emojis.json`);
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
@@ -14,14 +15,14 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: **\`${prefix}setup-commands\``)
       );
     }
     try {
     //command
     var user = message.author;
-    if(user.bot) return message.reply("<833101993668771842> **A Discord Bot can not have Economy!**")
+    if(user.bot) return message.reply("<:no:833101993668771842> **A Discord Bot can not have Economy!**")
     
     //ensure the economy data
     ensure_economy_user(client, message.guild.id, user.id)
@@ -35,7 +36,7 @@ module.exports = {
       return message.reply({embed: new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
-        .setTitle(`<833101993668771842> You've already bought a 2 Day Boost in the last 5 Days!`)
+        .setTitle(`<:no:833101993668771842> You've already bought a 2 Day Boost in the last 5 Days!`)
         .setDescription(`🕐 **Try again in ${time.map(i=> `\`${i}\``).join(", ")}**\n\n👛 You still have \`${nFormatter(Math.floor(data.balance))} 💸\` in your Pocket`)
       });
     } 
@@ -47,21 +48,21 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You did not add the Multiplier you want to buy for 2 Days!`)
+          .setTitle(`<:no:833101993668771842> You did not add the Multiplier you want to buy for 2 Days!`)
           .setDescription(`Usage: \`${prefix}blackmarket <Multiplier>\`\n\n\Example: \`${prefix}blackmarket 3\``)
         );
       if(amount == 0 || amount < 0)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You cannot buy a 0 or less then 0 Multiplier, for 2 Days`)
+          .setTitle(`<:no:833101993668771842> You cannot buy a 0 or less then 0 Multiplier, for 2 Days`)
           .setDescription(`Usage: \`${prefix}blackmarket <Multiplier>\`\n\n\Example: \`${prefix}blackmarket 3\``)
         );
       if(amount == 1)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You cannot buy a 1 Multiplier, for 2 Days`)
+          .setTitle(`<:no:833101993668771842> You cannot buy a 1 Multiplier, for 2 Days`)
           .setDescription(`Usage: \`${prefix}blackmarket <Multiplier>\`\n\n\Example: \`${prefix}blackmarket 3\``)
         );
         
@@ -69,14 +70,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You cannot buy a Multiplier bigger then 5, for 2 Days`)
+          .setTitle(`<:no:833101993668771842> You cannot buy a Multiplier bigger then 5, for 2 Days`)
           .setDescription(`Usage: \`${prefix}blackmarket <Multiplier>\`\n\n\Example: \`${prefix}blackmarket 3\``)
         );
       if(prize * (amount - 1) > data.balance)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You can't pay more Money (\`${(amount - 1)}x ${prize}\`) than you have in your **👛 Pocket (\`${data.balance} 💸\`)**`)
+          .setTitle(`<:no:833101993668771842> You can't pay more Money (\`${(amount - 1)}x ${prize}\`) than you have in your **👛 Pocket (\`${data.balance} 💸\`)**`)
         );
       //add the Money to the User's Balance in this Guild
       client.economy.math(`${message.guild.id}-${message.author.id}`, "-", prize * (amount - 1), "balance")
@@ -89,7 +90,7 @@ module.exports = {
       return message.reply(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
-        .setTitle(`<a833101995723194437> You've bought a ${amount}x Boost for 2 Days, for \`${prize * (amount - 1)} 💸\`, You can buy one again in 5 Days`)
+        .setTitle(`<:yes:833101995723194437> You've bought a ${amount}x Boost for 2 Days, for \`${prize * (amount - 1)} 💸\`, You can buy one again in 5 Days`)
         .setDescription(`👛 You now have \`${nFormatter(Math.floor(data.balance))} 💸\` in your Pocket\n\nEvery single INCOME will now be ${amount}x Worth for 3 DAYS`)
       );
     }
@@ -98,7 +99,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<833101993668771842> An error occurred`)
+      .setTitle(`<:no:833101993668771842> An error occurred`)
       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
     );
   }
@@ -106,10 +107,10 @@ module.exports = {
 };
 /**
 * @INFO
-* Bot Coded by XG#2846
+* Bot Coded by Limsathya
 * @INFO
-* Work for XG | https://xg-bot.netlify.app/
+* Work for Milrato Development | https://xg-bot.netlify.app
 * @INFO
-* Please mention XG#2846, when using this Code!
+* Please mention Him / Milrato Development, when using this Code!
 * @INFO
 */

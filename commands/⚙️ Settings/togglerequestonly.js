@@ -19,7 +19,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<a833101995723194437> ${client.settings.get(message.guild.id, `requestonly`) ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`} Request Only`)
+        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, `requestonly`) ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`} Request Only`)
         .setDescription(`You are now ${client.settings.get(message.guild.id, `requestonly`) ? `` : `not`} allowed to use Commands in different Channels`)
       );
     } catch (e) {
@@ -27,10 +27,18 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
 						.setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> An error occurred`)
+            .setTitle(`<:no:833101993668771842> An error occurred`)
             .setDescription(`${e.message}`)
         );
     }
   }
 };
-
+/**
+  * @INFO
+  * Bot Coded by Limsathya
+  * @INFO
+  * Work for Milrato Development | https://xg-bot.netlify.app
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

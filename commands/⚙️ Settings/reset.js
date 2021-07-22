@@ -18,7 +18,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You don\'t have permission for this Command! *Only the Server-Owner*`)
+          .setTitle(`<:no:833101993668771842> You don\'t have permission for this Command! *Only the Server-Owner*`)
         );
       //ask for second yes
       let themsg = message.channel.send(new MessageEmbed()
@@ -57,7 +57,7 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
               .setFooter(es.footertext, es.footericon)
-              .setTitle(`<a833101995723194437> Resetted everything!`)
+              .setTitle(`<:yes:833101995723194437> Resetted everything!`)
               .setDescription(`Prefix is now again: \`${config.prefix}\`\nNo more DJ ROLES, No more Setup, No more Bot Channels`)
             );
           }
@@ -67,7 +67,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> CANCELLED CAUSE NOT THE RIGHT WORD / TIME RAN OUT!`)
+            .setTitle(`<:no:833101993668771842> CANCELLED CAUSE NOT THE RIGHT WORD / TIME RAN OUT!`)
           );
         })
       });
@@ -76,10 +76,18 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
 						.setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> An error occurred`)
+            .setTitle(`<:no:833101993668771842> An error occurred`)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
     }
   }
 };
-
+/**
+  * @INFO
+  * Bot Coded by Limsathya
+  * @INFO
+  * Work for Milrato Development | https://xg-bot.netlify.app
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

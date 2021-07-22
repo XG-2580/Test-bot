@@ -40,7 +40,7 @@ module.exports = {
         tempmsg.react("📑")
       } catch (e) {
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -66,7 +66,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -77,14 +77,14 @@ module.exports = {
         try {
           client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "antidiscord.enabled"), "antidiscord.enabled");
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle(`<a833101995723194437> ${client.settings.get(message.guild.id, "antidiscord").enabled ? "**Enabled** antidiscords": "**Disabled** Anti Discord Links"}`)
+            .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "antidiscord").enabled ? "**Enabled** antidiscords": "**Disabled** Anti Discord Links"}`)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setDescription(`${client.settings.get(message.guild.id, "antidiscord").enabled ? "**I will now prevent Users to send** Discord Links": "Everyone can send Discord Links!"}`.substr(0, 2048))
             .setFooter(es.footertext, es.footericon)
           });
         } catch (e) {
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             .setFooter(es.footertext, es.footericon)
@@ -108,21 +108,21 @@ module.exports = {
             if (channel) {
               let antisettings = client.settings.get(message.guild.id, "antidiscord.whitelistedchannels")
               if (antisettings.includes(channel.id)) return message.reply({embed: new Discord.MessageEmbed()
-                .setTitle(`<833101993668771842> ERROR | The Channel: \`${channel.name}\` is already added to the Anti Discord Links Whitelist`)
+                .setTitle(`<:no:833101993668771842> ERROR | The Channel: \`${channel.name}\` is already added to the Anti Discord Links Whitelist`)
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
               });
               try {
                 client.settings.push(message.guild.id, channel.id, "antidiscord.whitelistedchannels");
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The Channel: \`${channel.name}\` is now registered as an Whitelisted Anti Discord Links Channel`)
+                  .setTitle(`<:yes:833101995723194437> The Channel: \`${channel.name}\` is now registered as an Whitelisted Anti Discord Links Channel`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`Every single Channel:\n<#${client.settings.get(message.guild.id, "antidiscord.whitelistedchannels").join(">\n<#")}>\nis not a checked by the Anti Discord Links System`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 });
               } catch (e) {
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -137,7 +137,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -160,21 +160,21 @@ module.exports = {
             if (channel) {
               let antisettings = client.settings.get(message.guild.id, "antidiscord.whitelistedchannels")
               if (!antisettings.includes(channel.id)) return message.reply({embed: new Discord.MessageEmbed()
-                .setTitle(`<833101993668771842> ERROR | The Channel: \`${channel.name}\` is not added to the Anti Discord Links Whitelist yet`)
+                .setTitle(`<:no:833101993668771842> ERROR | The Channel: \`${channel.name}\` is not added to the Anti Discord Links Whitelist yet`)
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
               });
               try {
                 client.settings.remove(message.guild.id, channel.id, "antidiscord.whitelistedchannels");
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The Channel: \`${channel.name}\` is now **NOT** registered as an Whitelisted Anti Discord Links Channel anymore`)
+                  .setTitle(`<:yes:833101995723194437> The Channel: \`${channel.name}\` is now **NOT** registered as an Whitelisted Anti Discord Links Channel anymore`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`Every single Channel:\n<#${client.settings.get(message.guild.id, "antidiscord.whitelistedchannels").join(">\n<#")}>\nis not a checked by the Anti Discord Links System`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 });
               } catch (e) {
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -189,7 +189,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -199,7 +199,7 @@ module.exports = {
         return message.reply(new Discord.MessageEmbed()
           .setTitle(`📑 Settings of the Anti Discord Ad-Link System`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
-          .setDescription(`**Enabled:** ${thesettings.enabled ? "<a833101995723194437>" : "<833101993668771842>"}
+          .setDescription(`**Enabled:** ${thesettings.enabled ? "<:yes:833101995723194437>" : "<:no:833101993668771842>"}
           
 **Witelisted Channels:** ${thesettings.whitelistedchannels.length > 0 ? `<#${thesettings.whitelistedchannels.join("> | <#")}>` : "No Channels Whitelisted!"}
 
@@ -208,7 +208,7 @@ module.exports = {
         );
       } else {
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         });
@@ -218,7 +218,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send({embed: new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       });
     }
@@ -226,10 +226,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

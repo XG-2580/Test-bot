@@ -37,7 +37,7 @@ module.exports = {
         tempmsg.react("4️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -62,7 +62,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -96,7 +96,7 @@ module.exports = {
                   }
                 }
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Added \`${blacklistedwords.length - notadded.length}\` / \`${blacklistedwords.length}\``)
+                  .setTitle(`<:yes:833101995723194437> Added \`${blacklistedwords.length - notadded.length}\` / \`${blacklistedwords.length}\``)
                   .setDescription(`Not added Words:\n${notadded.length > 0 ? notadded.map(i => `\`${i}\``).join(", ") + "\n Because it is already in the Blacklist" : "Added every given word"}`.substr(0, 2048))
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
@@ -104,7 +104,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -119,7 +119,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -152,7 +152,7 @@ module.exports = {
                   }
                 }
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Removed \`${blacklistedwords.length - notremoved.length}\` / \`${blacklistedwords.length}\``)
+                  .setTitle(`<:yes:833101995723194437> Removed \`${blacklistedwords.length - notremoved.length}\` / \`${blacklistedwords.length}\``)
                   .setDescription(`Not removed Words:\n${notremoved.length > 0 ? notremoved.map(i => `\`${i}\``).join(", ") + " \nBecause it is not in the blacklist yet": "Removed every given word"}`.substr(0, 2048))
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
@@ -160,7 +160,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -175,7 +175,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -185,13 +185,13 @@ module.exports = {
       } else if (temptype == "reset") {
         client.blacklist.set(message.guild.id, [], "words")
         return message.reply(new Discord.MessageEmbed()
-          .setTitle(`<a833101995723194437> Resetted the Blacklist`)
+          .setTitle(`<:yes:833101995723194437> Resetted the Blacklist`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
         );
       } else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -201,7 +201,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -209,10 +209,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

@@ -1,6 +1,7 @@
 const {MessageEmbed} = require("discord.js");
 const config = require(`../../botconfig/config.json`);
 var ee = require(`../../botconfig/embed.json`);
+
 const emoji = require(`../../botconfig/emojis.json`);
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
 module.exports = {
@@ -15,14 +16,14 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
     try {
     //command
     var user = message.author
-    if(user.bot) return message.reply("<833101993668771842> **A Discord Bot can not have Economy!**")
+    if(user.bot) return message.reply("<:no:833101993668771842> **A Discord Bot can not have Economy!**")
     
       //ensure the economy data
       ensure_economy_user(client, message.guild.id, user.id)
@@ -31,7 +32,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You didn't provide a valid Argument`)
+          .setTitle(`<:no:833101993668771842> You didn't provide a valid Argument`)
           .setDescription(`Usage: \`${prefix}withdraw <All/Amount>\`\n\n\Example: \`${prefix}withdraw 100\``)
         );
     if(args[0].toLowerCase() == "all"){
@@ -46,7 +47,7 @@ module.exports = {
       return message.reply(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<a833101995723194437> You withdrawed **\`${nFormatter(withdrawed)}💸\`** from your Bank`)
+        .setTitle(`<:yes:833101995723194437> You withdrawed **\`${nFormatter(withdrawed)}💸\`** from your Bank`)
         .setDescription(`**🏦 You now have \`${nFormatter(Math.floor(data.bank))} 💸\` in your Bank**\n\n👛 You now have \`${nFormatter(Math.floor(data.balance))} 💸\` in your Pocket`)
       );
     }else {
@@ -55,14 +56,14 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You can't withdraw a negative Amount of Money or no Money, from your Bank`)
+          .setTitle(`<:no:833101993668771842> You can't withdraw a negative Amount of Money or no Money, from your Bank`)
         );
       
       if(amount > data.bank)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<833101993668771842> You can't withdraw more Money than you have in your **🏦 Bank (\`${data.balance} 💸\`)**`)
+          .setTitle(`<:no:833101993668771842> You can't withdraw more Money than you have in your **🏦 Bank (\`${data.balance} 💸\`)**`)
         );
       
       client.economy.math(`${message.guild.id}-${user.id}`, "+", amount, "balance")
@@ -73,7 +74,7 @@ module.exports = {
       return message.reply(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<a833101995723194437> You withdrawed **\`${nFormatter(amount)}💸\`** from your Bank`)
+        .setTitle(`<:yes:833101995723194437> You withdrawed **\`${nFormatter(amount)}💸\`** from your Bank`)
         .setDescription(`**🏦 You now have \`${nFormatter(Math.floor(data.bank))} 💸\` in your Bank**\n\n👛 You now have \`${nFormatter(Math.floor(data.balance))} 💸\` in your Pocket`)
       );
     }
@@ -82,7 +83,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<833101993668771842> An error occurred`)
+      .setTitle(`<:no:833101993668771842> An error occurred`)
       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
     );
   }
@@ -90,10 +91,10 @@ module.exports = {
 };
 /**
 * @INFO
-* Bot Coded by XG#2846
+* Bot Coded by Limsathya
 * @INFO
-* Work for XG | https://xg-bot.netlify.app/
+* Work for Milrato Development | https://xg-bot.netlify.app
 * @INFO
-* Please mention XG#2846, when using this Code!
+* Please mention Him / Milrato Development, when using this Code!
 * @INFO
 */

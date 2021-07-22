@@ -1,6 +1,7 @@
 const {MessageEmbed} = require("discord.js");
 const config = require(`../../botconfig/config.json`);
 var ee = require(`../../botconfig/embed.json`);
+
 const emoji = require(`../../botconfig/emojis.json`);
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -26,14 +27,14 @@ module.exports = {
         try{
             user = await GetUser(message, args)
         }catch (e){
-          if(!e) return message.reply("<833101993668771842> UNABLE TO FIND THE USER")
+          if(!e) return message.reply("<:no:833101993668771842> UNABLE TO FIND THE USER")
           return message.reply(e)
         }
       }else{
         user = message.author;
       }
       if(!user || user == null || user.id == null || !user.id) user = message.author
-      if(user.bot) return message.reply("<833101993668771842> **A Discord Bot can not have Economy!**")
+      if(user.bot) return message.reply("<:no:833101993668771842> **A Discord Bot can not have Economy!**")
       
       //ensure the economy data
       ensure_economy_user(client, message.guild.id, user.id)
@@ -110,7 +111,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<833101993668771842> An error occurred`)
+      .setTitle(`<:no:833101993668771842> An error occurred`)
       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
     );
   }
@@ -118,10 +119,10 @@ module.exports = {
 };
 /**
 * @INFO
-* Bot Coded by XG#2846
+* Bot Coded by Limsathya
 * @INFO
-* Work for XG | https://xg-bot.netlify.app/
+* Work for Milrato Development | https://xg-bot.netlify.app
 * @INFO
-* Please mention XG#2846, when using this Code!
+* Please mention Him / Milrato Development, when using this Code!
 * @INFO
 */

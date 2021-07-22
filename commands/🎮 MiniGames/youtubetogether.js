@@ -26,7 +26,7 @@ const {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -35,7 +35,7 @@ const {
         if (!channel) return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<833101993668771842> Error | Please join a Voice Channel first")
+            .setTitle("<:no:833101993668771842> Error | Please join a Voice Channel first")
         );
         if (!channel.permissionsFor(message.guild.me).has("CREATE_INSTANT_INVITE")) {
           const nochannel = new MessageEmbed()
@@ -73,7 +73,7 @@ const {
             return message.channel.send(new Discord.MessageEmbed()
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle(`<833101993668771842> An error occurred`)
+                .setTitle(`<:no:833101993668771842> An error occurred`)
                 .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             );
         }

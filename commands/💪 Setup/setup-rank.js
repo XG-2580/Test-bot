@@ -40,7 +40,7 @@ module.exports = {
         tempmsg.react("3️⃣")
       } catch (e) {
         return message.channel.send(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -65,7 +65,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -92,13 +92,13 @@ module.exports = {
                 client.points.set(message.guild.id, channel.id, "channel")
                 client.points.set(message.guild.id, false, "disabled")
                 return message.channel.send(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I will now send the Levelup Messages in \`${channel.name}\``)
+                  .setTitle(`<:yes:833101995723194437> I will now send the Levelup Messages in \`${channel.name}\``)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.channel.send(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -113,7 +113,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -124,14 +124,14 @@ module.exports = {
           client.points.set(message.guild.id, false, "channel")
           client.points.set(message.guild.id, false, "disabled")
           return message.channel.send(new Discord.MessageEmbed()
-            .setTitle(`<a833101995723194437> I will now reply with the Levelup Messages`)
+            .setTitle(`<:yes:833101995723194437> I will now reply with the Levelup Messages`)
             .setDescription(`To disable them, type: \`${prefix}setup-rank disable\`To send them into a channel, type: \`${prefix}setup-rank channel #channel\``)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setFooter(es.footertext, es.footericon)
           );
         } catch (e) {
           return message.channel.send(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             .setFooter(es.footertext, es.footericon)
@@ -140,21 +140,21 @@ module.exports = {
       } else if (temptype == "disable") {
         try {
           if (client.points.get(message.guild.id, "disabled")) return message.channel.send(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Level Up Messages are Already Disabled")
+            .setTitle("<:no:833101993668771842> ERROR | Level Up Messages are Already Disabled")
             .setColor(es.wrongcolor)
             .setDescription(`To enable them again type: \`${prefix}setup-rank reply\``)
             .setFooter(es.footertext, es.footericon)
           );
           client.points.set(message.guild.id, true, "disabled")
           return message.channel.send(new Discord.MessageEmbed()
-            .setTitle(`<a833101995723194437> Disabled Levelup Messages`)
+            .setTitle(`<:yes:833101995723194437> Disabled Levelup Messages`)
             .setDescription(`To enable them again type: \`${prefix}setup-rank reply\``)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setFooter(es.footertext, es.footericon)
           );
         } catch (e) {
           return message.channel.send(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             .setFooter(es.footertext, es.footericon)
@@ -178,14 +178,14 @@ module.exports = {
                 if (collected.first().attachments.every(attachIsImage)) {
                   client.setups.set(message.guild.id, url, "ranking.backgroundimage")
                   return message.channel.send(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> Successfully, set your Background Image!`)
+                    .setTitle(`<:yes:833101995723194437> Successfully, set your Background Image!`)
                     .setDescription(`Please make sure to **not** delete your Image from the Channel!`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setFooter(es.footertext, es.footericon)
                   );
                 } else {
                   return message.channel.send(new Discord.MessageEmbed()
-                    .setTitle(`<833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                    .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
                     .setColor(es.wrongcolor)
                     .setFooter(es.footertext, es.footericon)
                   );
@@ -193,14 +193,14 @@ module.exports = {
               } else if (collected.first().content.includes("https") || collected.first().content.includes("http")) {
                 client.setups.set(message.guild.id, collected.first().content, "ranking.backgroundimage")
                 return message.channel.send(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Successfully, set your Background Image!`)
+                  .setTitle(`<:yes:833101995723194437> Successfully, set your Background Image!`)
                   .setDescription(`Please make sure to **not** delete your Image from the Channel!`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } else {
                 return message.channel.send(new Discord.MessageEmbed()
-                  .setTitle(`<833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                  .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
                   .setColor(es.wrongcolor)
                   .setFooter(es.footertext, es.footericon)
                 );
@@ -218,7 +218,7 @@ module.exports = {
           })
         } catch (e) {
           return message.channel.send(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             .setFooter(es.footertext, es.footericon)
@@ -228,14 +228,14 @@ module.exports = {
         try {
           client.setups.set(message.guild.id, "null", "ranking.backgroundimage")
           return message.channel.send(new Discord.MessageEmbed()
-            .setTitle(`<a833101995723194437> Resetted Levelup Message Image Background`)
+            .setTitle(`<:yes:833101995723194437> Resetted Levelup Message Image Background`)
             .setDescription(`I will now use the Default Levelup Image`)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setFooter(es.footertext, es.footericon)
           );
         } catch (e) {
           return message.channel.send(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             .setFooter(es.footertext, es.footericon)
@@ -243,7 +243,7 @@ module.exports = {
         }
       } else {
         return message.channel.send(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -253,7 +253,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -261,10 +261,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

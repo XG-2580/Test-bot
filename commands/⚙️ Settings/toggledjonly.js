@@ -20,7 +20,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle("<833101993668771842> Please add a cmd!")
+          .setTitle("<:no:833101993668771842> Please add a cmd!")
           .setDescription("Example: `toggledjonly skip`")
         );
 
@@ -41,7 +41,7 @@ module.exports = {
               return message.channel.send(new MessageEmbed()
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle(`<a833101995723194437> Set Cmd \`${args[0]}\` to NOT DJ ONLY`)
+                .setTitle(`<:yes:833101995723194437> Set Cmd \`${args[0]}\` to NOT DJ ONLY`)
                 .setDescription(`All Dj-ONLY-CMDS:\n> \`${client.settings.get(message.guild.id, `djonlycmds`).sort(function(a, b){if(a < b) { return -1; }if(a > b) { return 1; }  return 0;}).join("`, `")}\``)
               );
             }catch (e){
@@ -49,7 +49,7 @@ module.exports = {
               return message.channel.send(new MessageEmbed()
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle("<833101993668771842> Something went wrong!")
+                .setTitle("<:no:833101993668771842> Something went wrong!")
                 .setDescription("```" + e.stack + "```")
               );
             }
@@ -60,7 +60,7 @@ module.exports = {
               return message.channel.send(new MessageEmbed()
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle(`<a833101995723194437> Set Cmd \`${args[0]}\` to DJ ONLY`)
+                .setTitle(`<:yes:833101995723194437> Set Cmd \`${args[0]}\` to DJ ONLY`)
                 .setDescription(`All Dj-ONLY-CMDS:\n> \`${client.settings.get(message.guild.id, `djonlycmds`).sort(function(a, b){if(a < b) { return -1; }if(a > b) { return 1; }  return 0;}).join("`, `")}\``)
               );
             }catch (e){
@@ -68,7 +68,7 @@ module.exports = {
               return message.channel.send(new MessageEmbed()
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle("<833101993668771842> Something went wrong!")
+                .setTitle("<:no:833101993668771842> Something went wrong!")
                 .setDescription("```" + e.stack + "```")
               );
             }
@@ -77,7 +77,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Could not find Music Command \`${args[0]}\``)
+          .setTitle(`<:no:833101993668771842> Could not find Music Command \`${args[0]}\``)
         );
       }
     } catch (e) {
@@ -85,10 +85,18 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
 						.setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> An error occurred`)
+            .setTitle(`<:no:833101993668771842> An error occurred`)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
     }
   }
 };
-
+/**
+  * @INFO
+  * Bot Coded by Limsathya
+  * @INFO
+  * Work for Milrato Development | https://xg-bot.netlify.app
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

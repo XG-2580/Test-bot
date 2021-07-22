@@ -32,7 +32,7 @@ module.exports = {
           !client.setups.get("TICKETS", "tickets3").includes(message.channel.id) &&
           !client.setups.get("TICKETS", "tickets4").includes(message.channel.id) &&
           !client.setups.get("TICKETS", "tickets5").includes(message.channel.id) 
-      ) return message.reply("<833101993668771842> This Channel is not a Ticket!")
+      ) return message.reply("<:no:833101993668771842> This Channel is not a Ticket!")
       var cmdrole = []
         if(cmdroles.length > 0){
           for(const r of cmdroles){
@@ -54,7 +54,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to close a Ticket`)
+          .setTitle(`<:no:833101993668771842> You are not allowed to close a Ticket`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join(" | ") + ticket.adminroles.join(" | ")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\` You can also add Ticket only Roles with \`${prefix}setup-ticket\``}`)
         );
         
@@ -99,7 +99,7 @@ module.exports = {
             tempmsg.react("📌")
           } catch (e) {
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+              .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
               .setColor(es.wrongcolor)
               .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -129,7 +129,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Your Time ran out")
+              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`\`\`\`${String(JSON.stringify(timeouterror)).substr(0, 2000)}\`\`\``.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -214,7 +214,7 @@ module.exports = {
               }).catch(e=>{
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`"Cancelled"`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -286,7 +286,7 @@ module.exports = {
                 }
               }).catch(e=>{
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`"Cancelled"`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -356,7 +356,7 @@ module.exports = {
               }
             }).catch(e=>{
               return message.reply(new Discord.MessageEmbed()
-                .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
                 .setColor(es.wrongcolor)
                 .setDescription(`"Cancelled"`.substr(0, 2000))
                 .setFooter(es.footertext, es.footericon)
@@ -571,7 +571,7 @@ module.exports = {
                     if(!e) return message.reply("UNABLE TO FIND THE USER")
                     return message.reply(e)
                   }
-                if(!user || user == null || user.id == null || !user.id) message.reply("<833101993668771842> Could not find the USER")
+                if(!user || user == null || user.id == null || !user.id) message.reply("<:no:833101993668771842> Could not find the USER")
                 var mapped = msg.channel.permissionOverwrites.map(p => {
                   if(p.type == "member"){
                     var obj = {id: "", allow: []};
@@ -621,7 +621,7 @@ module.exports = {
                             return message.channel.send(new MessageEmbed()
                               .setColor(es.wrongcolor)
                               .setFooter(es.footertext, es.footericon)
-                              .setTitle(`<833101993668771842> An error occurred`)
+                              .setTitle(`<:no:833101993668771842> An error occurred`)
                               .setDescription(`\`\`\`${e.stack}\`\`\``)
                             );
                           });
@@ -639,7 +639,7 @@ module.exports = {
                             return message.channel.send(new MessageEmbed()
                               .setColor(es.wrongcolor)
                               .setFooter(es.footertext, es.footericon)
-                              .setTitle(`<833101993668771842> An error occurred`)
+                              .setTitle(`<:no:833101993668771842> An error occurred`)
                               .setDescription(`\`\`\`${e.stack}\`\`\``)
                             );
                           });
@@ -678,7 +678,7 @@ module.exports = {
                     return message.channel.send(new MessageEmbed()
                       .setColor(es.wrongcolor)
                       .setFooter(es.footertext, es.footericon)
-                      .setTitle(`<833101993668771842> An error occurred`)
+                      .setTitle(`<:no:833101993668771842> An error occurred`)
                       .setDescription(`\`\`\`${e.stack}\`\`\``)
                     );
                   });
@@ -686,7 +686,7 @@ module.exports = {
               }).catch(e=>{
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`"Cancelled"`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -711,7 +711,7 @@ module.exports = {
                     if(!e) return message.reply("UNABLE TO FIND THE ROLE")
                     return message.reply("ERROR" + e)
                   }
-                if(!user || user == null || user.id == null || !user.id) message.reply("<833101993668771842> Could not find the ROLE")
+                if(!user || user == null || user.id == null || !user.id) message.reply("<:no:833101993668771842> Could not find the ROLE")
                 var mapped = msg.channel.permissionOverwrites.map(p => {
                   if(p.type == "role"){
                     var obj = {id: "", allow: []};
@@ -761,7 +761,7 @@ module.exports = {
                             return message.channel.send(new MessageEmbed()
                               .setColor(es.wrongcolor)
                               .setFooter(es.footertext, es.footericon)
-                              .setTitle(`<833101993668771842> An error occurred`)
+                              .setTitle(`<:no:833101993668771842> An error occurred`)
                               .setDescription(`\`\`\`${e.stack}\`\`\``)
                             );
                           });
@@ -779,7 +779,7 @@ module.exports = {
                             return message.channel.send(new MessageEmbed()
                               .setColor(es.wrongcolor)
                               .setFooter(es.footertext, es.footericon)
-                              .setTitle(`<833101993668771842> An error occurred`)
+                              .setTitle(`<:no:833101993668771842> An error occurred`)
                               .setDescription(`\`\`\`${e.stack}\`\`\``)
                             );
                           });
@@ -818,7 +818,7 @@ module.exports = {
                     return message.channel.send(new MessageEmbed()
                       .setColor(es.wrongcolor)
                       .setFooter(es.footertext, es.footericon)
-                      .setTitle(`<833101993668771842> An error occurred`)
+                      .setTitle(`<:no:833101993668771842> An error occurred`)
                       .setDescription(`\`\`\`${e.stack}\`\`\``)
                     );
                   });
@@ -826,7 +826,7 @@ module.exports = {
               }).catch(e=>{
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`"Cancelled"`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -835,7 +835,7 @@ module.exports = {
             })
           } else {
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+              .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
             );
@@ -845,7 +845,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${e.stack}\`\`\``)
       );
     }
@@ -854,10 +854,10 @@ module.exports = {
 
 /**
  * @INFO
- * Bot Coded by XG#2846| https://github.com/Tomato6966/Discord-Js-Handler-Template
+ * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

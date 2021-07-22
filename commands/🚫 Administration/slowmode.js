@@ -19,7 +19,7 @@ module.exports = {
       if(!message.guild.me.hasPermission("MANAGE_CHANNELS"))      
       return message.channel.send(new Discord.MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle("<833101993668771842> I am missing the permission to `MANAGE CHANNELS`!")
+        .setTitle("<:no:833101993668771842> I am missing the permission to `MANAGE CHANNELS`!")
       )
       let adminroles = client.settings.get(message.guild.id, "adminroles")
       let cmdroles = client.settings.get(message.guild.id, "cmdadminroles.slowmode")
@@ -43,7 +43,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       if (!isNaN(args[0]) || parseInt(args[0]) < 0) {
@@ -51,7 +51,7 @@ module.exports = {
         message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<a833101995723194437> Set Slowmode to: ${args[0]}!`)
+          .setTitle(`<:yes:833101995723194437> Set Slowmode to: ${args[0]}!`)
         );
 
         if(client.settings.get(message.guild.id, `adminlog`) != "no"){
@@ -75,7 +75,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Your Input is not a Number, please retry!`)
+          .setTitle(`<:no:833101993668771842> Your Input is not a Number, please retry!`)
           .setDescription(`Usage: \`${prefix}slowmode <AmountInSeconds>\`\n\nExample: \`${prefix}slowmode 5\``)
         );
       }
@@ -83,7 +83,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -91,10 +91,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

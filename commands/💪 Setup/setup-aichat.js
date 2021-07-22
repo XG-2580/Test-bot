@@ -40,7 +40,7 @@ module.exports = {
         tempmsg.react("📑")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> Missing Permission to add Reactions")
+          .setTitle("<:no:833101993668771842> Missing Permission to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -65,7 +65,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> Your Time ran out")
+          .setTitle("<:no:833101993668771842> Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -90,7 +90,7 @@ module.exports = {
           if(channel){
             client.settings.set(message.guild.id, channel.id, `aichat`)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle(`<a833101995723194437> The Channel: \`${channel.name}\` is now registered as the Ai-Chat`)
+              .setTitle(`<:yes:833101995723194437> The Channel: \`${channel.name}\` is now registered as the Ai-Chat`)
               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
               .setDescription(`Posting now, every Minute`.substr(0, 2048))
               .setFooter(es.footertext, es.footericon)
@@ -105,7 +105,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> Your Time ran out")
+          .setTitle("<:no:833101993668771842> Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -113,7 +113,7 @@ module.exports = {
       } else if (temptype == "disable") {
           client.settings.set(message.guild.id, "no", `aichat`)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle(`<a833101995723194437> Disabled the Ai-Chat`)
+            .setTitle(`<:yes:833101995723194437> Disabled the Ai-Chat`)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setDescription(`I will not send automatic NSFW Images to a Channel anymore`.substr(0, 2048))
             .setFooter(es.footertext, es.footericon)
@@ -128,7 +128,7 @@ module.exports = {
         );
       } else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -138,7 +138,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``)
       );
     }
@@ -146,10 +146,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

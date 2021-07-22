@@ -48,7 +48,7 @@ module.exports = async (client, message) => {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<833101993668771842> You need to join a voice channel.")
+            .setTitle("<:no:833101993668771842> You need to join a voice channel.")
           );
         //get the lavalink erela.js player information
         const player = client.manager.players.get(message.guild.id);
@@ -57,14 +57,14 @@ module.exports = async (client, message) => {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, es.footericon)
-            .setTitle("<833101993668771842> There is nothing playing")
+            .setTitle("<:no:833101993668771842> There is nothing playing")
           );
         //if there is a player and the user is not in the same channel as the Bot return information message
         if (player && channel.id !== player.voiceChannel)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<833101993668771842> I am already playing somewhere else!")
+            .setTitle("<:no:833101993668771842> I am already playing somewhere else!")
             .setDescription(`You can listen to me in: \`${message.guild.channels.cache.get(player.VoiceChannel).name}\``)
           );
         //if the user is not in the channel as in the db voice channel return error
@@ -156,7 +156,7 @@ module.exports = async (client, message) => {
               return message.channel.send(new MessageEmbed()
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle("<833101993668771842> There is no previous song yet!")
+                .setTitle("<:no:833101993668771842> There is no previous song yet!")
               ).then(async msg => {
                 try {
                   await delay(4000)
@@ -198,7 +198,7 @@ module.exports = async (client, message) => {
                   message.channel.send(new MessageEmbed()
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setFooter(es.footertext, es.footericon)
-                    .setTitle(`<a833101995723194437> Added your Vote!`)
+                    .setTitle(`<:yes:833101995723194437> Added your Vote!`)
                     .setDescription(`There are now: \`${player.get("votes")}\` of \`${voteamount}\` needed Votes\n\n> Amount reached! Skipping ⏭`)
                   );
                   if (player.queue.size == 0) {
@@ -210,7 +210,7 @@ module.exports = async (client, message) => {
                   return message.channel.send(new MessageEmbed()
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setFooter(es.footertext, es.footericon)
-                    .setTitle(`<a833101995723194437> Added your Vote!`)
+                    .setTitle(`<:yes:833101995723194437> Added your Vote!`)
                     .setDescription(`There are now: \`${player.get("votes")}\` of \`${voteamount}\` needed Votes`)
                   );
                 }
@@ -220,7 +220,7 @@ module.exports = async (client, message) => {
                 return message.channel.send(new MessageEmbed()
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
-                  .setTitle(`<a833101995723194437> Removed your Vote!`)
+                  .setTitle(`<:yes:833101995723194437> Removed your Vote!`)
                   .setDescription(`There are now: \`${player.get("votes")}\` of \`${voteamount}\` needed Votes`)
                 );
               }
@@ -233,7 +233,7 @@ module.exports = async (client, message) => {
                 player.destroy();
                 //send success message
                 return message.channel.send(new MessageEmbed()
-                  .setTitle("<a833101995723194437> ⏹ Stopped and left your Channel")
+                  .setTitle("<:yes:833101995723194437> ⏹ Stopped and left your Channel")
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
@@ -242,7 +242,7 @@ module.exports = async (client, message) => {
               player.stop();
               //send success message
               return message.channel.send(new MessageEmbed()
-                .setTitle("<a833101995723194437> ⏭ Skipped to the next Song")
+                .setTitle("<:yes:833101995723194437> ⏭ Skipped to the next Song")
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
               );
@@ -398,7 +398,7 @@ module.exports = async (client, message) => {
             player.set("autoplay", !player.get("autoplay"))
             //Send Success Message
             message.channel.send(new MessageEmbed()
-              .setTitle(`<a833101995723194437> ${player.get("autoplay") ? `\`✔️ Enabled\`` : `\`❌ Disabled\``} Autoplay`)
+              .setTitle(`<:yes:833101995723194437> ${player.get("autoplay") ? `\`✔️ Enabled\`` : `\`❌ Disabled\``} Autoplay`)
               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
               .setFooter(es.footertext, es.footericon)
             ).then(async msg => {
@@ -522,10 +522,10 @@ module.exports = async (client, message) => {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

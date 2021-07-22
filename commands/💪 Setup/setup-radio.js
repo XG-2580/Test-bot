@@ -25,7 +25,7 @@ module.exports = {
         if (!channel)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle(`<833101993668771842> You need to join a voice channel.`)
+            .setTitle(`<:no:833101993668771842> You need to join a voice channel.`)
           );
         //get the player instance
         var player = client.manager.players.get(message.guild.id);
@@ -38,7 +38,7 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
               .setColor(es.wrongcolor)
               .setFooter(client.user.username, es.footericon)
-              .setTitle(`<833101993668771842> Not a valid radio station`)
+              .setTitle(`<:no:833101993668771842> Not a valid radio station`)
               .setDescription(`Please use a Number between \`1\` and \`183\``)
             );
         }
@@ -47,7 +47,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, es.footericon)
-            .setTitle(`<833101993668771842> Volume Number out of Range`)
+            .setTitle(`<:no:833101993668771842> Volume Number out of Range`)
             .setDescription(`Please use a Number between \`1\` and \`150\``)
           );
         //define the volume
@@ -84,7 +84,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, es.footericon)
-            .setTitle(`<833101993668771842> Radio Station not found`)
+            .setTitle(`<:no:833101993668771842> Radio Station not found`)
             .setDescription(`Please use a Station between \`1\` and \`183\``)
           );
         //get song information of it
@@ -115,10 +115,18 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
                 .setColor(es.wrongcolor)
     						.setFooter(es.footertext, es.footericon)
-                .setTitle(`<833101993668771842> Something went Wrong`)
+                .setTitle(`<:no:833101993668771842> Something went Wrong`)
                 .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             );
         }
     },
 };
-
+/**
+  * @INFO
+  * Bot Coded by Limsathya
+  * @INFO
+  * Work for Milrato Development | https://xg-bot.netlify.app
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

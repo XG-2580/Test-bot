@@ -22,7 +22,7 @@ module.exports = {
 				return message.channel.send({embed: new MessageEmbed()
 					.setColor(es.wrongcolor)
 					.setFooter(es.footertext, es.footericon)
-					.setTitle(`<833101993668771842> You didn't provide a Status`)
+					.setTitle(`<:no:833101993668771842> You didn't provide a Status`)
 					.setDescription(`Usage: \`${prefix}httpstatus <status>\``)
 				});
 			// 599 isn't standard i think, not in Node.js but it's on http.cat so let's handle it.
@@ -36,7 +36,7 @@ module.exports = {
 			console.log(String(e.stack).bgRed)
 			return message.channel.send(new MessageEmbed()
 			  .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-			  .setTitle(`<833101993668771842> An error occurred`)
+			  .setTitle(`<:no:833101993668771842> An error occurred`)
 			  .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
 			);
 		  }

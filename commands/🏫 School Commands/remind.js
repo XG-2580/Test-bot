@@ -20,7 +20,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -28,7 +28,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<833101993668771842> please add a TIME!`)
+      .setTitle(`<:no:833101993668771842> please add a TIME!`)
       .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
     );
     let newargs = args.join(" ").split("++")
@@ -43,7 +43,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> please add a valid TIME!`)
+          .setTitle(`<:no:833101993668771842> please add a valid TIME!`)
           .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
         );
       }
@@ -54,13 +54,13 @@ module.exports = {
     if (returntime > 2073600000) return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<833101993668771842> The time limit is 24 Days!`)
+      .setTitle(`<:no:833101993668771842> The time limit is 24 Days!`)
       .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
     );
     if (returntime == 0) return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<833101993668771842> please add a TIME!`)
+      .setTitle(`<:no:833101993668771842> please add a TIME!`)
       .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
     );
     const now = new Date();

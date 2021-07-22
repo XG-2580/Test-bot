@@ -38,14 +38,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       if (!args[0])
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You didn't provide a Text`)
+          .setTitle(`<:no:833101993668771842> You didn't provide a Text`)
           .setDescription(`Usage: \`${prefix}say <Your Text>\``)
         );
       message.delete().catch(e => console.log("Couldn't delete msg, this is a catch to prevent crash"))
@@ -87,7 +87,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${e.stack}\`\`\``)
       );
     }
@@ -95,10 +95,10 @@ module.exports = {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846| https://github.com/Tomato6966/Discord-Js-Handler-Template
+ * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

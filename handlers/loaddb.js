@@ -7,14 +7,6 @@ module.exports = client => {
         name: "economy",
         dataDir: "./databases/economy"
     })
-    client.tiktok = new Enmap({
-        name: "youtube_log",
-        dataDir: "./social_log/youtubelog"
-    })
-    client.youtube_log = new Enmap({
-        name: "youtube_log",
-        dataDir: "./social_log/youtubelog"
-    })
     client.premium = new Enmap({
         name: "premium",
         dataDir: "./databases/premium"

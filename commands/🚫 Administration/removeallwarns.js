@@ -38,7 +38,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       let warnmember = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0] ? args[0] : ``);
@@ -46,7 +46,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Please add a Member you want to unwarn!`)
+          .setTitle(`<:no:833101993668771842> Please add a Member you want to unwarn!`)
           .setDescription(`Useage: \`${prefix}unwarn @User <WARN_ID>\``)
         );
 
@@ -57,7 +57,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> I cannot warn someone, who is above/equal you`)
+          .setTitle(`<:no:833101993668771842> I cannot warn someone, who is above/equal you`)
         );
 
       try {
@@ -74,7 +74,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> User has no Warnings`)
+            .setTitle(`<:no:833101993668771842> User has no Warnings`)
           );
         console.log(warnIDs)
         const toaddids = warnIDs.filter(id => client.modActions.get(id).guild != message.guild.id);
@@ -93,7 +93,7 @@ module.exports = {
         message.channel.send(new MessageEmbed()
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<a833101995723194437> Removed all ${warnIDs.length - toaddids.length} Warnings of **\`${message.guild.name}\`** from ${warnmember.user.tag}`)
+          .setTitle(`<:yes:833101995723194437> Removed all ${warnIDs.length - toaddids.length} Warnings of **\`${message.guild.name}\`** from ${warnmember.user.tag}`)
         );
 
         if(client.settings.get(message.guild.id, `adminlog`) != "no"){
@@ -118,7 +118,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
       }
@@ -126,7 +126,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -134,10 +134,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

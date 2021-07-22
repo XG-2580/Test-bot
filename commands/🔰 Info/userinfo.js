@@ -69,7 +69,7 @@ module.exports = {
         //create the EMBED
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-        embeduserinfo.setAuthor("Information about:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://xg-bot.netlify.app/")
+        embeduserinfo.setAuthor("Information about:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://xg-bot.netlify.app")
         embeduserinfo.addField('**<:dot:863291467879153716> Username:**',`<@${member.user.id}>\n\`${member.user.tag}\``,true)
         embeduserinfo.addField('**<:dot:863291467879153716> ID:**',`\`${member.id}\``,true)
         embeduserinfo.addField('**<:dot:863291467879153716> Avatar:**',`[\`Link to avatar\`](${member.user.displayAvatarURL({ format: "png" })})`,true)
@@ -140,10 +140,10 @@ module.exports = {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

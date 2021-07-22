@@ -50,7 +50,7 @@ module.exports = {
         tempmsg.react("4️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -75,7 +75,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -98,7 +98,7 @@ module.exports = {
             if(msg && msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first()){
               client.social_log.set(message.guild.id, msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first().id, "youtube.dc_channel")
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<a833101995723194437> I will now send all Youtube Notifications in \`${msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first().name}\``)
+                .setTitle(`<:yes:833101995723194437> I will now send all Youtube Notifications in \`${msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first().name}\``)
                 .setDescription("DONT FORGET TO ADD A **YOUTUBE_CHANNELS**!!!")
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
@@ -115,7 +115,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -124,7 +124,7 @@ module.exports = {
       } else if (temptype == "add") {
         if(client.social_log.get(message.guild.id, "youtube.channels").length >= 5) 
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | You've reached the maximum amount of youtube Channels (5)")
+            .setTitle("<:no:833101993668771842> ERROR | You've reached the maximum amount of youtube Channels (5)")
             .setColor(es.wrongcolor)
             .setDescription(`Remove some others first...`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -151,14 +151,14 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
               }
               if(client.social_log.get(message.guild.id, "youtube.channels").includes(msg.content))
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | The Youtube Channel is already setup!")
+                  .setTitle("<:no:833101993668771842> ERROR | The Youtube Channel is already setup!")
                   .setColor(es.wrongcolor)
                   .setFooter(es.footertext, es.footericon)
                 );
               client.social_log.push(message.guild.id, msg.content, "youtube.channels")
 
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<a833101995723194437> added the Channel ${msg.content}`)
+                .setTitle(`<:yes:833101995723194437> added the Channel ${msg.content}`)
                 .setDescription("You can change the default message via the **\"edit\"**")
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
@@ -175,7 +175,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -183,7 +183,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
       } else if (temptype == "remove") {
         if(client.social_log.get(message.guild.id, "youtube.channels").length <= 0) 
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | You havent setup any Youtube Channels yet!")
+            .setTitle("<:no:833101993668771842> ERROR | You havent setup any Youtube Channels yet!")
             .setColor(es.wrongcolor)
             .setDescription(`Add some others first...`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -213,7 +213,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
             client.social_log.remove(message.guild.id, channel, "youtube.channels")
 
             return message.reply(new Discord.MessageEmbed()
-              .setTitle(`<a833101995723194437> removed the Channel ${channel}`)
+              .setTitle(`<:yes:833101995723194437> removed the Channel ${channel}`)
               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
               .setFooter(es.footertext, es.footericon)
             );
@@ -223,7 +223,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -231,7 +231,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
       } else if (temptype == "edit") {
         if(client.social_log.get(message.guild.id, "youtube.channels").length <= 0) 
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | You havent setup any Youtube Channels yet!")
+            .setTitle("<:no:833101993668771842> ERROR | You havent setup any Youtube Channels yet!")
             .setColor(es.wrongcolor)
             .setDescription(`Add some others first...`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -285,7 +285,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
               if(msg && msg.content ){
                 client.youtube_log.set(channel, msg.content, "message")  
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Changed the message for the Channel ${channel}`)
+                  .setTitle(`<:yes:833101995723194437> Changed the message for the Channel ${channel}`)
                   .setDescription("New Message:\n" + msg.content)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
@@ -303,7 +303,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Your Time ran out")
+              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -315,14 +315,14 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
           );
       }  else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -332,7 +332,7 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -340,10 +340,10 @@ https://www.youtube.com/channel/UC1AgotpFHNhzolUtAjPgZqQ`)
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

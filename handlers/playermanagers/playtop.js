@@ -28,11 +28,11 @@ async function playtop(client, message, args, type) {
   async function song_() {
     //if no tracks found return info msg
     if (!res.tracks[0]){
-      return message.channel.send(`**<833101993668771842> Found nothing for: \`${search}\`**`);
+      return message.channel.send(`**<:no:833101993668771842> Found nothing for: \`${search}\`**`);
     }
     //if track is too long return info msg
     if(res.tracks[0].duration > 3 * 60 * 60 * 1000){
-      return message.channel.send(`**<833101993668771842> Cannot play a song that's longer than 3 hours**`)
+      return message.channel.send(`**<:no:833101993668771842> Cannot play a song that's longer than 3 hours**`)
     }
     //create a player if not created
     let player;
@@ -96,11 +96,11 @@ async function playtop(client, message, args, type) {
   //function ffor playist
   async function playlist_() {
     if (!res.tracks[0]){
-      return message.channel.send(`**<833101993668771842> Found nothing for: \`${search}\`**`);
+      return message.channel.send(`**<:no:833101993668771842> Found nothing for: \`${search}\`**`);
     }
     for(const track of res.tracks)
       if(track.duration > 3 * 60 * 60 * 1000){
-        return message.channel.send(`**<833101993668771842> Cannot play a song that's longer than 3 hours --> playlist skipped!**`)
+        return message.channel.send(`**<:no:833101993668771842> Cannot play a song that's longer than 3 hours --> playlist skipped!**`)
       }
     let player;
     player = client.manager.create({
@@ -137,7 +137,7 @@ async function playtop(client, message, args, type) {
     var time = 0;
       let playlistembed = new Discord.MessageEmbed()
 
-        .setAuthor(`Playlist added to Queue`, message.author.displayAvatarURL({dynamic:true}), "https://xg-bot.netlify.app/" )
+        .setAuthor(`Playlist added to Queue`, message.author.displayAvatarURL({dynamic:true}), "https://xg-bot.netlify.app" )
         .setColor(ee.color)
         .setTitle("**"+res.playlist.name+"**")
         .setThumbnail(`https://img.youtube.com/vi/${res.tracks[0].identifier}/mqdefault.jpg`)

@@ -19,7 +19,7 @@ module.exports = {
       if(!message.guild.me.hasPermission("KICK_MEMBERS"))      
       return message.channel.send(new Discord.MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle("<833101993668771842> I am missing the permission to `KICK MEMBERS`!")
+        .setTitle("<:no:833101993668771842> I am missing the permission to `KICK MEMBERS`!")
       )
       let adminroles = client.settings.get(message.guild.id, "adminroles")
       let cmdroles = client.settings.get(message.guild.id, "cmdadminroles.kick")
@@ -43,7 +43,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       let kickmember = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0] ? args[0] : ``);
@@ -51,7 +51,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Please add a Member you want to kick!`)
+          .setTitle(`<:no:833101993668771842> Please add a Member you want to kick!`)
           .setDescription(`Useage: \`${prefix}kick @User [Reason]\``)
         );
 
@@ -66,28 +66,28 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> I cannot kick someone, who is above/equal you`)
+          .setTitle(`<:no:833101993668771842> I cannot kick someone, who is above/equal you`)
         );
 
       if (!kickmember.kickable)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> The Member is not kickable, sorry!`)
+          .setTitle(`<:no:833101993668771842> The Member is not kickable, sorry!`)
         );
 
         try{
           kickmember.send(new MessageEmbed()
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<a833101995723194437> You got kicked by \`${message.author.tag}\` from \`${message.guild.name}\` for ${days === 0 ? `Infinite Days` : `${days} Days`}`)
+            .setTitle(`<:yes:833101995723194437> You got kicked by \`${message.author.tag}\` from \`${message.guild.name}\` for ${days === 0 ? `Infinite Days` : `${days} Days`}`)
             .setDescription(`Reason:\n> ${reason}`)
           );
         } catch{
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> Could not DM the Reason to: \`${kickmember.user.tag}\``)
+            .setTitle(`<:no:833101993668771842> Could not DM the Reason to: \`${kickmember.user.tag}\``)
             .setDescription(`${kickmember.user}`)
           );
         }
@@ -99,7 +99,7 @@ module.exports = {
           message.channel.send(new MessageEmbed()
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<a833101995723194437> Kicked ${kickmember.user.tag}`)
+            .setTitle(`<:yes:833101995723194437> Kicked ${kickmember.user.tag}`)
             .setDescription(`Reason:\n> ${reason}`)
           );
           if(client.settings.get(message.guild.id, `adminlog`) != "no"){
@@ -124,7 +124,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
       }
@@ -132,7 +132,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }

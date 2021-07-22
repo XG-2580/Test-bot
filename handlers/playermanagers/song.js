@@ -53,7 +53,7 @@ async function song(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<833101993668771842> There was an error while searching:`)
+        .setTitle(`<:no:833101993668771842> There was an error while searching:`)
         .setDescription(`\`\`\`${e.message}\`\`\``)
       );
     }
@@ -61,7 +61,7 @@ async function song(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(String("<833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+        .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
         .setDescription(`Please retry!`)
       );
     
@@ -113,7 +113,7 @@ async function song(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(String("<833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+        .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
         .setDescription(`Please retry!`)
       );
     //if the player is not connected, then connect and create things
@@ -165,10 +165,10 @@ module.exports = song;
 
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

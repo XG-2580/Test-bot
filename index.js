@@ -5,15 +5,15 @@ const fs = require("fs");
 const Emoji = require("./botconfig/emojis.json")
 const config = require("./botconfig/config.json")
 const express = require('express');
-
+const db = require('better-sqlite3')
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Made by XG!')
+  res.send('Bot online!')
 });
 
 app.listen(3000, () => {
-  console.log('Client online!');
+  console.log('24/7 Bot started!');
 });
 
 
@@ -30,6 +30,7 @@ const client = new Discord.Client({
     activity: {
       name: `${require("./botconfig/config.json").status.text}`.replace("{prefix}", require("./botconfig/config.json").prefix), 
       type: require("./botconfig/config.json").status.type, 
+      url: require("./botconfig/config.json").status.url
     },
     status: "online"
   }
@@ -46,12 +47,12 @@ client.memer = new Meme("rwYx7KVLEhC");
 
 client.adenabled = true;
 client.statusad = {
-  name: `xg help`,
+  name: `-help`,
   type: "PLAYING", 
-  url: "https://xg-bot.netlify.app/"
+  url: "https://xg-bot.netlify.app"
 };
 client.spacedot = "・";
-client.textad = "xg help";
+client.textad = "-help";
 
 
 //Loading discord-buttons
@@ -84,7 +85,7 @@ function requireallhandlers(){
 }requireallhandlers();
 
 
- client.login(process.env.TOKEN);
+ client.login(config.token);
 
 module.exports.requirehandlers = requirehandlers;
 module.exports.requiresociallogs = requiresociallogs;

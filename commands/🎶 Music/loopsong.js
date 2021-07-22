@@ -17,14 +17,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
     try{
       //define the Embed
       const embed = new MessageEmbed()
-        .setTitle(`<a833101995723194437> ${emoji.msg.repeat_mode} Changed Track loop to: ${player.trackRepeat ? `${emoji.msg.disabled} disabled` : `${emoji.msg.enabled} active`}`)
+        .setTitle(`<:yes:833101995723194437> ${emoji.msg.repeat_mode} Changed Track loop to: ${player.trackRepeat ? `${emoji.msg.disabled} disabled` : `${emoji.msg.enabled} active`}`)
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
       //if there is active queue loop, disable it + add embed information
@@ -41,7 +41,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -49,10 +49,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

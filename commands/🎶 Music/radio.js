@@ -22,7 +22,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -34,7 +34,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Not a valid radio station`)
+          .setTitle(`<:no:833101993668771842> Not a valid radio station`)
           .setDescription(`Please use a Number between \`1\` and \`183\``)
         );
       }
@@ -43,7 +43,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Volume Number out of Range`)
+          .setTitle(`<:no:833101993668771842> Volume Number out of Range`)
           .setDescription(`Please use a Number between \`1\` and \`150\``)
         );
       //define the volume
@@ -80,7 +80,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Radio Station not found`)
+          .setTitle(`<:no:833101993668771842> Radio Station not found`)
           .setDescription(`Please use a Station between \`1\` and \`183\``)
         );
       //get song information of it
@@ -105,7 +105,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -113,10 +113,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

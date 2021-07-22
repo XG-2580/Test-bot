@@ -18,21 +18,21 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`<833101993668771842> Please include the Multiplicator`)
+          .setTitle(`<:no:833101993668771842> Please include the Multiplicator`)
           .setDescription(`Usage: \`${prefix}rate <Multiplicator>\`\n\nExample: \`${prefix}rate 1.5\``)
         );
       if(isNaN(args[0]))
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`<833101993668771842> The Multiplicator must be a Number`)
+          .setTitle(`<:no:833101993668771842> The Multiplicator must be a Number`)
           .setDescription(`Usage: \`${prefix}rate <Multiplicator>\`\n\nExample: \`${prefix}rate 1.5\``)
         );
       if(Number(args[0]) >= 3 || Number(args[0]) <= 0)
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`<833101993668771842> Multiplicator out of range | Must be between 0 and 3`)
+          .setTitle(`<:no:833101993668771842> Multiplicator out of range | Must be between 0 and 3`)
           .setDescription(`Usage: \`${prefix}rate <Multiplicator>\`\n\nExample: \`${prefix}rate 1.5\``)
         );
       player.node.send({
@@ -56,7 +56,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<a833101995723194437> Rate set to \`${args[0]}\``)
+        .setTitle(`<:yes:833101995723194437> Rate set to \`${args[0]}\``)
         .setDescription(`Note: *It might take up to 5 seconds until you hear the Filter*`)
       );
     } catch (e) {
@@ -64,7 +64,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${e.message}\`\`\``)
       );
     }
@@ -72,10 +72,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

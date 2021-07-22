@@ -49,7 +49,7 @@ async function request(client, message, args, type) {
 
     //if no tracks found return info msg
     if (!res.tracks[0]) {
-      return message.channel.send(`**<833101993668771842> Found nothing for: \`${search}\`**`);
+      return message.channel.send(`**<:no:833101993668771842> Found nothing for: \`${search}\`**`);
     }
     //create a player if not created
 
@@ -82,7 +82,7 @@ async function request(client, message, args, type) {
   //function for playist
   async function playlist_() {
     if (!res.tracks[0]) {
-      return message.channel.send(`**<833101993668771842> Found nothing for: \`${search}\`**`);
+      return message.channel.send(`**<:no:833101993668771842> Found nothing for: \`${search}\`**`);
     }
     //if the player is not connected, then connect and create things
     if (player.state !== "CONNECTED") {
@@ -112,10 +112,10 @@ async function request(client, message, args, type) {
 module.exports = request;
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

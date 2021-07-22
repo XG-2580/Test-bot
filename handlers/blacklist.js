@@ -83,7 +83,7 @@ module.exports = client => {
                             message.channel.send(new MessageEmbed()
                                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<a833101995723194437> \`${member.user.tag}\` got **MUTED** for \`10 Minutes\``)
+                                .setTitle(`<:yes:833101995723194437> \`${member.user.tag}\` got **MUTED** for \`10 Minutes\``)
                                 .setDescription(`Reason:\n> ${reason ? `${reason.substr(0, 1800)}` : `NO REASON`}`)
                             );
                             countermap.set(message.author.id, 1)
@@ -92,7 +92,7 @@ module.exports = client => {
                                   message.channel.send(new MessageEmbed()
                                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                                     .setFooter(es.footertext, es.footericon)
-                                    .setTitle(`<a833101995723194437> \`${member.user.tag}\` got **UNMUTED** after\`${ms(mutetime, { long: true })}\``)
+                                    .setTitle(`<:yes:833101995723194437> \`${member.user.tag}\` got **UNMUTED** after\`${ms(mutetime, { long: true })}\``)
                                     .setDescription(`Reason:\n> ${reason ? `${reason.substr(0, 1800)}` : `NO REASON`}`)
                                   );
                                   member.roles.remove(mutedrole);
@@ -105,7 +105,7 @@ module.exports = client => {
                             return message.channel.send(new MessageEmbed()
                                 .setColor(es.wrongcolor)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<833101993668771842> You are not allowed to send ${blacklistword} in this Server`)
+                                .setTitle(`<:no:833101993668771842> You are not allowed to send ${blacklistword} in this Server`)
                             ).then(msg => msg.delete({
                                     timeout: 3000
                             }).catch(e => console.log("PREVENT BUG"))).catch(e => console.log("PREVENT BUG"))
@@ -120,7 +120,7 @@ module.exports = client => {
                 return message.channel.send(new MessageEmbed()
                     .setColor(es.wrongcolor)
                     .setFooter(es.footertext, es.footericon)
-                    .setTitle(`<833101993668771842> Something went Wrong`)
+                    .setTitle(`<:no:833101993668771842> Something went Wrong`)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                 );
             }

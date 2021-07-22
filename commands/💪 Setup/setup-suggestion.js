@@ -63,7 +63,7 @@ module.exports = {
         tempmsg.react("8️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -93,7 +93,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -102,8 +102,8 @@ module.exports = {
       /**
             suggest: {
               channel: "",
-              approvemsg: `<a833101995723194437> Accepted Idea! Expect this soon.`,
-              denymsg: `<833101993668771842> Thank you for the feedback, but we are not interested in this idea at this time.`,
+              approvemsg: `<:yes:833101995723194437> Accepted Idea! Expect this soon.`,
+              denymsg: `<:no:833101993668771842> Thank you for the feedback, but we are not interested in this idea at this time.`,
               maybemsg: `💡 We are thinking about this idea!`,
               statustext: `<a:Loading:833101350623117342> Waiting for Community Feedback, please vote!`,
               footertext: `Want to suggest / Feedback something? Simply type in this channel!`,
@@ -131,7 +131,7 @@ module.exports = {
               try {
                 client.settings.set(message.guild.id, channel.id, `suggest.channel`);
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The Channel: \`${channel.name}\` is now registered as the Suggestion Channel`)
+                  .setTitle(`<:yes:833101995723194437> The Channel: \`${channel.name}\` is now registered as the Suggestion Channel`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`Start writing in there, to write a Suggestion, to accept/deny them use the: \`${prefix}suggest <approve/deny/maybe> <MESSAGEID> [REASON]\` command`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
@@ -139,7 +139,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -154,7 +154,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -178,7 +178,7 @@ module.exports = {
               try {
                 client.settings.remove(message.guild.id, message.content, "suggest.approvemsg");
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I changed the Approve Message to...`)
+                  .setTitle(`<:yes:833101995723194437> I changed the Approve Message to...`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`${message.content}`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
@@ -186,7 +186,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -201,7 +201,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -224,14 +224,14 @@ module.exports = {
               try {
                 client.settings.remove(message.guild.id, message.content, "suggest.denymsg");
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I changed the Deny Message to...`)
+                  .setTitle(`<:yes:833101995723194437> I changed the Deny Message to...`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`${message.content}`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -246,7 +246,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -269,7 +269,7 @@ module.exports = {
               try {
                 client.settings.remove(message.guild.id, message.content, "suggest.maybemsg");
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I changed the Maybe Message to...`)
+                  .setTitle(`<:yes:833101995723194437> I changed the Maybe Message to...`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`${message.content}`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
@@ -277,7 +277,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -292,7 +292,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -315,14 +315,14 @@ module.exports = {
               try {
                 client.settings.remove(message.guild.id, message.content, "suggest.statustext");
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I changed the Status Text to...`)
+                  .setTitle(`<:yes:833101995723194437> I changed the Status Text to...`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`${message.content}`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -337,7 +337,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -360,7 +360,7 @@ module.exports = {
               try {
                 client.settings.remove(message.guild.id, message.content, "suggest.footertext");
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I changed the Footer Text to...`)
+                  .setTitle(`<:yes:833101995723194437> I changed the Footer Text to...`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`${message.content}`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
@@ -368,7 +368,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -383,7 +383,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -407,7 +407,7 @@ module.exports = {
                 if (collected.first().emoji.id && collected.first().emoji.id.length > 2) {
                   client.settings.remove(message.guild.id, collected.first().emoji.id, "suggest.approveemoji");
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> Successfully changed the Approve emoji`)
+                    .setTitle(`<:yes:833101995723194437> Successfully changed the Approve emoji`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -415,14 +415,14 @@ module.exports = {
                 } else if (collected.first().emoji.name) {
                   client.settings.remove(message.guild.id, collected.first().emoji.name, "suggest.approveemoji");
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> Successfully changed the Approve emoji`)
+                    .setTitle(`<:yes:833101995723194437> Successfully changed the Approve emoji`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
                   );
                 } else {
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                    .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                     .setColor(es.wrongcolor)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -431,7 +431,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -446,7 +446,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -470,7 +470,7 @@ module.exports = {
                 if (collected.first().emoji.id && collected.first().emoji.id.length > 2) {
                   client.settings.remove(message.guild.id, collected.first().emoji.id, "suggest.denyemoji");
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> Successfully changed the Deny emoji`)
+                    .setTitle(`<:yes:833101995723194437> Successfully changed the Deny emoji`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -478,14 +478,14 @@ module.exports = {
                 } else if (collected.first().emoji.name) {
                   client.settings.remove(message.guild.id, collected.first().emoji.name, "suggest.denyemoji");
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> Successfully changed the Deny emoji`)
+                    .setTitle(`<:yes:833101995723194437> Successfully changed the Deny emoji`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
                   );
                 } else {
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                    .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                     .setColor(es.wrongcolor)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -494,7 +494,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -509,7 +509,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -517,7 +517,7 @@ module.exports = {
       } else {
         console.log("e")
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -527,7 +527,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -535,10 +535,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

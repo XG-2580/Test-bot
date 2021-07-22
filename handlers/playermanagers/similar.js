@@ -21,7 +21,7 @@ async function similar(client, message, args, type) {
       //if nothing is found, send error message, plus if there  is a delay for the empty QUEUE send error message TOO
       if (!res || res.loadType === 'LOAD_FAILED' || res.loadType !== 'PLAYLIST_LOADED') {
         return client.channels.cache.get(player.textChannel).send(new MessageEmbed()
-          .setTitle("<833101993668771842> Found nothing related for the latest Song")
+          .setTitle("<:no:833101993668771842> Found nothing related for the latest Song")
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
         );
@@ -81,7 +81,7 @@ async function similar(client, message, args, type) {
         } catch (e) {
           if (!player.queue.current) player.destroy();
           return message.channel.send(new MessageEmbed()
-            .setTitle("<833101993668771842> You didn't provide a selection")
+            .setTitle("<:no:833101993668771842> You didn't provide a selection")
             .setColor(ee.wrongcolor)
             .setFooter(ee.footertext, ee.footericon)
           );
@@ -92,7 +92,7 @@ async function similar(client, message, args, type) {
           return message.channel.send(new MessageEmbed()
             .setColor(ee.wrongcolor)
             .setFooter(ee.footertext, ee.footericon)
-            .setTitle('<833101993668771842> Cancelled selection.')
+            .setTitle('<:no:833101993668771842> Cancelled selection.')
           );
         }
         var index = Number(first) - 1;
@@ -100,14 +100,14 @@ async function similar(client, message, args, type) {
           return message.channel.send(new MessageEmbed()
             .setColor(ee.wrongcolor)
             .setFooter(ee.footertext, ee.footericon)
-            .setTitle(`<833101993668771842> The number you provided too small or too big (1-${max}).`)
+            .setTitle(`<:no:833101993668771842> The number you provided too small or too big (1-${max}).`)
           );
         track = res.tracks[index];
         if (!res.tracks[0])
           return message.channel.send(new MessageEmbed()
             .setColor(ee.wrongcolor)
             .setFooter(ee.footertext, ee.footericon)
-            .setTitle(String("<833101993668771842> Found nothing for: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
+            .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
             .setDescription(`Please retry!`)
           );
         if (player.state !== "CONNECTED") {
@@ -147,7 +147,7 @@ async function similar(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(String("<833101993668771842> Found nothing for: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
+        .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
       )
     }
 }
@@ -155,10 +155,10 @@ async function similar(client, message, args, type) {
 module.exports = similar;
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

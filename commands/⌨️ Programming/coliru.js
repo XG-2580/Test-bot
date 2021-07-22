@@ -46,7 +46,7 @@ module.exports = {
 				return message.channel.send({embed: new MessageEmbed()
 					.setColor(es.wrongcolor)
 					.setFooter(es.footertext, es.footericon)
-					.setTitle(`<833101993668771842> You didn't provide a Valid Code`)
+					.setTitle(`<:no:833101993668771842> You didn't provide a Valid Code`)
 					.setDescription(`Usage:\n${prefix}coliru` + "\\`\\`\\`lang\nCode\n\\`\\`\\`\nCodeBlock language will be used to determine how to compile the code.")
 				});
 
@@ -54,7 +54,7 @@ module.exports = {
 				return message.channel.send({embed: new MessageEmbed()
 					.setColor(es.wrongcolor)
 					.setFooter(es.footertext, es.footericon)
-					.setTitle(`<833101993668771842> You provide an Invalid Language`)
+					.setTitle(`<:no:833101993668771842> You provide an Invalid Language`)
 					.setDescription(`Supported ones: **${Object.keys(possiblecommands).join(", ")}**`)
 				});
 
@@ -81,7 +81,7 @@ module.exports = {
 			console.log(String(e.stack).bgRed)
 			return message.channel.send(new MessageEmbed()
 			  .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-			  .setTitle(`<833101993668771842> An error occurred`)
+			  .setTitle(`<:no:833101993668771842> An error occurred`)
 			  .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
 			);
 		  }

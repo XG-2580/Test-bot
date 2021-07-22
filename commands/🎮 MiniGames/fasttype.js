@@ -17,7 +17,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -90,7 +90,7 @@ module.exports = {
 		if (i === 1) return message.reply("Your time ran out :cry:");
 		var date2 = new Date();
 		if (x === msg) return message.reply(`**WoW, you are fast! and right! :white_check_mark:** \n\nYou needed \`${(date2-date)/1000} seconds\``);
-		else return message.reply(`**Beep, Boop, thats wrong! <833101993668771842>**\n\nThis would have been the right word: \`${msg}\``);
+		else return message.reply(`**Beep, Boop, thats wrong! <:no:833101993668771842>**\n\nThis would have been the right word: \`${msg}\``);
 	}
 }
 

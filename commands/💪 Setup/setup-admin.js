@@ -56,7 +56,7 @@ module.exports = {
         tempmsg.react("📑")
       } catch (e) {
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -83,7 +83,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -110,13 +110,13 @@ module.exports = {
           const cmd = client.commands.get(com.toLowerCase()) || client.commands.get(client.aliases.get(com.toLowerCase()));
           if(!cmd) 
             return message.reply({embed: new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Unable to find the Command")
+              .setTitle("<:no:833101993668771842> ERROR | Unable to find the Command")
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
             });
           if(!cmd.category.toLowerCase().includes("admin")) 
             return message.reply({embed: new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Command is **not** an Administration Command")
+              .setTitle("<:no:833101993668771842> ERROR | Command is **not** an Administration Command")
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
             });
@@ -147,7 +147,7 @@ module.exports = {
           tempmsg.react("📑")
         } catch (e) {
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -173,7 +173,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -184,7 +184,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -209,7 +209,7 @@ module.exports = {
               if (role) {
                 var adminroles = client.settings.get(message.guild.id, `cmdadminroles.${thecmd}`)
                 if (adminroles.includes(role.id)) return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<833101993668771842> ERROR | The role: \`${role.name}\` is already registered as an Admin Role for ${thecmd}`)
+                  .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is already registered as an Admin Role for ${thecmd}`)
                   .setColor(es.wrongcolor)
                   .setFooter(es.footertext, es.footericon)
                 });
@@ -233,14 +233,14 @@ module.exports = {
                       }
                     }
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> The role: \`${role.name}\` is now registered as an Admin Role`)
+                    .setTitle(`<:yes:833101995723194437> The role: \`${role.name}\` is now registered as an Admin Role`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`Everyone with one of those Roles/Users:\n${cmdrole.join("\n")}\nis now able to use the ${thecmd} Admin Commands`.substr(0, 2048))
                     .setFooter(es.footertext, es.footericon)
                   });
                 } catch (e) {
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                    .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                     .setColor(es.wrongcolor)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -249,7 +249,7 @@ module.exports = {
               } else if (user) {
                 var adminroles = client.settings.get(message.guild.id, `cmdadminroles.${thecmd}`)
                 if (adminroles.includes(user.id)) return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<833101993668771842> ERROR | The User: \`${user.username}\` is already registered as an Admin Role for ${thecmd}`)
+                  .setTitle(`<:no:833101993668771842> ERROR | The User: \`${user.username}\` is already registered as an Admin Role for ${thecmd}`)
                   .setColor(es.wrongcolor)
                   .setFooter(es.footertext, es.footericon)
                 });
@@ -273,14 +273,14 @@ module.exports = {
                       }
                     }
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> The User: \`${user.username}\` is now registered as an Admin Role`)
+                    .setTitle(`<:yes:833101995723194437> The User: \`${user.username}\` is now registered as an Admin Role`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`Everyone with one of those Roles/Users:\n${cmdrole.join("\n")}\nis now able to use the ${thecmd} Admin Commands`.substr(0, 2048))
                     .setFooter(es.footertext, es.footericon)
                   });
                 } catch (e) {
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                    .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                     .setColor(es.wrongcolor)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -295,7 +295,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply({embed: new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Your Time ran out")
+              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -319,7 +319,7 @@ module.exports = {
               if (role) {
                 var adminroles = client.settings.get(message.guild.id, `cmdadminroles.${thecmd}`)
                 if (!adminroles.includes(role.id)) return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<833101993668771842> ERROR | The role: \`${role.name}\` is not registered as an Admin Role yet for ${thecmd}`)
+                  .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is not registered as an Admin Role yet for ${thecmd}`)
                   .setColor(es.wrongcolor)
                   .setFooter(es.footertext, es.footericon)
                 });
@@ -343,14 +343,14 @@ module.exports = {
                       }
                     }
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> The role: \`${role.name}\` is not registered as an Admin Role anymore`)
+                    .setTitle(`<:yes:833101995723194437> The role: \`${role.name}\` is not registered as an Admin Role anymore`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`Everyone with one of those Roles/Users:\n${cmdrole.join("\n")}\nis now able to use the ${thecmd} Admin Commands`.substr(0, 2048))
                     .setFooter(es.footertext, es.footericon)
                   });
                 } catch (e) {
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                    .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                     .setColor(es.wrongcolor)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -359,7 +359,7 @@ module.exports = {
               } else if (user) {
                 var adminroles = client.settings.get(message.guild.id, `cmdadminroles.${thecmd}`)
                 if (!adminroles.includes(user.id)) return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<833101993668771842> ERROR | The User: \`${user.username}\` is not registered as an Admin Role yet for ${thecmd}`)
+                  .setTitle(`<:no:833101993668771842> ERROR | The User: \`${user.username}\` is not registered as an Admin Role yet for ${thecmd}`)
                   .setColor(es.wrongcolor)
                   .setFooter(es.footertext, es.footericon)
                 });
@@ -383,14 +383,14 @@ module.exports = {
                       }
                     }
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> The User: \`${user.username}\` is not registered as an Admin Role anymore`)
+                    .setTitle(`<:yes:833101995723194437> The User: \`${user.username}\` is not registered as an Admin Role anymore`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`Everyone with one of those Roles/Users:\n${cmdrole.join("\n")}\nis now able to use the ${thecmd} Admin Commands`.substr(0, 2048))
                     .setFooter(es.footertext, es.footericon)
                   });
                 } catch (e) {
                   return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                    .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                     .setColor(es.wrongcolor)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -405,7 +405,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply({embed: new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Your Time ran out")
+              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -468,7 +468,7 @@ module.exports = {
           return message.reply({embed: embed});
         } else {
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+            .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
           });
@@ -499,21 +499,21 @@ module.exports = {
             if (role) {
               var adminroles = client.settings.get(message.guild.id, "adminroles")
               if (adminroles.includes(role.id)) return message.reply({embed: new Discord.MessageEmbed()
-                .setTitle(`<833101993668771842> ERROR | The role: \`${role.name}\` is already registered as an Admin Role`)
+                .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is already registered as an Admin Role`)
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
               });
               try {
                 client.settings.push(message.guild.id, role.id, "adminroles");
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The role: \`${role.name}\` is now registered as an Admin Role`)
+                  .setTitle(`<:yes:833101995723194437> The role: \`${role.name}\` is now registered as an Admin Role`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`Everyone with one of those Roles:\n<@&${client.settings.get(message.guild.id, "adminroles").join(">\n<@&")}>\nis now able to use the Admin Commands`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 });
               } catch (e) {
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -528,7 +528,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -552,21 +552,21 @@ module.exports = {
             if (role) {
               var adminroles = client.settings.get(message.guild.id, "adminroles")
               if (!adminroles.includes(role.id)) return message.reply({embed: new Discord.MessageEmbed()
-                .setTitle(`<833101993668771842> ERROR | The role: \`${role.name}\` is not registered as an Admin Role yet`)
+                .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is not registered as an Admin Role yet`)
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
               });
               try {
                 client.settings.remove(message.guild.id, role.id, "adminroles");
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The role: \`${role.name}\` is now registered as an Admin Role`)
+                  .setTitle(`<:yes:833101995723194437> The role: \`${role.name}\` is now registered as an Admin Role`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`Everyone with one of those Roles:\n<@&${client.settings.get(message.guild.id, "adminroles").join(">\n<@&")}>\nis now able to use the Admin Commands`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 });
               } catch (e) {
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -581,7 +581,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -650,7 +650,7 @@ module.exports = {
         return message.reply({embed: embed});
       }  else {
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         });
@@ -660,7 +660,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -668,10 +668,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

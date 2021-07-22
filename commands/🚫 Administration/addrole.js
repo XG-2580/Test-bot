@@ -21,7 +21,7 @@ module.exports = {
       if(!message.guild.me.hasPermission("MANAGE_ROLES"))      
       return message.channel.send({embed: new Discord.MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle("<833101993668771842> I am missing the permission to `MANAGE ROLES`!")
+        .setTitle("<:no:833101993668771842> I am missing the permission to `MANAGE ROLES`!")
       })
       let adminroles = client.settings.get(message.guild.id, "adminroles")
       let cmdroles = client.settings.get(message.guild.id, "cmdadminroles.addrole")
@@ -43,7 +43,7 @@ module.exports = {
         return message.channel.send({embed: new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         });
       let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
@@ -51,7 +51,7 @@ module.exports = {
         return message.channel.send({embed: new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> please ping a USER!`)
+          .setTitle(`<:no:833101993668771842> please ping a USER!`)
           .setDescription(` Usage: \`${prefix}addrole @USER @ROLE\``)
         });
       let role = message.mentions.roles.filter(role=>role.guild.id==message.guild.id).first() || message.guild.roles.cache.get(args[1]);
@@ -59,26 +59,26 @@ module.exports = {
         return message.channel.send({embed: new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> please ping a ROLE!`)
+          .setTitle(`<:no:833101993668771842> please ping a ROLE!`)
           .setDescription(` Usage: \`${prefix}addrole @USER @ROLE\``)
         });
       if (member.roles.highest.position >= message.member.roles.highest.position)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> I cannot give that Role to this Member, because he is higher/Equal to your Rang Position!`)
+          .setTitle(`<:no:833101993668771842> I cannot give that Role to this Member, because he is higher/Equal to your Rang Position!`)
         );
       if (message.member.roles.highest.position <= role.position)
         return message.channel.send({embed: new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> I cannot give that Role to this Member, because it's higher then your highest ROLE!`)
+          .setTitle(`<:no:833101993668771842> I cannot give that Role to this Member, because it's higher then your highest ROLE!`)
         });
       if (member.roles.cache.some(r => r.id == (role.id)))
         return message.channel.send({embed: new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> I cannot give that Role to this Member, because he already has it!!`)
+          .setTitle(`<:no:833101993668771842> I cannot give that Role to this Member, because he already has it!!`)
         });
       var ge = false;
       member.roles.add(role.id).catch(e => {
@@ -89,13 +89,13 @@ module.exports = {
         return message.channel.send({embed: new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Something went wrong`)
+          .setTitle(`<:no:833101993668771842> Something went wrong`)
           .setDescription(ge.message)
         });
       message.channel.send({embed: new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<a833101995723194437> added \`${role.name}\` to \`${member.user.tag}\``)
+        .setTitle(`<:yes:833101995723194437> added \`${role.name}\` to \`${member.user.tag}\``)
       });
 
       if (client.settings.get(message.guild.id, `adminlog`) != "no") {
@@ -121,7 +121,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send({embed: new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       });
     }
@@ -129,10 +129,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

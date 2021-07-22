@@ -18,7 +18,7 @@ module.exports = {
       if (!channel)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Please add a Channel via ping, for example: #channel!`)
+        .setTitle(`<:no:833101993668771842> Please add a Channel via ping, for example: #channel!`)
       );
       //try to find it, just incase user pings channel from different server
       try {
@@ -27,7 +27,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> It seems that the Channel does not exist in this Server!`)
+          .setTitle(`<:no:833101993668771842> It seems that the Channel does not exist in this Server!`)
         );
       }
       //if its not in the database return error
@@ -35,7 +35,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> This Channel is not in the Bot Channel Settings!`)
+          .setTitle(`<:no:833101993668771842> This Channel is not in the Bot Channel Settings!`)
         );
       //remove the Channel from the Database
       client.settings.remove(message.guild.id, channel.id, `botchannel`);
@@ -50,7 +50,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<a833101995723194437> Removed the Bot-Chat \`${channel.name}\``)
+        .setTitle(`<:yes:833101995723194437> Removed the Bot-Chat \`${channel.name}\``)
         .setDescription(`All left Bot Chats:\n> ${leftb.substr(0, leftb.length - 3)}`)
       );
     } catch (e) {
@@ -58,10 +58,18 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
 						.setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> An error occurred`)
+            .setTitle(`<:no:833101993668771842> An error occurred`)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
     }
   }
 };
-
+/**
+  * @INFO
+  * Bot Coded by Limsathya
+  * @INFO
+  * Work for Milrato Development | https://xg-bot.netlify.app
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

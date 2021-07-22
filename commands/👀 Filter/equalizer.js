@@ -19,7 +19,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`<833101993668771842> Equalizer level must be one of the following`)
+          .setTitle(`<:no:833101993668771842> Equalizer level must be one of the following`)
           .setDescription(`Valid Equalizers:\n\`music\`, \`pop\`, \`electronic\`, \`classical\`, \`rock\`, \`full\`, \`gaming\`, \`bassboost\`, \`earrape\`\n\nUsage: \`${prefix}equalizer <Level>\`\n\nExample: \`${prefix}equalizer music\``)
         );
       level = args[0].toLowerCase();
@@ -67,7 +67,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<a833101995723194437> Set Equalizer to \`${level}\``)
+        .setTitle(`<:yes:833101995723194437> Set Equalizer to \`${level}\``)
         .setDescription(`Note: *It might take up to 5 seconds until you hear the new Equalizer*`)
       );
     } catch (e) {
@@ -75,7 +75,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${e.message}\`\`\``)
       );
     }
@@ -83,10 +83,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

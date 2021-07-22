@@ -17,7 +17,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -28,14 +28,14 @@ module.exports = {
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Please add your method!`)
+          .setTitle(`<:no:833101993668771842> Please add your method!`)
           .setDescription(`\`loop song\` / \`loop queue\``)
         );
       //if arg is somehow song / track
       if (args[0].toLowerCase() === `song` || args[0].toLowerCase() === `track` || args[0].toLowerCase() === `s` || args[0].toLowerCase() === `t`) {
         //Create the Embed
         let embed = new MessageEmbed()
-          .setTitle(`<a833101995723194437> ${emoji.msg.repeat_mode} Changed Track loop to: ${player.trackRepeat ? `${emoji.msg.disabled} disabled` : `${emoji.msg.enabled} active`}`)
+          .setTitle(`<:yes:833101995723194437> ${emoji.msg.repeat_mode} Changed Track loop to: ${player.trackRepeat ? `${emoji.msg.disabled} disabled` : `${emoji.msg.enabled} active`}`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
         //If Queue loop is enabled add embed info + disable it
@@ -52,7 +52,7 @@ module.exports = {
       else if (args[0].toLowerCase() === `queue` || args[0].toLowerCase() === `qu` || args[0].toLowerCase() === `q`) {
         //Create the Embed
         let embed = new MessageEmbed()
-          .setTitle(`<a833101995723194437> ${emoji.msg.repeat_mode} Changed Queue loop to: ${player.queueRepeat ? `${emoji.msg.disabled} disabled` : `${emoji.msg.enabled} active`}`)
+          .setTitle(`<:yes:833101995723194437> ${emoji.msg.repeat_mode} Changed Queue loop to: ${player.queueRepeat ? `${emoji.msg.disabled} disabled` : `${emoji.msg.enabled} active`}`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
         //If Track loop is enabled add embed info + disable it
@@ -70,7 +70,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Please add your method!`)
+          .setTitle(`<:no:833101993668771842> Please add your method!`)
           .setDescription(`\`loop song\` / \`loop queue\``)
         );
       }
@@ -79,7 +79,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -87,10 +87,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

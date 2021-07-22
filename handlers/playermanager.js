@@ -25,13 +25,13 @@ module.exports = async (client, message, args, type) => {
     return message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle("<833101993668771842> I need permissions to join your channel")
+      .setTitle("<:no:833101993668771842> I need permissions to join your channel")
     );
   if (!permissions.has("SPEAK"))
     return message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle("<833101993668771842> I need permissions to speak in your channel")
+      .setTitle("<:no:833101993668771842> I need permissions to speak in your channel")
     );
 
   if (method[0] === "song")
@@ -52,15 +52,15 @@ module.exports = async (client, message, args, type) => {
     return message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle("<833101993668771842> No valid search Term? ... Please Contact: `XG#2846`")
+      .setTitle("<:no:833101993668771842> No valid search Term? ... Please Contact: `XG#2846`")
     );
 }
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

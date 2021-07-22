@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const config = require(`../../botconfig/config.json`);
 var ee = require(`../../botconfig/embed.json`);
+
 const emoji = require(`../../botconfig/emojis.json`);
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
 module.exports = {
@@ -56,7 +57,7 @@ module.exports = {
         return message.reply(new MessageEmbed()
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-          .setTitle(`<a863000006609076245> You've Collected Your Beg Reward Of \`${amount} 💸\``)
+          .setTitle(`<a✔️863000006609076245> You've Collected Your Beg Reward Of \`${amount} 💸\``)
           .setDescription(`👛 You Now Have \`${nFormatter(Math.floor(data.balance))} 💸\` In Your Pocket`)
         );
       }
@@ -72,10 +73,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

@@ -17,7 +17,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -27,7 +27,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setFooter(es.footertext, es.footericon)
           .setColor(es.wrongcolor)
-          .setTitle(`<833101993668771842> Please add the Track you want to remove!`)
+          .setTitle(`<:no:833101993668771842> Please add the Track you want to remove!`)
           .setDescription(`Example: \`removetrack ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\``)
         );
       //if the Number is not a valid Number return error
@@ -35,7 +35,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setFooter(es.footertext, es.footericon)
           .setColor(es.wrongcolor)
-          .setTitle(`<833101993668771842> It has to be a valid Queue Number!`)
+          .setTitle(`<:no:833101993668771842> It has to be a valid Queue Number!`)
           .setDescription(`Example: \`removetrack ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\``)
         );
       //if the Number is too big return error
@@ -43,14 +43,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setFooter(es.footertext, es.footericon)
           .setColor(es.wrongcolor)
-          .setTitle(`<833101993668771842> Your Song must be in the Queue!`)
+          .setTitle(`<:no:833101993668771842> Your Song must be in the Queue!`)
           .setDescription(`Example: \`removetrack ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\``)
         );
       //remove the Song from the QUEUE
       player.queue.remove(Number(args[0]) - 1);
       //Send Success Message
       return message.channel.send(new MessageEmbed()
-        .setTitle(`<a833101995723194437> ${emoji.msg.cleared} I removed the track at position: \`${Number(args[0])}\``)
+        .setTitle(`<:yes:833101995723194437> ${emoji.msg.cleared} I removed the track at position: \`${Number(args[0])}\``)
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
       );
@@ -59,7 +59,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -67,10 +67,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

@@ -38,7 +38,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<a863000006609076245> Set New Prefix To **\`${args[0]}\`**`)
+      .setTitle(`<a✔️863000006609076245> Set New Prefix To **\`${args[0]}\`**`)
     );
   } catch (e) {
       console.log(String(e.stack).bgRed)
@@ -51,4 +51,12 @@ module.exports = {
   }
   }
 };
-
+/**
+  * @INFO
+  * Bot Coded by Limsathya
+  * @INFO
+  * Work for Milrato Development | https://xg-bot.netlify.app
+  * @INFO
+  * Please mention Him / Milrato Development, when using this Code!
+  * @INFO
+*/

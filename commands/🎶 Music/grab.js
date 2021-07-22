@@ -21,7 +21,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -43,7 +43,7 @@ module.exports = {
       dynamic: true
     }))
       ).catch(e=>{
-        return message.channel.send("**<833101993668771842> Your Dm's are disabled**")
+        return message.channel.send("**<:no:833101993668771842> Your Dm's are disabled**")
       })    
 
     message.react(emoji.react.SUCCESS).catch(e=>console.log("Could not react"))
@@ -51,10 +51,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

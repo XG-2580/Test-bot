@@ -45,7 +45,7 @@ module.exports = {
       if (string.includes(client.token)) return console.log(`ERROR NO TOKEN GRABBING ;)`.red);
       //define queueembed
       let evalEmbed = new MessageEmbed()
-        .setTitle(`XG | Evaluation`)
+        .setTitle(`Milrato Development | Evaluation`)
         .setColor(es.color);
       //split the description
       const splitDescription = splitMessage(string, {
@@ -71,10 +71,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

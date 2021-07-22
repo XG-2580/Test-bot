@@ -15,11 +15,11 @@ module.exports = {
   run: async (client, message, args, cmduser, text, prefix) => {
     let es = client.settings.get(message.guild.id, "embed")
     try {
-      if(!args[0]) return message.channel.send(`<833101993668771842> Error | Unknown Command Usage! \`${prefix}translate <from> <to> <Text>\`\nExample: \`${prefix}translate en de Hello World\``)
+      if(!args[0]) return message.channel.send(`<:no:833101993668771842> Error | Unknown Command Usage! \`${prefix}translate <from> <to> <Text>\`\nExample: \`${prefix}translate en de Hello World\``)
 
-      if(!args[1]) return message.channel.send(`<833101993668771842> Error | Unknown Command Usage! \`${prefix}translate <from> <to> <Text>\`\nExample: \`${prefix}translate en de Hello World\``)
+      if(!args[1]) return message.channel.send(`<:no:833101993668771842> Error | Unknown Command Usage! \`${prefix}translate <from> <to> <Text>\`\nExample: \`${prefix}translate en de Hello World\``)
 
-      if(!args[2]) return message.channel.send(`<833101993668771842> Error | Unknown Command Usage! \`${prefix}translate <from> <to> <Text>\`\nExample: \`${prefix}translate en de Hello World\``)
+      if(!args[2]) return message.channel.send(`<:no:833101993668771842> Error | Unknown Command Usage! \`${prefix}translate <from> <to> <Text>\`\nExample: \`${prefix}translate en de Hello World\``)
 
       translate(args.slice(2).join(" "), {from: args[0], to: args[1]}).then(res=>{
         let embed = new MessageEmbed()
@@ -31,7 +31,7 @@ module.exports = {
         }).catch(err => {
           let embed = new MessageEmbed()
           .setColor("#2f3136")
-          .setTitle("<833101993668771842> Error | Something went wrong")
+          .setTitle("<:no:833101993668771842> Error | Something went wrong")
           .setDescription(String("```"+err.stack+"```").substr(0, 2000))
           message.channel.send(embed)
             console.log(err);
@@ -40,7 +40,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e.stack)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -48,10 +48,10 @@ module.exports = {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

@@ -22,7 +22,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Please add a Member you want to detailwarn!`)
+          .setTitle(`<:no:833101993668771842> Please add a Member you want to detailwarn!`)
           .setDescription(`Useage: \`${prefix}detailwarn @User <WARN_ID>\``)
         );
 
@@ -30,7 +30,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Please add the Warning you want to remove from him`)
+          .setTitle(`<:no:833101993668771842> Please add the Warning you want to remove from him`)
           .setDescription(`See his warns: \`${prefix}detailwarn @User <WARN_ID>\``)
         );
 
@@ -52,13 +52,13 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> User has no Warnings`)
+            .setTitle(`<:no:833101993668771842> User has no Warnings`)
           );
         if (Number(args[1]) >= warnIDs.length || Number(args[1]) < 0)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> Value out of range`)
+            .setTitle(`<:no:833101993668771842> Value out of range`)
             .setDescription(`Usage: \`${prefix}detailwarn @User <WARN_ID>\` Highest ID: ${warnIDs.length - 1}`)
           );
 
@@ -85,7 +85,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> An error occurred`)
+          .setTitle(`<:no:833101993668771842> An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
       }
@@ -93,7 +93,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`<:no:833101993668771842> An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -101,10 +101,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

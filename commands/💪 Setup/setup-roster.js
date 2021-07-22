@@ -49,7 +49,7 @@ module.exports = {
         tempmsg.react("3️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -74,7 +74,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -125,7 +125,7 @@ module.exports = {
           tempmsg.react("☠️")
         } catch (e) {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -158,7 +158,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -197,14 +197,14 @@ module.exports = {
                 if(thedb == client.roster2) send_roster2(client, message.guild)
                 if(thedb == client.roster3) send_roster3(client, message.guild)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The Roster is now locked to: \`${channel.name}\`. It is updating automatically!`)
+                  .setTitle(`<:yes:833101995723194437> The Roster is now locked to: \`${channel.name}\`. It is updating automatically!`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`To add Roles to the Roster type: \`${prefix}setup-roster\``.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -219,7 +219,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -242,7 +242,7 @@ module.exports = {
             if (role) {
               var rosteroles = thedb.get(message.guild.id, "rosterroles")
               if (rosteroles.includes(role.id)) return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<833101993668771842> ERROR | The role: \`${role.name}\` is already registered as an Admin Role`)
+                .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is already registered as an Admin Role`)
                 .setColor(es.wrongcolor)
                 .setDescription(`Remove it with: \`${prefix}setup-roster\``)
                 .setFooter(es.footertext, es.footericon)
@@ -253,14 +253,14 @@ module.exports = {
                 if(thedb == client.roster2) edit_msg2(client, message.guild)
                 if(thedb == client.roster3) edit_msg3(client, message.guild)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Added the Role: \`${role.name}\``)
+                  .setTitle(`<:yes:833101995723194437> Added the Role: \`${role.name}\``)
                   .setDescription(`It will update in less then **5 Minutes**, *If it did not update yet*`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -275,7 +275,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -301,7 +301,7 @@ module.exports = {
             if (role) {
               var rosteroles = thedb.get(message.guild.id, "rosterroles")
               if (!rosteroles.includes(role.id)) return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<833101993668771842> ERROR | The role: \`${role.name}\` is not registered as an Admin Role yet!`)
+                .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is not registered as an Admin Role yet!`)
                 .setColor(es.wrongcolor)
                 .setDescription(`Remove it with: \`${prefix}setup-roster\``)
                 .setFooter(es.footertext, es.footericon)
@@ -312,14 +312,14 @@ module.exports = {
                 if(thedb == client.roster2) edit_msg2(client, message.guild)
                 if(thedb == client.roster3) edit_msg3(client, message.guild)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Removed the Role: \`${role.name}\``)
+                  .setTitle(`<:yes:833101995723194437> Removed the Role: \`${role.name}\``)
                   .setDescription(`It will update in less then **5 Minutes**, *If it did not update yet*`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -334,7 +334,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -436,7 +436,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -466,7 +466,7 @@ module.exports = {
                 if(thedb == client.roster2) edit_msg2(client, message.guild)
                 if(thedb == client.roster3) edit_msg3(client, message.guild)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The Roster will now add ${msg} to each Listed Member!`)
+                  .setTitle(`<:yes:833101995723194437> The Roster will now add ${msg} to each Listed Member!`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`To add Roles to the Roster type: \`${prefix}setup-roster\`\n\nExample: \n<@${message.author.id}> | \`${message.author.tag}\`\n\nIt will update in less then **5 Minutes**, *If it did not update yet*`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
@@ -480,7 +480,7 @@ module.exports = {
                   if(thedb == client.roster2) edit_msg2(client, message.guild)
                   if(thedb == client.roster3) edit_msg3(client, message.guild)
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> The Roster will now add ${msg} to each Listed Member!`)
+                    .setTitle(`<:yes:833101995723194437> The Roster will now add ${msg} to each Listed Member!`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`To add Roles to the Roster type: \`${prefix}setup-roster\`\n\nExample: \n${msg} <@${message.author.id}> | \`${message.author.tag}\`\n\nIt will update in less then **5 Minutes**, *If it did not update yet*`.substr(0, 2048))
                     .setFooter(es.footertext, es.footericon)
@@ -492,7 +492,7 @@ module.exports = {
                   if(thedb == client.roster2) edit_msg2(client, message.guild)
                   if(thedb == client.roster3) edit_msg3(client, message.guild)
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> The Roster will now add ${msg.substr(0, 5)} to each Listed Member!`)
+                    .setTitle(`<:yes:833101995723194437> The Roster will now add ${msg.substr(0, 5)} to each Listed Member!`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`To add Roles to the Roster type: \`${prefix}setup-roster\`\n\nExample: \n${msg.substr(0, 5)} <@${message.author.id}> | \`${message.author.tag}\`\n\nIt will update in less then **5 Minutes**, *If it did not update yet*`.substr(0, 2048))
                     .setFooter(es.footertext, es.footericon)
@@ -500,7 +500,7 @@ module.exports = {
                 }
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -515,7 +515,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -544,14 +544,14 @@ module.exports = {
                 if(thedb == client.roster2) edit_msg2(client, message.guild)
                 if(thedb == client.roster3) edit_msg3(client, message.guild)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> The Roster will now add ${msg.substr(0, 256)} to each Listed Member!`)
+                  .setTitle(`<:yes:833101995723194437> The Roster will now add ${msg.substr(0, 256)} to each Listed Member!`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`To add Roles to the Roster type: \`${prefix}setup-roster\`\n\nIt will update in less then **5 Minutes**, *If it did not update yet*`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -566,7 +566,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -577,7 +577,7 @@ module.exports = {
         if(thedb == client.roster2) edit_msg2(client, message.guild)
         if(thedb == client.roster3) edit_msg3(client, message.guild)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle(`<a833101995723194437> The Roster will now ${thedb.get(message.guild.id, "inline") ? "": "__**not**__"} have multiple lines!`)
+          .setTitle(`<:yes:833101995723194437> The Roster will now ${thedb.get(message.guild.id, "inline") ? "": "__**not**__"} have multiple lines!`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setDescription(`To add Roles to the Roster type: \`${prefix}setup-roster\`\n\nIt will update in less then **5 Minutes**, *If it did not update yet*`.substr(0, 2048))
           .setFooter(es.footertext, es.footericon)
@@ -591,7 +591,7 @@ module.exports = {
 
 
         return message.reply(new Discord.MessageEmbed()
-          .setTitle(`<a833101995723194437> The Roster will now ${thedb.get(message.guild.id, "showallroles") ? "": "__**not**__ "}cut of if there are too many Members (20+) who have the Role!`)
+          .setTitle(`<:yes:833101995723194437> The Roster will now ${thedb.get(message.guild.id, "showallroles") ? "": "__**not**__ "}cut of if there are too many Members (20+) who have the Role!`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setDescription(`To add Roles to the Roster type: \`${prefix}setup-roster\`\n\nIt will update in less then **5 Minutes**, *If it did not update yet*`.substr(0, 2048))
           .setFooter(es.footertext, es.footericon)
@@ -610,7 +610,7 @@ module.exports = {
           inline: false,
         })
         return message.reply(new Discord.MessageEmbed()
-          .setTitle(`<a833101995723194437> Resetted ${rostercount} Roster!`)
+          .setTitle(`<:yes:833101995723194437> Resetted ${rostercount} Roster!`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setDescription(`Re-set-it-up with: \`${prefix}setup-roster\``.substr(0, 2048))
           .setFooter(es.footertext, es.footericon)
@@ -618,7 +618,7 @@ module.exports = {
       }      
       else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -627,7 +627,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`<:no:833101993668771842> Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -635,10 +635,10 @@ module.exports = {
 };
 /**
  * @INFO
- * Bot Coded by XG#2846
+ * Bot Coded by Limsathya
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

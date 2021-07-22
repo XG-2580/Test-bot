@@ -92,10 +92,10 @@ module.exports = {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846| https://github.com/Tomato6966/Discord-Js-Handler-Template
+ * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://xg-bot.netlify.app
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */
