@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require("discord.js");
-const config = require("../../botconfig/config.json")
-var ee = require("../../botconfig/embed.json")
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json")
+var ee = require("../../base-system/embed.json")
+const emoji = require(`../../base-system/emoji.json`);
 const moment = require("moment")
 module.exports = {
   name: "serverinfo",
@@ -43,29 +43,29 @@ module.exports = {
         message.channel.send(new Discord.MessageEmbed()
         .setAuthor("Server Information About: " +  message.guild.name, message.guild.iconURL({
           dynamic: true
-        }), "https://xg-bot.netlify.app")
+        }), "https://clan.Limsathya")
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
-        .addField("<:arrow:832598861813776394> Owner", `${message.guild.owner.user}\n\`${message.guild.owner.user.tag}\``, true)
-        .addField("<:arrow:832598861813776394> Created On", "\`" + moment(message.guild.createdTimestamp).format("DD/MM/YYYY") + "\`\n" + "`"+ moment(message.guild.createdTimestamp).format("hh:mm:ss") +"`", true)
-        .addField("<:arrow:832598861813776394> You Joined", "\`" + moment(message.member.joinedTimestamp).format("DD/MM/YYYY") + "\`\n" + "`"+ moment(message.member.joinedTimestamp).format("hh:mm:ss") +"`", true)
+        .addField(" Owner", `${message.guild.owner.user}\n\`${message.guild.owner.user.tag}\``, true)
+        .addField(" Created On", "\`" + moment(message.guild.createdTimestamp).format("DD/MM/YYYY") + "\`\n" + "`"+ moment(message.guild.createdTimestamp).format("hh:mm:ss") +"`", true)
+        .addField(" You Joined", "\`" + moment(message.member.joinedTimestamp).format("DD/MM/YYYY") + "\`\n" + "`"+ moment(message.member.joinedTimestamp).format("hh:mm:ss") +"`", true)
       
-        .addField("<:arrow:832598861813776394> All Channels", "👁‍🗨 \`" + message.guild.channels.cache.size + "\`", true)
-        .addField("<:arrow:832598861813776394> Text Channels", "💬 \`" + message.guild.channels.cache.filter(channel => channel.type == "text").size + "\`", true)
-        .addField("<:arrow:832598861813776394> Voice Channels", "🔈 \`" + message.guild.channels.cache.filter(channel => channel.type == "voice").size + "\`", true)
+        .addField(" All Channels", "👁‍🗨 \`" + message.guild.channels.cache.size + "\`", true)
+        .addField(" Text Channels", "💬 \`" + message.guild.channels.cache.filter(channel => channel.type == "text").size + "\`", true)
+        .addField(" Voice Channels", "🔈 \`" + message.guild.channels.cache.filter(channel => channel.type == "voice").size + "\`", true)
        
-        .addField("<:arrow:832598861813776394> Total USERS", "😀 \`" + message.guild.memberCount + "\`", true)
-        .addField("<:arrow:832598861813776394> Total HUMANS", "👤 \`" + message.guild.members.cache.filter(member => !member.user.bot).size + "\`", true)
-        .addField("<:arrow:832598861813776394> Total BOTS", "🤖 \`" + message.guild.members.cache.filter(member => member.user.bot).size + "\`", true)
+        .addField(" Total USERS", "😀 \`" + message.guild.memberCount + "\`", true)
+        .addField(" Total HUMANS", "👤 \`" + message.guild.members.cache.filter(member => !member.user.bot).size + "\`", true)
+        .addField(" Total BOTS", "🤖 \`" + message.guild.members.cache.filter(member => member.user.bot).size + "\`", true)
         
-        .addField("<:arrow:832598861813776394> ONLINE", "🟢 \`" + message.guild.members.cache.filter(member => member.presence.status != "offline").size + "\`", true)
-        .addField("<:arrow:832598861813776394> OFFLINE", ":black_circle:\`" + message.guild.members.cache.filter(member => member.presence.status == "offline").size + "\`", true)
+        .addField(" ONLINE", "🟢 \`" + message.guild.members.cache.filter(member => member.presence.status != "offline").size + "\`", true)
+        .addField(" OFFLINE", ":black_circle:\`" + message.guild.members.cache.filter(member => member.presence.status == "offline").size + "\`", true)
 
-        .addField("<:arrow:832598861813776394> Total Boosts", "<a:nitro_logo:833402717950836806> \`" + message.guild.premiumSubscriptionCount + "\`", true)
-        .addField("<:arrow:832598861813776394> Boost-Level", "<a:nitro:833402717506502707> \`" + boostlevel + "\`", true)
-        .addField("<:arrow:832598861813776394> Max-Talk-Bitrate", "👾 \`" + maxbitrate + " kbps\`", true)
+        .addField(" Total Boosts", "<a:nitro_logo:833402717950836806> \`" + message.guild.premiumSubscriptionCount + "\`", true)
+        .addField(" Boost-Level", "<a:nitro:833402717506502707> \`" + boostlevel + "\`", true)
+        .addField(" Max-Talk-Bitrate", "👾 \`" + maxbitrate + " kbps\`", true)
         
-        .addField(`<:arrow:832598861813776394> [${message.guild.emojis.cache.size}] Emojis: `, "> "+message.guild.emojis.cache.size < 20 ? message.guild.emojis.cache.map(emoji => `${emoji}`).join(", ") : message.guild.emojis.cache.size > 20 ? emojitrimarray(message.guild.emojis.cache.map(emoji => `${emoji}`)).substr(0, 1024) : 'No Emojis')
-        .addField(`<:arrow:832598861813776394> [${message.guild.roles.cache.size}] Roles: `, "> "+message.guild.roles.cache.size < 25 ? message.guild.roles.cache.array().sort((a, b) => b.rawPosition - a.rawPosition).map(role => `<@&${role.id}>`).join(', ') : message.guild.roles.cache.size > 25 ? trimArray(message.guild.roles.cache) : 'None')
+        .addField(` [${message.guild.emojis.cache.size}] Emojis: `, "> "+message.guild.emojis.cache.size < 20 ? message.guild.emojis.cache.map(emoji => `${emoji}`).join(", ") : message.guild.emojis.cache.size > 20 ? emojitrimarray(message.guild.emojis.cache.map(emoji => `${emoji}`)).substr(0, 1024) : 'No Emojis')
+        .addField(` [${message.guild.roles.cache.size}] Roles: `, "> "+message.guild.roles.cache.size < 25 ? message.guild.roles.cache.array().sort((a, b) => b.rawPosition - a.rawPosition).map(role => `<@&${role.id}>`).join(', ') : message.guild.roles.cache.size > 25 ? trimArray(message.guild.roles.cache) : 'None')
         .setThumbnail(message.guild.iconURL({
           dynamic: true
         }))
@@ -78,18 +78,10 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> ERROR | An error occurred`)
+        .setTitle(`ERROR | An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const {
   MessageEmbed
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 const moment = require('moment');
 const TikTokScraper = require('tiktok-scraper');
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
             const posts = await TikTokScraper.user(args.join(" "), {
                 number: 5,
             });
-            if(!posts.collector[0]) return message.reply("<a:Deny:863000078690811905> **NOT FOUND / No Posts!**") 
+            if(!posts.collector[0]) return message.reply("**NOT FOUND / No Posts!**") 
             author = posts.collector[0].authorMeta;
             var embed = new Discord.MessageEmbed()
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
@@ -94,12 +94,4 @@ module.exports = {
     return;
   }
 }
-/**
- * @INFO
- * Bot Coded by XG#2846
- * @INFO
- * Work for XG | https://xg-bot.netlify.app/
- * @INFO
- * Please mention XG#2846, when using this Code!
- * @INFO
- */
+

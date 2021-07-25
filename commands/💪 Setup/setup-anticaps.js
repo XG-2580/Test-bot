@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -39,7 +39,7 @@ module.exports = {
         tempmsg.react("📑")
       } catch (e) {
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -64,7 +64,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -89,7 +89,7 @@ module.exports = {
               var userpercent = Number(message.content.trim().replace("%", "").split(" ")[0]);
               if(userpercent > 100 || userpercent < 0) 
                 return message.reply({embed: new Discord.MessageEmbed()
-                    .setTitle("<:no:833101993668771842> ERROR | Percent out of Range!")
+                    .setTitle("ERROR | Percent out of Range!")
                     .setColor(es.wrongcolor)
                     .setDescription(`It must be between \`0%\` and \`100%\``)
                     .setFooter(es.footertext, es.footericon)
@@ -98,7 +98,7 @@ module.exports = {
                 client.settings.set(message.guild.id, userpercent, "anticaps.percent");
                 client.settings.set(message.guild.id, true, "anticaps.enabled");
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> The Anticaps system is now enabled!`)
+                  .setTitle(`The Anticaps system is now enabled!`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`If a non Admin User types a message with more then ${userpercent}% amount of CAPS his message will be deleted + he will be "warned" (no warn system warn but yeah)`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
@@ -106,7 +106,7 @@ module.exports = {
               } catch (e) {
                 console.log(e)
                 return message.reply({embed: new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -121,7 +121,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -130,7 +130,7 @@ module.exports = {
         try {
           client.settings.set(message.guild.id, false, "anticaps.enabled");
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle(`<:yes:833101995723194437> The AntiCaps System is now **disabled**`)
+            .setTitle(`The AntiCaps System is now **disabled**`)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setDescription(`To enabled it type \`${prefix}setup-anticaps\``.substr(0, 2048))
             .setFooter(es.footertext, es.footericon)
@@ -138,7 +138,7 @@ module.exports = {
         } catch (e) {
           console.log(e)
           return message.reply({embed: new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+            .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             .setFooter(es.footertext, es.footericon)
@@ -150,14 +150,14 @@ module.exports = {
         return message.reply(new Discord.MessageEmbed()
           .setTitle(`📑 Settings of the Anti Caps System`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
-          .setDescription(`**Enabled:** ${thesettings.enabled ? "<:yes:833101995723194437>" : "<:no:833101993668771842>"}
+          .setDescription(`**Enabled:** ${thesettings.enabled ? "<a:yes:833101995723194437>" : "<:no:833101993668771842>"}
           
 **Percentage, of Message allowed to be in caps:** \`${thesettings.percent} %\``.substr(0, 2048))
           .setFooter(es.footertext, es.footericon)
         );
       } else {
         return message.reply({embed: new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         });
@@ -167,18 +167,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send({embed: new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       });
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

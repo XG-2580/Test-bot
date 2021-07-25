@@ -1,20 +1,17 @@
-//Here the command starts
-const config = require("../../botconfig/config.json")
-var ee = require("../../botconfig/embed.json")
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
 const fetch = require("node-fetch");
 const { STATUS_CODES } = require("http");
 const { MessageEmbed } = require(`discord.js`);
 module.exports = {
-	//definition
-	name: "npmpkgsize", //the name of the command 
-	category: "⌨️ Programming", //the category this will be listed at, for the help cmd
-	aliases: ["npmpackagesize", "nodepackagemanagersize"], //every parameter can be an alias
-	cooldown: 4, //this will set it to a 4 second cooldown
-	usage: "npmpkgsize <package>", //this is for the help command for EACH cmd
-  	description: "Search the NPM Registry for a package Size Information", //the description of the command
+    name: "npmpkgsize",
+    category: "⌨️ Programming",
+    aliases: ["npmpackagesize", "nodepackagemanagersize"],
+    cooldown: 5,
+    usage: "npmpkgsize <package>",
+    description: "Search the NPM Registry for a package Size Information",
 
-	//running the command with the parameters: client, message, args, user, text, prefix
-  	run: async (client, message, args, user, text, prefix) => {
+    run: async (client, message, args, user, text, prefix) => {
 		let es = client.settings.get(message.guild.id, "embed")
 		try {
 			const name = args[0];
@@ -22,7 +19,7 @@ module.exports = {
 				return message.channel.send({embed: new MessageEmbed()
 					.setColor(es.wrongcolor)
 					.setFooter(es.footertext, es.footericon)
-					.setTitle(`<:no:833101993668771842> You didn't provide a NPM-PACKAGE`)
+					.setTitle(`You didn't provide a NPM-PACKAGE`)
 					.setDescription(`Usage: \`${prefix}npm <package>\``)
 				});
 			const { publishSize, installSize } = await fetch(`https://packagephobia.now.sh/api.json?p=${encodeURIComponent(name)}`)
@@ -44,11 +41,10 @@ module.exports = {
 			console.log(String(e.stack).bgRed)
 			return message.channel.send(new MessageEmbed()
 			  .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-			  .setTitle(`<:no:833101993668771842> An error occurred`)
+			  .setTitle(`An error occurred`)
 			  .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
 			);
-		  }
+		}
 	
 	}
 }
-//-CODED-BY-XG#2846-//

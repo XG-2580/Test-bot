@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing, isValidURL
 } = require(`../../handlers/functions`);
@@ -21,7 +21,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`You are not allowed to run this Command`)
           .setDescription(`You need to be one of those guys: ${config.ownerIDS.map(id => `<@${id}>`)}`)
         );
     try {
@@ -30,7 +30,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You need to add a new Bot Name`)
+          .setTitle(`You need to add a new Bot Name`)
           .setDescription(`Useage: \`${prefix}changename <New Bot Name>\``)
         );
 
@@ -38,20 +38,20 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> Bot Name too long, can't have more then 32 Letters!`)
+          .setTitle(`Bot Name too long, can't have more then 32 Letters!`)
         );
       client.user.setUsername(args.join(" "))
       .then(user => {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:yes:833101995723194437> Changed my Name to: \`${user.username}\``)
+          .setTitle(`Changed my Name to: \`${user.username}\``)
         );
       })
       .catch(e=>{
         return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
       });
@@ -59,18 +59,9 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */

@@ -1,9 +1,9 @@
 const {
   MessageEmbed
 } = require(`discord.js`);
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 module.exports = {
   name: `removedupes`,
   category: `🎶 Music`,
@@ -18,7 +18,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -45,7 +45,7 @@ module.exports = {
         player.queue.add(track);
       //Send Success Message
       return message.channel.send(new MessageEmbed()
-        .setTitle(`<:yes:833101995723194437> ${emoji.msg.cleared} I removed the track at position: \`${Number(args[0])}\``)
+        .setTitle(`${emoji.msg.cleared} I removed the track at position: \`${Number(args[0])}\``)
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
       );
@@ -54,18 +54,10 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> An error occurred`)
+          .setTitle(`An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

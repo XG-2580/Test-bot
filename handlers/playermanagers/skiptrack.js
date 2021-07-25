@@ -1,8 +1,8 @@
 var {
   MessageEmbed
 } = require("discord.js")
-var ee = require("../../botconfig/embed.json")
-var config = require("../../botconfig/config.json")
+var ee = require("../../base-system/embed.json")
+var config = require("../.config.json")
 var {
   format,
   delay,
@@ -50,7 +50,7 @@ async function skiptrack(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<:no:833101993668771842> There was an error while searching:`)
+        .setTitle(`There was an error while searching:`)
         .setDescription(`\`\`\`${e.message}\`\`\``)
       );
     }
@@ -58,7 +58,7 @@ async function skiptrack(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+        .setTitle(String("Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
         .setDescription(`Please retry!`)
       );
     //if the player is not connected, then connect and create things
@@ -100,19 +100,11 @@ async function skiptrack(client, message, args, type) {
     return message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+      .setTitle(String("Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
     )
   }
 }
 
 module.exports = skiptrack;
 
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

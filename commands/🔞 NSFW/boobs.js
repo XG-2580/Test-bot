@@ -2,7 +2,7 @@ const superagent = require("node-fetch");
 const Discord = require('discord.js')
 
 const rp = require('request-promise-native');
-const config = require("../../botconfig/config.json")
+const config = require("../.config.json")
 const {MessageEmbed} = require('discord.js')
 module.exports = {
     name: "boobs",
@@ -15,7 +15,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }

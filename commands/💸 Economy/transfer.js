@@ -1,8 +1,7 @@
 const {MessageEmbed} = require("discord.js");
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
 module.exports = {
   name: "transfer",
@@ -16,7 +15,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -28,7 +27,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<:no:833101993668771842> You didn't pinged to whom you want to transfer`)
+        .setTitle(`You didn't pinged to whom you want to transfer`)
         .setDescription(`Usage: \`${prefix}transfer <@USER> <Amount>\`\n\n\Example: \`${prefix}transfer <@442355791412854784> 42069\``)
       );
     totransfer = totransfer.user;
@@ -37,11 +36,11 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<:no:833101993668771842> You didn't add the transferamount`)
+        .setTitle(`You didn't add the transferamount`)
         .setDescription(`Usage: \`${prefix}transfer <@USER> <Amount>\`\n\n\Example: \`${prefix}transfer <@442355791412854784> 42069\``)
       );
     //if user or the totransfer user is a bot, return error
-    if(user.bot || totransfer.bot) return message.reply("<:no:833101993668771842> **A Discord Bot can not have Economy!**")
+    if(user.bot || totransfer.bot) return message.reply("**A Discord Bot can not have Economy!**")
     //ensure the economy data
     ensure_economy_user(client, message.guild.id, user.id);
     //ensure the economy data
@@ -54,14 +53,14 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<:no:833101993668771842> You can't transfer a negative Amount of Money or no Money, to ${totransfer}`)
+        .setTitle(`You can't transfer a negative Amount of Money or no Money, to ${totransfer}`)
       );
     
     if(transferamount > data.balance)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<:no:833101993668771842> You can't transfer more Money than you have in your **👛 Pocket (\`${data.balance} 💸\`)**`)
+        .setTitle(`You can't transfer more Money than you have in your **👛 Pocket (\`${data.balance} 💸\`)**`)
       );
   
     client.economy.math(`${message.guild.id}-${user.id}`, "-", transferamount, "balance")
@@ -72,7 +71,7 @@ module.exports = {
     return message.reply(new MessageEmbed()
       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
       .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-      .setTitle(`<:yes:833101995723194437> **You transfered \`${transferamount} 💸\` to \`${totransfer.tag}\`**`)
+      .setTitle(`**You transfered \`${transferamount} 💸\` to \`${totransfer.tag}\`**`)
       .setDescription(`👛 **You** now have \`${Math.floor(data.balance)} 💸\` in your Pocket\n\n👛 **${totransfer.username}** now has \`${Math.floor(data2.balance)} 💸\` in his/her Pocket`)
     );
   } catch (e) {
@@ -80,7 +79,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<:no:833101993668771842> An error occurred`)
+      .setTitle(`An error occurred`)
       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
     );
   }
@@ -88,9 +87,9 @@ module.exports = {
 };
 /**
 * @INFO
-* Bot Coded by Limsathya
+* Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
 * @INFO
-* Work for Milrato Development | https://xg-bot.netlify.app
+* Work for Milrato Development | https://Limsathya
 * @INFO
 * Please mention Him / Milrato Development, when using this Code!
 * @INFO

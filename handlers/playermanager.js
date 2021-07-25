@@ -2,8 +2,8 @@ const Discord = require("discord.js")
 const {
   MessageEmbed
 } = require("discord.js")
-const config = require("../botconfig/config.json")
-ee = require("../botconfig/embed.json")
+const config = require(".config.json")
+ee = require("../base-system/embed.json")
 const {
   format,
   delay,
@@ -25,13 +25,13 @@ module.exports = async (client, message, args, type) => {
     return message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle("<:no:833101993668771842> I need permissions to join your channel")
+      .setTitle("I need permissions to join your channel")
     );
   if (!permissions.has("SPEAK"))
     return message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle("<:no:833101993668771842> I need permissions to speak in your channel")
+      .setTitle("I need permissions to speak in your channel")
     );
 
   if (method[0] === "song")
@@ -52,15 +52,7 @@ module.exports = async (client, message, args, type) => {
     return message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle("<:no:833101993668771842> No valid search Term? ... Please Contact: `XG#2846`")
+      .setTitle("No valid search Term? ... Please Contact: `XG#2846`")
     );
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const fs = require("fs")
-const config = require("../botconfig/config.json");
-const ee = require("../botconfig/embed.json");
-const radios = require("../botconfig/radiostations.json");
+const config = require(".config.json");
+const ee = require("../base-system/embed.json");
+const radios = require("../base-system/radiostations.json");
 module.exports = (client) => {
   try {
     /**
@@ -710,12 +710,4 @@ module.exports = (client) => {
     console.log(String(e.stack).bgRed)
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

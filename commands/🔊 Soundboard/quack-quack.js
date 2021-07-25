@@ -14,7 +14,7 @@ module.exports = {
 		return message.channel.send(new MessageEmbed()
 		  .setColor(es.wrongcolor)
 		  .setFooter(es.footertext, es.footericon)
-		  .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+		  .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
 		  .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
 		);
 	  }
@@ -24,13 +24,13 @@ module.exports = {
 		  return message.channel.send(new MessageEmbed()
 		  .setColor(es.wrongcolor)
 		  .setFooter(es.footertext, es.footericon)
-		  .setTitle(`<:no:833101993668771842> You need to join a voice channel`)
+		  .setTitle(`You need to join a voice channel`)
 		  );
 	  if(botchannel)
 		  return message.channel.send(new MessageEmbed()
 		  .setColor(es.wrongcolor)
 		  .setFooter(es.footertext, es.footericon)
-		  .setTitle(`<:no:833101993668771842> I am already connected in \`${botchannel.name}\``)
+		  .setTitle(`I am already connected in \`${botchannel.name}\``)
 	  );
 	  const e = await message.react('🎙️').catch(()=>{})
 	channel.join().then(async connection => {

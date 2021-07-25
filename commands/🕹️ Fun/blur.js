@@ -3,9 +3,9 @@ const {
   MessageAttachment
 } = require("discord.js");
 const canvacord = require("canvacord");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 module.exports = {
   name: "blur",
   aliases: [""],
@@ -18,7 +18,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -34,13 +34,13 @@ module.exports = {
       if(!user && args[0] && args[0].length == 18) {
         let tmp = await client.users.fetch(args[0])
         if(tmp) user = tmp;
-        if(!tmp) return message.reply("<:no:833101993668771842> I failed finding that User...")
+        if(!tmp) return message.reply("I failed finding that User...")
       }
       else if(!user && args[0]){
         let alluser = message.guild.members.cache.map(member=> String(member.user.username).toLowerCase())
         user = alluser.find(user => user.includes(args[0].toLowerCase()))
         user = message.guild.members.cache.find(me => (me.user.username).toLowerCase() == user).user
-        if(!user || user == null || !user.id) return message.reply("<:no:833101993668771842> I failed finding that User...")
+        if(!user || user == null || !user.id) return message.reply("I failed finding that User...")
       }
       else {
         user = message.mentions.users.first() || message.author;
@@ -64,18 +64,10 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

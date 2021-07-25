@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const {
   MessageEmbed
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 const moment = require('moment');
 const twitconfig = require("../../social_log/twitter.json");
 const Twit = require('twit');
@@ -52,19 +52,11 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> ERROR | An error occurred`)
+        .setTitle(`ERROR | An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
     return;
   }
 }
-/**
- * @INFO
- * Bot Coded by XG#2846
- * @INFO
- * Work for XG | https://xg-bot.netlify.app/
- * @INFO
- * Please mention XG#2846, when using this Code!
- * @INFO
- */
+

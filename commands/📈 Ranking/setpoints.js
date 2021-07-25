@@ -1,5 +1,5 @@
-const config = require("../../botconfig/config.json")
-var ee = require("../../botconfig/embed.json")
+const config = require("../.config.json")
+var ee = require("../../base-system/embed.json")
 module.exports = {
 	//definition
 	name: "setpoints",

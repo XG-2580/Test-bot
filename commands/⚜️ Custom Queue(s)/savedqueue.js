@@ -1,9 +1,9 @@
 const {
   MessageEmbed
 } = require(`discord.js`);
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const {
   TrackUtils
 } = require("erela.js");
@@ -33,7 +33,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -45,7 +45,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You didn't entered a TYPE`)
+          .setTitle(`You didn't entered a TYPE`)
           .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name> [Options]\`\nAvailable Types:\n\`create\`, \`addcurrenttrack\`, \`addcurrentqueue\`, \`removetrack\`, \`removedupes\`, \`showall\`, \`createsave\`, \`delete\`, \`showdetails\`, \`play\`, \`shuffle\``)
         );
       switch (Type.toLowerCase()) {
@@ -54,14 +54,14 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
-              .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+              .setTitle(`You didn't entered a Saved-Queue-Name`)
               .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
             );
           if (Name.length > 10)
             return message.channel.send(new MessageEmbed()
               .setColor(es.wrongcolor)
               .setFooter(client.user.username, ee.footericon)
-              .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+              .setTitle(`Your Saved-Queue-Name is too long!`)
               .setDescription(`Maximum Length is \`10\``)
             );
           //if the queue does not exist yet, error
@@ -69,7 +69,7 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
               .setFooter(es.footertext, es.footericon)
               .setColor(es.wrongcolor)
-              .setTitle(`<:no:833101993668771842> Your Queue already exists!`)
+              .setTitle(`Your Queue already exists!`)
               .setDescription(`Delete it: \`${prefix}savedqueue delete ${Name}\`\nShow its content: \`${prefix}savedqueue showdetails ${Name}`)
             );
           client.queuesaves.set(message.author.id, {
@@ -77,7 +77,7 @@ module.exports = {
           }, `${Name}`)
           //return susccess message
           return message.channel.send(new MessageEmbed()
-            .setTitle(`<:yes:833101995723194437> Created ${Name}`)
+            .setTitle(`Created ${Name}`)
             .setDescription(`Add the current **Queue** onto it: \`${prefix}savedqueue addcurrentqueue ${Name}\`\nAdd the current **Track** onto it: \`${prefix}savedqueue addcurrenttrack ${Name}\``)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setFooter(es.footertext, es.footericon)
@@ -89,14 +89,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         //if the queue does not exist yet, error
@@ -104,7 +104,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue does not exists yet!`)
+            .setTitle(`Your Queue does not exists yet!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         //get the player instance
@@ -114,7 +114,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> There is nothing playing`)
+            .setTitle(`There is nothing playing`)
           );
         //get the current track
         const track = player.queue.current;
@@ -123,7 +123,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> There is nothing playing!`)
+            .setTitle(`There is nothing playing!`)
           );
         let oldtracks = client.queuesaves.get(message.author.id, `${Name}`);
         if (!Array.isArray(oldtracks)) oldtracks = [];
@@ -136,7 +136,7 @@ module.exports = {
         client.queuesaves.set(message.author.id, oldtracks, `${Name}`);
         //return susccess message
         return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Added ${track.title} onto the Queue \`${Name}\``.substr(0, 256))
+          .setTitle(`Added ${track.title} onto the Queue \`${Name}\``.substr(0, 256))
           .setDescription(`There are now: \`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\`\n\nPlay it with: \`${prefix}savedqueue play ${Name}\``)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon))
@@ -147,14 +147,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         //if the queue does not exist yet, error
@@ -162,7 +162,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue does not exists yet!`)
+            .setTitle(`Your Queue does not exists yet!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         //get the player instance
@@ -172,7 +172,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> There is nothing playing`)
+            .setTitle(`There is nothing playing`)
           );
         //get all tracks
         const tracks = player.queue;
@@ -181,7 +181,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> The Queue is Empty!`)
+            .setTitle(`The Queue is Empty!`)
           );
         //get the old tracks from the Name
         let oldtracks = client.queuesaves.get(message.author.id, `${Name}`);
@@ -204,7 +204,7 @@ module.exports = {
         client.queuesaves.set(message.author.id, newqueue, `${Name}`);
         //return susccess message
         return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Added ${tracks.length} Tracks onto the Queue \`${Name}\``)
+          .setTitle(`Added ${tracks.length} Tracks onto the Queue \`${Name}\``)
           .setDescription(`There are now: \`${newqueue.length} Tracks\`\n\nPlay it with: \`${prefix}savedqueue play ${Name}\``)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
@@ -217,21 +217,21 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue removetrack <Name> [Options]\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         if (!Options)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered an Option (the Track you want to remove (ID OF IT))`)
+            .setTitle(`You didn't entered an Option (the Track you want to remove (ID OF IT))`)
             .setDescription(`See all your Tracks: \`${prefix}savedqueue showdetails ${Name}\`Usage: \`${prefix}savedqueue removetrack ${Name} <Song number>\``)
           );
         //if the queue already exists, then errors
@@ -239,7 +239,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue is not existing!`)
+            .setTitle(`Your Queue is not existing!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         let tracks = client.queuesaves.get(message.author.id, `${Name}`);
@@ -247,7 +247,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> Your provided Option is out of Range (\`0\` - \`${tracks.length-1}\`)`)
+            .setTitle(`Your provided Option is out of Range (\`0\` - \`${tracks.length-1}\`)`)
             .setDescription(`See all your Tracks: \`${prefix}savedqueue showdetails ${Name}\`Usage: \`${prefix}savedqueue removetrack ${Name} <Song number>\``)
           )
         let deletetrack = tracks[Number(Options)];
@@ -261,7 +261,7 @@ module.exports = {
         client.queuesaves.set(message.author.id, tracks, `${Name}`)
         //return susccess message
         return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Deleted ${deletetrack.title} of the Queue \`${Name}\``.substr(0, 256))
+          .setTitle(`Deleted ${deletetrack.title} of the Queue \`${Name}\``.substr(0, 256))
           .setDescription(`There are now: \`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\`\n\nPlay it with: \`${prefix}savedqueue play ${Name}\``)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
@@ -274,14 +274,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         //if the queue already exists, then errors
@@ -289,7 +289,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue is not existing!`)
+            .setTitle(`Your Queue is not existing!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         let oldtracks = client.queuesaves.get(message.author.id, `${Name}`);
@@ -297,7 +297,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue ${Name} is Empty!`)
+            .setTitle(`Your Saved-Queue ${Name} is Empty!`)
             .setDescription(`Add the current **Queue** onto it: \`${prefix}savedqueue addcurrentqueue ${Name}\`\nAdd the current **Track** onto it: \`${prefix}savedqueue addcurrenttrack ${Name}\``)
           );
         const newtracks = shuffle(oldtracks);
@@ -305,7 +305,7 @@ module.exports = {
         client.queuesaves.set(message.author.id, newtracks, `${Name}`);
         //return susccess message
         return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Shuffled ${newtracks.length} Tracks of the Queue \`${Name}\``.substr(0, 256))
+          .setTitle(`Shuffled ${newtracks.length} Tracks of the Queue \`${Name}\``.substr(0, 256))
           .setDescription(`There are now: \`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\`\n\nPlay it with: \`${prefix}savedqueue play ${Name}\``)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon))
@@ -317,14 +317,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         //if the queue already exists, then errors
@@ -332,7 +332,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue is not existing!`)
+            .setTitle(`Your Queue is not existing!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         let oldtracks = client.queuesaves.get(message.author.id, `${Name}`);
@@ -340,7 +340,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue ${Name} is Empty!`)
+            .setTitle(`Your Saved-Queue ${Name} is Empty!`)
             .setDescription(`Add the current **Queue** onto it: \`${prefix}savedqueue addcurrentqueue ${Name}\`\nAdd the current **Track** onto it: \`${prefix}savedqueue addcurrenttrack ${Name}\``)
           );
         //make a new array of each single song which is not a dupe
@@ -363,7 +363,7 @@ module.exports = {
         client.queuesaves.set(message.author.id, newtracks, `${Name}`);
         //return susccess message
         return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Removed ${counter} Tracks from the Queue \`${Name}\``.substr(0, 256))
+          .setTitle(`Removed ${counter} Tracks from the Queue \`${Name}\``.substr(0, 256))
           .setDescription(`There are now: \`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\`\n\nPlay it with: \`${prefix}savedqueue play ${Name}\``)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon))
@@ -379,7 +379,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You don't have any Queues saved yet`)
+            .setTitle(`You don't have any Queues saved yet`)
             .setDescription(`Create one with: \`${prefix}savedqueue create <SavedQueueName>\``)
           );
         let description = ``;
@@ -398,21 +398,21 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         if (client.queuesaves.get(message.author.id, `${Name}`))
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue already exists!`)
+            .setTitle(`Your Queue already exists!`)
             .setDescription(`Delete it: \`${prefix}savedqueue delete ${Name}\`\nShow its content: \`${prefix}savedqueue showdetails ${Name}`)
           );
         //get the player instance
@@ -422,7 +422,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> There is nothing playing`)
+            .setTitle(`There is nothing playing`)
           );
         //get all tracks
         const tracks = player.queue;
@@ -431,7 +431,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> The Queue is Empty!`)
+            .setTitle(`The Queue is Empty!`)
           );
         //get the old tracks from the Name
         let oldtracks = client.queuesaves.get(message.author.id, `${Name}`);
@@ -455,7 +455,7 @@ module.exports = {
         client.queuesaves.set(message.author.id, newqueue, `${Name}`);
         //return susccess message
         return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Created ${Name} and Added ${tracks.length} Tracks to it`)
+          .setTitle(`Created ${Name} and Added ${tracks.length} Tracks to it`)
           .setDescription(`Play it with: \`${prefix}savedqueue play ${Name}\`\nAdd the current **Queue** onto it: \`${prefix}savedqueue addcurrentqueue ${Name}\`\nAdd the current **Track** onto it: \`${prefix}savedqueue addcurrenttrack ${Name}\``)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
@@ -469,14 +469,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         //if the queue does not exist yet, error
@@ -484,14 +484,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue does not exists yet!`)
+            .setTitle(`Your Queue does not exists yet!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         //delete it
         client.queuesaves.delete(message.author.id, `${Name}`);
         //return susccess message
         return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Deleted the Queue \`${Name}\``)
+          .setTitle(`Deleted the Queue \`${Name}\``)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
         )
@@ -506,14 +506,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         //get the channel instance from the Member
@@ -525,7 +525,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> You need to join a voice channel.`)
+            .setTitle(`You need to join a voice channel.`)
           );
         const mechannel = message.guild.me.voice.channel;
         //get the player instance
@@ -548,7 +548,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> You need to be in my voice channel to use this command!`)
+            .setTitle(`You need to be in my voice channel to use this command!`)
             .setDescription(`Channelname: \`${message.guild.channels.cache.get(player.voiceChannel).name}\``)
           );
         //If there is no player, then kick the bot out of the channel, if connected to
@@ -560,7 +560,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You need to be in my voice channel to use this command!`)
+          .setTitle(`You need to be in my voice channel to use this command!`)
           .setDescription(`Channelname: \`🔈 ${mechannel.name}\``)
         );
         //if the queue does not exist yet, error
@@ -568,7 +568,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue does not exists Yet!`)
+            .setTitle(`Your Queue does not exists Yet!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         //now add every track of the tracks
@@ -590,32 +590,10 @@ module.exports = {
             continue;
           }
           let res;
-          /* old way, --> slow way!
-           try {
-              // Search for tracks using a query or url, using a query searches youtube automatically and the track requester object
-              if(track.url.toLowerCase().includes(`youtu`))
-              res = await client.manager.search({query: track.url, source: `youtube`}, message.author);
-              else if(track.url.toLowerCase().includes(`soundcloud`))
-              res = await client.manager.search({query: track.url, source: `soundcloud`}, message.author);
-              else {
-                res = await client.manager.search(track.url, message.author);
-              }
-              // Check the load type as this command is not that advanced for basics
-              if (res.loadType === `LOAD_FAILED`) continue;
-              else if (res.loadType === `PLAYLIST_LOADED`) continue;
-              if(!res.tracks[0]) continue;
-
-              player.queue.add(res.tracks[0]);
-          } catch (e) {
-              console.log(String(e.stack).red)
-              continue;
-          }
-
-          */
         }
         //return susccess message - by editing the old temp msg
         tempmsg.edit(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Loaded ${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks onto the current Queue`)
+          .setTitle(`Loaded ${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks onto the current Queue`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
         )
@@ -629,14 +607,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> You didn't entered a Saved-Queue-Name`)
+            .setTitle(`You didn't entered a Saved-Queue-Name`)
             .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nName Information:\n\`Can be anything with maximum of 10 Letters\``)
           );
         if (Name.length > 10)
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.user.username, ee.footericon)
-            .setTitle(`<:no:833101993668771842> Your Saved-Queue-Name is too long!`)
+            .setTitle(`Your Saved-Queue-Name is too long!`)
             .setDescription(`Maximum Length is \`10\``)
           );
         //if the queue already exists, then errors
@@ -644,7 +622,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setFooter(es.footertext, es.footericon)
             .setColor(es.wrongcolor)
-            .setTitle(`<:no:833101993668771842> Your Queue is not existing!`)
+            .setTitle(`Your Queue is not existing!`)
             .setDescription(`Create it with: \`${prefix}savedqueue create ${Name}\``)
           );
         //get all tracks
@@ -659,7 +637,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You didn't entered a **valid** TYPE`)
+          .setTitle(`You didn't entered a **valid** TYPE`)
           .setDescription(`Usage: \`${prefix}savedqueue <Type> <Name>\`\nValid Types:\n\`create\`, \`addcurrenttrack\`, \`addcurrentqueue\`, \`removetrack\`, \`removedupes\`, \`showall\`, \`createsave\`, \`delete\`, \`showdetails\`, \`play\`, \`shuffle\``)
         );
         break;
@@ -670,7 +648,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -684,12 +662,4 @@ Object.size = function (obj) {
   }
   return size;
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

@@ -1,7 +1,6 @@
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
-
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const {MessageEmbed} = require("discord.js");
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
 module.exports = {
@@ -15,7 +14,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -24,7 +23,7 @@ module.exports = {
       
       //ensure the economy data
       ensure_economy_user(client, message.guild.id, user.id)
-      if(user.bot) return message.reply("<:no:833101993668771842> **A Discord Bot can not have Economy!**")
+      if(user.bot) return message.reply("**A Discord Bot can not have Economy!**")
       let data = client.economy.get(`${message.guild.id}-${user.id}`)
       //time delay for the Work
       let timeout = 25 * 60 * 1000;
@@ -34,7 +33,7 @@ module.exports = {
         return message.reply({embed: new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<:no:833101993668771842> You've already worked recently!`)
+          .setTitle(`You've already worked recently!`)
           .setDescription(`🕐 **Try again in ${time.map(i=> `\`${i}\``).join(", ")}**\n\n👛 You still have \`${nFormatter(Math.floor(data.balance))} 💸\` in your Pocket`)
         });
       } 
@@ -57,7 +56,7 @@ module.exports = {
         return message.reply(new MessageEmbed()
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-          .setTitle(`<:yes:833101995723194437> You worked as a **${replies[result]}** and earned \`${nFormatter(amount)} 💸\``)
+          .setTitle(`You worked as a **${replies[result]}** and earned \`${nFormatter(amount)} 💸\``)
           .setDescription(`👛 You now have \`${nFormatter(Math.floor(data.balance))} 💸\` in your Pocket`)
         );
       }
@@ -65,18 +64,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

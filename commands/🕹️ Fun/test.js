@@ -2,8 +2,8 @@ const {
     MessageEmbed,
     MessageAttachment
   } = require("discord.js");
-  const config = require("../../botconfig/config.json");
-  var ee = require("../../botconfig/embed.json");
+  const config = require("../.config.json");
+  var ee = require("../../base-system/embed.json");
 
   module.exports = {
     name: "test",
@@ -17,7 +17,7 @@ const {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -69,9 +69,9 @@ const {
   }
   /**
    * @INFO
-   * Bot Coded by Limsathya
+   * Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
    * @INFO
-   * Work for Milrato Development | https://xg-bot.netlify.app
+   * Work for Milrato Development | https://Limsathya
    * @INFO
    * Please mention Him / Milrato Development, when using this Code!
    * @INFO

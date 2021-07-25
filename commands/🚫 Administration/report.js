@@ -1,7 +1,7 @@
-const config = require(`../../botconfig/config.json`);
+const config = require(`../.config.json`);
 const ms = require(`ms`);
-var ee = require(`../../botconfig/embed.json`)
-const emoji = require(`../../botconfig/emojis.json`);
+var ee = require(`../../base-system/embed.json`)
+const emoji = require(`../../base-system/emoji.json`);
 const {
   MessageEmbed
 } = require(`discord.js`)
@@ -103,7 +103,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }

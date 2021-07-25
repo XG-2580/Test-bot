@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -40,7 +40,7 @@ module.exports = {
           tempmsg.react("4️⃣")
         } catch (e) {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -65,7 +65,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -88,13 +88,13 @@ module.exports = {
             .then(collected => {
               var color = collected.first().content;
               if (!color) return message.reply(new Discord.MessageEmbed()
-                .setTitle("<:no:833101993668771842> ERROR | Please add a valid COLOR")
+                .setTitle("ERROR | Please add a valid COLOR")
                 .setColor(es.wrongcolor)
                 .setDescription(`Note that a HEX COLOR looks like that: \`#ffee22\``)
                 .setFooter(es.footertext, es.footericon)
               );
               if (color.length != 7 && !color.includes("#")) return message.reply(new Discord.MessageEmbed()
-                .setTitle("<:no:833101993668771842> ERROR | Please add a valid COLOR")
+                .setTitle("ERROR | Please add a valid COLOR")
                 .setColor(es.wrongcolor)
                 .setDescription(`Note that a HEX COLOR looks like that: \`#ffee22\``)
                 .setFooter(es.footertext, es.footericon)
@@ -103,13 +103,13 @@ module.exports = {
                 client.settings.set(message.guild.id, color ,"embed.color")
                 es = client.settings.get(message.guild.id, "embed")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> The new Embed Color is: \`${es.color}\``)
+                  .setTitle(`The new Embed Color is: \`${es.color}\``)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -121,7 +121,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -155,13 +155,13 @@ module.exports = {
                     client.settings.set(message.guild.id, url ,"embed.footericon")
                     es = client.settings.get(message.guild.id, "embed")
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:yes:833101995723194437> The new Embed Image is: \`${es.link}\``)
+                      .setTitle(`The new Embed Image is: \`${es.link}\``)
                       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                       .setFooter(es.footertext, es.footericon)
                     );
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                      .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                       .setColor(es.wrongcolor)
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                       .setFooter(es.footertext, es.footericon)
@@ -169,14 +169,14 @@ module.exports = {
                   }
                 } else {
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<:no:833101993668771842> ERROR | Please add a valid IMAGE-LINK")
+                    .setTitle("ERROR | Please add a valid IMAGE-LINK")
                     .setColor(es.wrongcolor)
                     .setFooter(es.footertext, es.footericon)
                   );
                 }
                 } else if (!url.includes("http") && !(url.toLowerCase().includes("png")||url.toLowerCase().includes("gif")||url.toLowerCase().includes("jpg"))){
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<:no:833101993668771842> ERROR | Please add a valid IMAGE-LINK")
+                    .setTitle("ERROR | Please add a valid IMAGE-LINK")
                     .setColor(es.wrongcolor)
                     .setFooter(es.footertext, es.footericon)
                   );
@@ -185,13 +185,13 @@ module.exports = {
                     client.settings.set(message.guild.id, url ,"embed.footericon")
                     es = client.settings.get(message.guild.id, "embed")
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:yes:833101995723194437> The new Embed Image is: \`${es.link}\``)
+                      .setTitle(`The new Embed Image is: \`${es.link}\``)
                       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                       .setFooter(es.footertext, es.footericon)
                     );
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                      .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                       .setColor(es.wrongcolor)
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                       .setFooter(es.footertext, es.footericon)
@@ -204,7 +204,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -227,14 +227,14 @@ module.exports = {
                 client.settings.set(message.guild.id, text, "embed.footertext")
                 es = client.settings.get(message.guild.id, "embed")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> The new Embed Footer Text is:`.substr(0, 256))
+                  .setTitle(`The new Embed Footer Text is:`.substr(0, 256))
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(es.footertext)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -246,7 +246,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -256,14 +256,14 @@ module.exports = {
               client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "embed.thumb") ,"embed.thumb")
               es = client.settings.get(message.guild.id, "embed")
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<:yes:833101995723194437> The Thumbnail is now ${es.thumb ? "enabled": "disabled"}`)
+                .setTitle(`The Thumbnail is now ${es.thumb ? "enabled": "disabled"}`)
                 .setDescription(`${es.thumb ? "I will now add Thumbnails to each Embed Message": "I will now **not** add a Thumbnail to Embed Messages"}`)
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
               );
             } catch (e) {
               return message.reply(new Discord.MessageEmbed()
-                .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                 .setColor(es.wrongcolor)
                 .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                 .setFooter(es.footertext, es.footericon)
@@ -271,7 +271,7 @@ module.exports = {
             }
           } else {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+            .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
           );
@@ -280,18 +280,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

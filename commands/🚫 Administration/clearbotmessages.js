@@ -1,9 +1,9 @@
 const {
   MessageEmbed, Collection
 } = require(`discord.js`);
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const {
   delay,
   databasing
@@ -20,7 +20,7 @@ module.exports = {
       if(!message.guild.me.hasPermission("MANAGE_MESSAGES"))      
       return message.channel.send(new Discord.MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle("<:no:833101993668771842> I am missing the permission to `MANAGE MESSAGES`!")
+        .setTitle("I am missing the permission to `MANAGE MESSAGES`!")
       )
       let adminroles = client.settings.get(message.guild.id, "adminroles")
       let cmdroles = client.settings.get(message.guild.id, "cmdadminroles.clearbotmessages")
@@ -42,7 +42,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
 
@@ -54,8 +54,8 @@ module.exports = {
       let tomanymsgs = 1; //some calculation for the messagelimit
       let messagelimit = 250 / 100; //devide it by 100 to get a counter
       if(args[0]){
-          if(Number(args[0]) > 5000 || Number(args[0]) < 100) return message.reply("**<:no:833101993668771842> Maximum amount of Messages to be pruned are 5000 (minimum 100)**")
-          if(isNaN(args[0])) return message.reply("**<:no:833101993668771842> Maximum amount of Messages to be pruned are 5000 (minimum 100)**")
+          if(Number(args[0]) > 5000 || Number(args[0]) < 100) return message.reply("**Maximum amount of Messages to be pruned are 5000 (minimum 100)**")
+          if(isNaN(args[0])) return message.reply("**Maximum amount of Messages to be pruned are 5000 (minimum 100)**")
           messagelimit = Number(args[0]) / 100;
       }
       while (channelMessages.size === 100) { //make a loop if there are more then 100 messages in this channel to fetch
@@ -101,7 +101,7 @@ module.exports = {
       console.log(String(e.stack).red);
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }

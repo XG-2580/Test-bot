@@ -12,12 +12,12 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
         const opponent = message.mentions.users.first();
-        if (!opponent) return message.channel.send(`<:no:833101993668771842> **Please mention who you want to fight**`);
+        if (!opponent) return message.channel.send(`**Please mention who you want to fight**`);
         const { fight } = require('weky');
         const battle = new fight({
             client: client,

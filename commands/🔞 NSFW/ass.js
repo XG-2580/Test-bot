@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 const {MessageEmbed} = require('discord.js')
 
 const rp = require('request-promise-native');
-const config = require("../../botconfig/config.json")
+const config = require("../.config.json")
 module.exports = {
     name: "ass",
     category: "🔞 NSFW",
@@ -15,7 +15,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }

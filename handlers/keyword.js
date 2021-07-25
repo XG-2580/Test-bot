@@ -1,5 +1,5 @@
 //import the config.json file
-const config = require("../botconfig/config.json")
+const config = require(".config.json")
 var {
     MessageEmbed
 } = require(`discord.js`);

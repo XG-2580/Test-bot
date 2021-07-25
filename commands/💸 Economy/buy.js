@@ -1,8 +1,7 @@
 const { MessageEmbed } = require("discord.js");
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
 module.exports = {
   name: "buy",
@@ -16,7 +15,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<a:Deny:863000078690811905> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -24,7 +23,7 @@ module.exports = {
       //command
       var user = message.author;
       //if the user is a bot, then return
-      if (user.bot) return message.reply("<a:Deny:863000078690811905> **A Discord Bot can not have Economy!**")
+      if (user.bot) return message.reply("**A Discord Bot can not have Economy!**")
       //ensure the economy data
       ensure_economy_user(client, message.guild.id, user.id)
       //get the latest data
@@ -62,7 +61,7 @@ module.exports = {
         itemsvalue += prize * data.items[`${itemarray}`];
       }
       //function for yes or no, if its buyable!
-      const p2b = (costs) => (Number(costs) > Number(data.balance)) ? "<:no:833101993668771842>" : "<:yes:833101995723194437>";
+      const p2b = (costs) => (Number(costs) > Number(data.balance)) ? "<:no:833101993668771842>" : "<a:yes:833101995723194437>";
       //return some message!
       if (!args[0])
         return message.reply(new MessageEmbed()
@@ -103,7 +102,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({ dynamic: true }))
-          .setTitle(`<:no:833101993668771842> You cannot buy 0 Items`)
+          .setTitle(`You cannot buy 0 Items`)
           .setDescription(`Usage: \`${prefix}buy <Item> <Amount>\`\n\n\Example: \`${prefix}pay Car 2\``)
         );
       var prize = 0;
@@ -136,7 +135,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag + " | ❌ .. Unable to buy | ✅ ... Possible to buy", user.displayAvatarURL({ dynamic: true }))
-          .setTitle(`<:no:833101993668771842> This Item seems to not exist! Those Items are available:`)
+          .setTitle(`This Item seems to not exist! Those Items are available:`)
           .setDescription(`👛 You have (\`${data.balance} 💸\`) in your Pocket \n\n🧸 **You have \`${items} Items\` with a value of: \`${itemsvalue} 💸\`**\n\n**__How to buy an Item?__**\n> \`${prefix}buy <ITEMNAME> <AMOUNT>\``)
 .addField("✏️ Useables", ">>> " + 
 `✏️ **\`Pensil [10 💸]\`** | ${p2b(10)}
@@ -171,7 +170,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(user.tag, user.displayAvatarURL({ dynamic: true }))
-          .setTitle(`<:no:833101993668771842> You can't buy **${nFormatter(amountofbuy)} ${args[0]}** because it costs more Money (\`${nFormatter(endprize)} 💸\`) then you have in your **👛 Pocket (\`${nFormatter(data.balance)} 💸\`)**`)
+          .setTitle(`You can't buy **${nFormatter(amountofbuy)} ${args[0]}** because it costs more Money (\`${nFormatter(endprize)} 💸\`) then you have in your **👛 Pocket (\`${nFormatter(data.balance)} 💸\`)**`)
           .setDescription(`👛 You have (\`${data.balance} 💸\`) in your Pocket \n\nTry to reduce the Amount or Get some Money by working, begging, or from your Bank!`)
         );
       client.economy.math(`${message.guild.id}-${user.id}`, "+", amountofbuy, `items.${args[0].toLowerCase()}`)
@@ -181,14 +180,14 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(user.tag, user.displayAvatarURL({ dynamic: true }))
-        .setTitle(`<:yes:833101995723194437> **Successfully bought ${nFormatter(amountofbuy)} ${args[0]} for \`${nFormatter(endprize)} 💸\`**`)
+        .setTitle(`**Successfully bought ${nFormatter(amountofbuy)} ${args[0]} for \`${nFormatter(endprize)} 💸\`**`)
         .setDescription(`👛 You have (\`${nFormatter(data.balance)} 💸\`) in your Pocket \n\n🧸 **You have \`${nFormatter(items)} Items\` with a value of: \`${nFormatter(itemsvalue)} 💸\`**\n\n**To see your Items, type:**\n\`${prefix}items\``)
       );
     } catch (e) {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -196,9 +195,9 @@ module.exports = {
 };
 /**
 * @INFO
-* Bot Coded by Limsathya
+* Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
 * @INFO
-* Work for Milrato Development | https://xg-bot.netlify.app
+* Work for Milrato Development | https://Limsathya
 * @INFO
 * Please mention Him / Milrato Development, when using this Code!
 * @INFO

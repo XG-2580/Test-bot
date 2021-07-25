@@ -1,7 +1,7 @@
 var { MessageEmbed } = require("discord.js");
 var Discord = require("discord.js");
-var config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
+var config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -36,7 +36,7 @@ module.exports = {
           tempmsg.react("3️⃣")
         } catch (e) {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -60,7 +60,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -136,7 +136,7 @@ module.exports = {
                 channel
               } = message.member.voice;
               if (!channel) return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> You are not connected to a Channel")
+                  .setTitle("You are not connected to a Channel")
                   .setColor(es.wrongcolor)
                   .setDescription(`Please redo the Setup, and join a Channel`)
                   .setFooter(es.footertext, es.footericon)
@@ -177,7 +177,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -189,7 +189,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -275,7 +275,7 @@ module.exports = {
                   channel
                 } = message.member.voice;
                 if (!channel) return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<:no:833101993668771842> You are not connected to a Channel")
+                    .setTitle("You are not connected to a Channel")
                     .setColor(es.wrongcolor)
                     .setDescription(`Please redo the Setup, and join a Channel`)
                     .setFooter(es.footertext, es.footericon)
@@ -316,7 +316,7 @@ module.exports = {
                   })
                 if (timeouterror)
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                    .setTitle("ERROR | Your Time ran out")
                     .setColor(es.wrongcolor)
                     .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                     .setFooter(es.footertext, es.footericon)
@@ -328,7 +328,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -414,7 +414,7 @@ module.exports = {
                   channel
                 } = message.member.voice;
                 if (!channel) return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<:no:833101993668771842> You are not connected to a Channel")
+                    .setTitle("You are not connected to a Channel")
                     .setColor(es.wrongcolor)
                     .setDescription(`Please redo the Setup, and join a Channel`)
                     .setFooter(es.footertext, es.footericon)
@@ -455,7 +455,7 @@ module.exports = {
                   })
                 if (timeouterror)
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                    .setTitle("ERROR | Your Time ran out")
                     .setColor(es.wrongcolor)
                     .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                     .setFooter(es.footertext, es.footericon)
@@ -467,7 +467,7 @@ module.exports = {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -485,7 +485,7 @@ module.exports = {
         //Else do THAT
         else {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+            .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
           );
@@ -495,7 +495,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> An error occurred`)
+          .setTitle(`An error occurred`)
           .setDescription(`\`\`\`${e.stack}\`\`\``)
         );
     }
@@ -505,7 +505,7 @@ module.exports = {
   * @INFO
   * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
   * @INFO
-  * Work for Milrato Development | https://xg-bot.netlify.app
+  * Work for Milrato Development | https://Limsathya
   * @INFO
   * Please mention Him / Milrato Development, when using this Code!
   * @INFO

@@ -1,7 +1,7 @@
 const {MessageEmbed} = require("discord.js");
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const { parseMilliseconds, duration, GetUser } = require("../../handlers/functions")
 module.exports = {
   name: "addmoney",
@@ -15,14 +15,14 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+        .setTitle(`You are not allowed to run this Command`)
         .setDescription(`You need to be one of those guys: ${config.ownerIDS.map(id => `<@${id}>`)}`)
       );
     if(!client.settings.get(message.guild.id, "ECONOMY")){
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -34,7 +34,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<:no:833101993668771842> You didn't pinged to whom you want to pay`)
+        .setTitle(`You didn't pinged to whom you want to pay`)
         .setDescription(`Usage: \`${prefix}addmoney <@USER> <Amount>\`\n\n\Example: \`${prefix}addmoney <@442355791412854784> 42069\``)
       );
     topay = topay.user;
@@ -43,10 +43,10 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<:no:833101993668771842> You didn't add the payamount`)
+        .setTitle(`You didn't add the payamount`)
         .setDescription(`Usage: \`${prefix}addmoney <@USER> <Amount>\`\n\n\Example: \`${prefix}addmoney <@442355791412854784> 42069\``)
       );
-    if(user.bot || topay.bot) return message.reply("<:no:833101993668771842> **A Discord Bot can not have Economy!**")
+    if(user.bot || topay.bot) return message.reply("**A Discord Bot can not have Economy!**")
     client.economy.ensure(`${message.guild.id}-${user.id}`, {
       user: user.id,
       work: 0,
@@ -88,7 +88,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-        .setTitle(`<:no:833101993668771842> You can't add a negative Amount of Money or no Money, to ${topay}`)
+        .setTitle(`You can't add a negative Amount of Money or no Money, to ${topay}`)
       );
     
   
@@ -98,7 +98,7 @@ module.exports = {
     return message.reply(new MessageEmbed()
       .setColor(es.color)
       .setFooter(user.tag, user.displayAvatarURL({dynamic: true}))
-      .setTitle(`<:yes:833101995723194437> **You added \`${payamount} 💸\` to \`${topay.tag}\`**`)
+      .setTitle(`**You added \`${payamount} 💸\` to \`${topay.tag}\`**`)
       .setDescription(`👛 **${topay.username}** now has \`${Math.floor(data2.balance)} 💸\` in his/her Pocket`)
     );
   } catch (e) {
@@ -106,7 +106,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<:no:833101993668771842> An error occurred`)
+      .setTitle(`An error occurred`)
       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
     );
   }
@@ -114,9 +114,9 @@ module.exports = {
 };
 /**
 * @INFO
-* Bot Coded by Limsathya
+* Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
 * @INFO
-* Work for Milrato Development | https://xg-bot.netlify.app
+* Work for Milrato Development | https://Limsathya
 * @INFO
 * Please mention Him / Milrato Development, when using this Code!
 * @INFO

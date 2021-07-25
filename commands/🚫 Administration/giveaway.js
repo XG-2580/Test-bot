@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require("discord.js");
-const config = require("../../botconfig/config.json")
+const config = require("../.config.json")
 const ms = require("ms");
 const {
     databasing
@@ -181,7 +181,7 @@ module.exports = {
                     noWinner: 'Giveaway cancelled, no valid participations.',
                     hostedBy: 'Hosted by: {user}',
                     winners: giveawayNumberWinners == 1 ? 'Winner' : "Winners",
-                    before_winners: "<:arrow:832598861813776394>",
+                    before_winners: "",
                     endedAt: 'Ended at',
                     units: {
                         seconds: 'Seconds',
@@ -193,12 +193,12 @@ module.exports = {
                 }
             });
 
-            message.reply(`<:yes:833101995723194437> **Started the Giveaway in:** ${giveawayChannel}!`);
+            message.reply(`**Started the Giveaway in:** ${giveawayChannel}!`);
             // And the giveaway has started!
         } else if (args[0].toLowerCase() === "end") {
             args.shift();
             if (!args[0]) {
-                return message.channel.send(`<:no:833101993668771842> You have to specify a valid message ID! Usage: \`${prefix}giveaway end <ID>\``);
+                return message.channel.send(`You have to specify a valid message ID! Usage: \`${prefix}giveaway end <ID>\``);
             }
             let giveaway = client.giveawaysManager.giveaways.find((g) => g.prize === args.join(' ')) ||
                 client.giveawaysManager.giveaways.find((g) => g.messageID === args[0]);
@@ -224,7 +224,7 @@ module.exports = {
         } else if (args[0].toLowerCase() === "reroll") {
             args.shift();
             if (!args[0]) {
-                return message.channel.send(`<:no:833101993668771842> You have to specify a valid message ID! Usage: \`${prefix}giveaway edit <ID>\``);
+                return message.channel.send(`You have to specify a valid message ID! Usage: \`${prefix}giveaway edit <ID>\``);
             }
             let giveaway =
                 client.giveawaysManager.giveaways.find((g) => g.prize === args.join(' ')) ||
@@ -234,14 +234,14 @@ module.exports = {
             }
             client.giveawaysManager.reroll(giveaway.messageID, { winnerCount: !isNan(args[1]) ? Number(args[1]) : 1})
                 .then(() => {
-                    message.channel.send('<:yes:833101995723194437> **Giveaway rerolled!**');
+                    message.channel.send('**Giveaway rerolled!**');
                 })
                 .catch((e) => {
                     if (e.startsWith(`Giveaway with message ID ${giveaway.messageID} is not ended.`)) {
-                        message.channel.send('<:no:833101993668771842> **This giveaway is not ended!**');
+                        message.channel.send('**This giveaway is not ended!**');
                     } else {
                         console.error(e);
-                        message.channel.send('<:no:833101993668771842> **An error occured...**```' + String(e.message).substr(0, 1900) + "```");
+                        message.channel.send('**An error occured...**```' + String(e.message).substr(0, 1900) + "```");
                     }
                 });
 
@@ -250,11 +250,11 @@ module.exports = {
             args.shift();
             let messageID = args[0];
             if (!messageID) {
-                return message.channel.send(`<:no:833101993668771842> **You have to specify a valid messageID! Usage: \`${prefix}giveaway edit <ID> <PRIZE>\`**`);
+                return message.channel.send(`**You have to specify a valid messageID! Usage: \`${prefix}giveaway edit <ID> <PRIZE>\`**`);
             }
             let giveawayPrize = args.slice(1).join(' ');
             if (!giveawayPrize) {
-                return message.channel.send(`<:no:833101993668771842> **You have to specify a valid prize! Usage: \`${prefix}giveaway edit <ID> <PRIZE>\`**`);
+                return message.channel.send(`**You have to specify a valid prize! Usage: \`${prefix}giveaway edit <ID> <PRIZE>\`**`);
             }
             client.giveawaysManager.edit(messageID, {
                 newWinnerCount: 3,
@@ -263,25 +263,25 @@ module.exports = {
             }).then(() => {
                 // here, we can calculate the time after which we are sure that the lib will update the giveaway
                 const numberOfSecondsMax = client.giveawaysManager.options.updateCountdownEvery / 1000;
-                message.channel.send('<:yes:833101995723194437> <:yes:833101995723194437> Success! Giveaway will updated in less than ' + numberOfSecondsMax + ' seconds.**');
+                message.channel.send('Success! Giveaway will updated in less than ' + numberOfSecondsMax + ' seconds.**');
             }).catch((err) => {
-                message.channel.send('<:no:833101993668771842> **No giveaway found for ' + messageID + ', please check and try again**');
+                message.channel.send('**No giveaway found for ' + messageID + ', please check and try again**');
             });
         } else if (args[0].toLowerCase() === "delete") {
             args.shift();
             let messageID = args[0];
             if (!messageID) {
-                return message.channel.send(`<:no:833101993668771842> Y**ou have to specify a valid messageID! Usage: \`${prefix}giveaway delete <ID>\`**`);
+                return message.channel.send(`Y**ou have to specify a valid messageID! Usage: \`${prefix}giveaway delete <ID>\`**`);
             }
             client.giveawaysManager.delete(messageID).then(() => {
-                    message.channel.send('<:yes:833101995723194437> **Success! Giveaway deleted!**');
+                    message.channel.send('**Success! Giveaway deleted!**');
                 })
                 .catch((err) => {
-                    message.channel.send('<:no:833101993668771842> **No giveaway found for ' + messageID + ', please check and try again**');
+                    message.channel.send('**No giveaway found for ' + messageID + ', please check and try again**');
                 });
         } else if (args[0].toLowerCase() === "list") {
             args.shift();
-            if (!args[0]) return message.reply(`<:no:833101993668771842> **You did not enter a valid Parameter! Usage: \`${prefix}giveaway list <all/server>\`**`)
+            if (!args[0]) return message.reply(`**You did not enter a valid Parameter! Usage: \`${prefix}giveaway list <all/server>\`**`)
             if (args[0].toLowerCase() === "server") {
                 let onServer = client.giveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended);
                 let embed = new Discord.MessageEmbed().setColor(es.color).setThumbnail(es.thumb ? es.footericon : null).setTitle("All not ended Giveaways!")

@@ -1,10 +1,10 @@
 const {
   MessageEmbed
 } = require(`discord.js`);
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
-const radios = require(`../../botconfig/radiostations.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
+const radios = require(`../../base-system/radiostations.json`);
 const playermanager = require(`../../handlers/playermanager`);
 const RadioBrowser = require('radio-browser')
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -28,12 +28,12 @@ module.exports = {
       //if no args send all stations
       if (!args[0]) return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> What should be the search Type`)
+        .setTitle(`What should be the search Type`)
         .setDescription(`Useage: \`${prefix}searchradio <TYPE> <Seach Query>\`\nValid Types: \`country\`, \`city\`, \`name\`, \`genre\`\nExample: \`${prefix}searchradio tag jazz\`\nExample: \`${prefix}searchradio state Austria\``)
       );
       if (!args[1]) return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> What should I search for?`)
+        .setTitle(`What should I search for?`)
         .setDescription(`Useage: \`${prefix}searchradio <TYPE> <Seach Query>\`\nValid Types: \`country\`, \`city\`, \`name\`, \`genre\`\nExample: \`${prefix}searchradio tag jazz\`\nExample: \`${prefix}searchradio state Austria\``)
       );
 
@@ -78,7 +78,7 @@ module.exports = {
       }
       if (!filter) return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> What should be the search Type`)
+        .setTitle(`What should be the search Type`)
         .setDescription(`Useage: \`${prefix}searchradio <TYPE> <Seach Query>\`\nValid Types: \`country\`, \`city\`, \`name\`, \`genre\`\nExample: \`${prefix}searchradio tag jazz\`\nExample: \`${prefix}searchradio state Austria\``)
       );
 
@@ -122,7 +122,7 @@ module.exports = {
           } catch (e) {
             if (!player.queue.current) player.destroy();
             return message.channel.send(new MessageEmbed()
-              .setTitle("<:no:833101993668771842> You didn't provide a selection")
+              .setTitle("You didn't provide a selection")
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
             );
@@ -133,7 +133,7 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
-              .setTitle('<:no:833101993668771842> Cancelled selection.')
+              .setTitle('Cancelled selection.')
             );
           }
           const index = Number(first) - 1;
@@ -141,13 +141,13 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
-              .setTitle(`<:no:833101993668771842> The number you provided is not a Number within (1-${counter}).`)
+              .setTitle(`The number you provided is not a Number within (1-${counter}).`)
             );
           if (index < 0 || index > counter - 1)
             return message.channel.send(new MessageEmbed()
               .setColor(es.wrongcolor)
               .setFooter(es.footertext, es.footericon)
-              .setTitle(`<:no:833101993668771842> The number you provided too small or too big (1-${counter}).`)
+              .setTitle(`The number you provided too small or too big (1-${counter}).`)
             );
 
           playermanager(client, message, Array(data[index].url), `song:radio`);
@@ -158,7 +158,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> An error occurred`)
+            .setTitle(`An error occurred`)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
           );
         })
@@ -167,18 +167,10 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> An error occurred`)
+          .setTitle(`An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

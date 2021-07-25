@@ -1,12 +1,12 @@
 const {
     MessageEmbed
 } = require(`discord.js`);
-const config = require(`../../botconfig/config.json`);
+const config = require(`../.config.json`);
 const {
     KSoftClient
 } = require(`@ksoft/api`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const lyricsFinder = require(`lyrics-finder`);
 const {
     format,
@@ -31,7 +31,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -66,7 +66,7 @@ module.exports = {
                             return message.channel.send(new MessageEmbed()
                                 .setColor(es.wrongcolor)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<:no:833101993668771842> No Lyrics found for:`)
+                                .setTitle(`No Lyrics found for:`)
                             );
                         //safe the lyrics on the temp. variable
                         lyrics = track.lyrics;
@@ -81,7 +81,7 @@ module.exports = {
                             return message.channel.send(new MessageEmbed()
                                 .setColor(es.wrongcolor)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<:no:833101993668771842> No Lyrics found for:`)
+                                .setTitle(`No Lyrics found for:`)
                             );
                         //catch any errors
                     } catch (e) {
@@ -90,7 +90,7 @@ module.exports = {
                         return message.channel.send(new MessageEmbed()
                             .setColor(es.wrongcolor)
                             .setFooter(es.footertext, es.footericon)
-                            .setTitle(`<:no:833101993668771842> No Lyrics found for:`)
+                            .setTitle(`No Lyrics found for:`)
                         );
                     }
                 }
@@ -116,18 +116,10 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> An error occurred`)
+            .setTitle(`An error occurred`)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
         }
     }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

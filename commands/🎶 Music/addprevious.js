@@ -2,9 +2,9 @@ const Discord = require(`discord.js`);
 const {
   MessageEmbed
 } = require(`discord.js`);
-const config = require("../../botconfig/config.json");
-const emoji = require(`../../botconfig/emojis.json`);
-var ee = require("../../botconfig/embed.json");
+const config = require("../.config.json");
+const emoji = require(`../../base-system/emoji.json`);
+var ee = require("../../base-system/embed.json");
 const playermanager = require(`../../handlers/playermanager`);
 module.exports = {
   name: `addprevious`,
@@ -19,7 +19,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -35,19 +35,11 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> An error occurred`)
+          .setTitle(`An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
 
     }
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

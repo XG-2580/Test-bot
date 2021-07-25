@@ -1,7 +1,7 @@
 //import the config.json file
-const config = require("../botconfig/config.json")
-var ee = require(`../botconfig/embed.json`);
-var emoji = require(`../botconfig/emojis.json`);
+const config = require(".config.json")
+var ee = require(`../base-system/embed.json`);
+var emoji = require(`../base-system/emoji.json`);
 var {
     MessageEmbed
 } = require(`discord.js`);
@@ -119,7 +119,7 @@ module.exports = client => {
                             message.channel.send(new MessageEmbed()
                                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<:yes:833101995723194437> \`${member.user.tag}\` got **MUTED** for \`10 Minutes\``)
+                                .setTitle(`\`${member.user.tag}\` got **MUTED** for \`10 Minutes\``)
                                 .setDescription(`Reason:\n> ${reason ? `${reason.substr(0, 1800)}` : `NO REASON`}`)
                             );
                             countermap.set(message.author.id, 1)
@@ -128,7 +128,7 @@ module.exports = client => {
                                   message.channel.send(new MessageEmbed()
                                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                                     .setFooter(es.footertext, es.footericon)
-                                    .setTitle(`<:yes:833101995723194437> \`${member.user.tag}\` got **UNMUTED** after\`${ms(mutetime, { long: true })}\``)
+                                    .setTitle(`\`${member.user.tag}\` got **UNMUTED** after\`${ms(mutetime, { long: true })}\``)
                                     .setDescription(`Reason:\n> ${reason ? `${reason.substr(0, 1800)}` : `NO REASON`}`)
                                   );
                                   member.roles.remove(mutedrole);
@@ -141,7 +141,7 @@ module.exports = client => {
                             return message.channel.send(new MessageEmbed()
                                 .setColor(es.wrongcolor)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<:no:833101993668771842> You are not allowed to send Discord related Links in this Channel`)
+                                .setTitle(`You are not allowed to send Discord related Links in this Channel`)
                             ).then(msg => msg.delete({
                                 timeout: 3000
                             }).catch(e => console.log("PREVENT BUG")))
@@ -158,7 +158,7 @@ module.exports = client => {
                 return message.channel.send(new MessageEmbed()
                     .setColor(es.wrongcolor)
                     .setFooter(es.footertext, es.footericon)
-                    .setTitle(`<:no:833101993668771842> Something went Wrong`)
+                    .setTitle(`Something went Wrong`)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                 );
             }

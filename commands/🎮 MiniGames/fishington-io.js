@@ -2,9 +2,9 @@ const {
     MessageEmbed,
     MessageAttachment
   } = require("discord.js");
-  const config = require("../../botconfig/config.json");
-  var ee = require("../../botconfig/embed.json");
-  const emoji = require(`../../botconfig/emojis.json`);
+  const config = require("../.config.json");
+  var ee = require("../../base-system/embed.json");
+  const emoji = require(`../../base-system/emoji.json`);
   const fetch = require("node-fetch");
   module.exports = {
     name: "fishington-io",
@@ -26,7 +26,7 @@ const {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -35,7 +35,7 @@ const {
         if (!channel) return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<:no:833101993668771842> Error | Please join a Voice Channel first")
+            .setTitle("Error | Please join a Voice Channel first")
         );
         if (!channel.permissionsFor(message.guild.me).has("CREATE_INSTANT_INVITE")) {
           const nochannel = new MessageEmbed()
@@ -75,7 +75,7 @@ const {
             return message.channel.send(new Discord.MessageEmbed()
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle(`<:no:833101993668771842> An error occurred`)
+                .setTitle(`An error occurred`)
                 .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
             );
         }

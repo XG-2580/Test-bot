@@ -1,8 +1,8 @@
 var {
   MessageEmbed
 } = require("discord.js")
-var ee = require("../../botconfig/embed.json")
-var config = require("../../botconfig/config.json")
+var ee = require("../../base-system/embed.json")
+var config = require("../.config.json")
 var {
   format,
   delay,
@@ -46,7 +46,7 @@ async function search(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<:no:833101993668771842> There was an error while searching:`)
+        .setTitle(`There was an error while searching:`)
         .setDescription(`\`\`\`${e.message}\`\`\``)
       );
     }
@@ -88,7 +88,7 @@ async function search(client, message, args, type) {
       if (!player.queue.current) player.destroy();
       toreact.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
       return message.channel.send(new MessageEmbed()
-        .setTitle("<:no:833101993668771842> You didn't provide a selection")
+        .setTitle("You didn't provide a selection")
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
       );
@@ -100,7 +100,7 @@ async function search(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle('<:no:833101993668771842> Cancelled selection.')
+        .setTitle('Cancelled selection.')
       );
     }
     const emojis = {
@@ -121,14 +121,14 @@ async function search(client, message, args, type) {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<:no:833101993668771842> The number you provided too small or too big (1-${max}).`)
+        .setTitle(`The number you provided too small or too big (1-${max}).`)
       );
     track = res.tracks[index];
     if (!res.tracks[0])
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+        .setTitle(String("Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
         .setDescription(`Please retry!`)
       );
     if (player.state !== "CONNECTED") {
@@ -175,18 +175,10 @@ async function search(client, message, args, type) {
     message.channel.send(new MessageEmbed()
       .setColor(ee.wrongcolor)
       .setFooter(ee.footertext, ee.footericon)
-      .setTitle(String("<:no:833101993668771842> Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+      .setTitle(String("Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
     )
   }
 }
 
 module.exports = search;
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

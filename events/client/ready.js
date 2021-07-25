@@ -1,5 +1,5 @@
 //here the event starts
-const config = require("../../botconfig/config.json")
+const config = require("../.config.json")
 module.exports = client => {
   //SETTING ALL GUILD DATA FOR THE DJ ONLY COMMANDS for the DEFAULT
   //client.guilds.cache.forEach(guild=>client.settings.set(guild.id, ["autoplay", "clearqueue", "forward", "loop", "jump", "loopqueue", "loopsong", "move", "pause", "resume", "removetrack", "removedupe", "restart", "rewind", "seek", "shuffle", "skip", "stop", "volume"], "djonlycmds"))
@@ -39,12 +39,4 @@ function change_status(client){
     }, 45 * 1000);
   }
 }
-/**
-  * @INFO
-  * Bot Coded by Limsathya
-  * @INFO
-  * Work for Milrato Development | https://xg-bot.netlify.app
-  * @INFO
-  * Please mention Him / Milrato Development, when using this Code!
-  * @INFO
-*/
+

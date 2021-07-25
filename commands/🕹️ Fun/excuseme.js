@@ -2,8 +2,8 @@
   MessageEmbed,
   MessageAttachment
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
 
 
 
@@ -20,7 +20,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -33,7 +33,7 @@ module.exports = {
       var text = args.join(" ");
       //If no text added, return error
       if(!text) return tempmsg.edit(tempmsg.embeds[0]
-        .setTitle("<:no:833101993668771842> You did not enter a Valid Text!")
+        .setTitle("You did not enter a Valid Text!")
         .setColor("RED")
         .setDescription(`Useage: \`${prefix}excuseme <TEXT>\``)
       ).catch(e => console.log("Couldn't delete msg, this is for preventing a bug".gray))
@@ -54,12 +54,4 @@ module.exports = {
       
   }
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

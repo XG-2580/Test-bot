@@ -2,9 +2,9 @@ const {
   MessageEmbed,
   Collection
 } = require("discord.js")
-const config = require("../botconfig/config.json");
-const kernelsettings = require("../botconfig/settings.json");
-const ee = require("../botconfig/embed.json");
+const config = require(".config.json");
+const kernelsettings = require("../base-system/settings.json");
+const ee = require("../base-system/embed.json");
 const {
   databasing,
   check_voice_channels,
@@ -197,12 +197,4 @@ module.exports = function (client) {
 
 }
 
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

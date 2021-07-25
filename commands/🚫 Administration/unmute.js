@@ -1,6 +1,6 @@
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const ms = require(`ms`);
 const {
   MessageEmbed
@@ -21,7 +21,7 @@ module.exports = {
       if(!message.guild.me.hasPermission("MANAGE_ROLES"))      
       return message.channel.send(new Discord.MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle("<:no:833101993668771842> I am missing the permission to `MANAGE ROLES`!")
+        .setTitle("I am missing the permission to `MANAGE ROLES`!")
       )
       let adminroles = client.settings.get(message.guild.id, "adminroles")
       let cmdroles = client.settings.get(message.guild.id, "cmdadminroles.unmute")
@@ -45,7 +45,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first();
@@ -53,7 +53,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> please ping a USER!`)
+          .setTitle(`please ping a USER!`)
           .setDescription(` Usage: \`${prefix}unmute @User\`\n\nExample: \`${prefix}unmute @User\``)
         );
       args.shift();
@@ -61,7 +61,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> I cannot mute this Member, because he is higher/Equal to your Rang Position!`)
+          .setTitle(`I cannot mute this Member, because he is higher/Equal to your Rang Position!`)
         );
 
       let allguildroles = message.guild.roles.cache.array();
@@ -76,14 +76,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You never muted someone, there is no muted role yet!`)
+          .setTitle(`You never muted someone, there is no muted role yet!`)
         );
       }
       if (mutedrole.position > message.guild.me.roles.highest.position) {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> I cannot access the Role, because it's above me!`)
+          .setTitle(`I cannot access the Role, because it's above me!`)
         );
       }
       try {
@@ -92,19 +92,19 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> please add a TIME!`)
+          .setTitle(`please add a TIME!`)
           .setDescription(` Usage: \`${prefix}mute @User <Time+Format(e.g: 10m)> [REASON]\`\n\nExample: \`${prefix}mute @User 10m He is doing bad stuff!\``)
         );
       }
       message.channel.send(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:yes:833101995723194437> \`${member.user.tag}\` got **UNMUTED**`)
+        .setTitle(`\`${member.user.tag}\` got **UNMUTED**`)
       );
       member.send(new MessageEmbed()
         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:yes:833101995723194437> \`${message.author.tag}\` unmited`)
+        .setTitle(`\`${message.author.tag}\` unmited`)
       );
 
       if(client.settings.get(message.guild.id, `adminlog`) != "no"){
@@ -127,18 +127,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

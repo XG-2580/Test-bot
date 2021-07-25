@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing,
   isValidURL
@@ -40,7 +40,7 @@ module.exports = {
         tempmsg.react("2️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -64,7 +64,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -104,7 +104,7 @@ module.exports = {
           tempmsg.react("5️⃣")
         } catch (e) {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -139,14 +139,14 @@ module.exports = {
                     try {
                       client.settings.set(message.guild.id, channel.id, "leave.channel")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> The new leave Cannel is: \`${channel.name}\``)
+                        .setTitle(`The new leave Cannel is: \`${channel.name}\``)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "Not defined yet"}!\nEdit the message with: \`${prefix}setup-leave  --> Pick 1️⃣ --> Pick 4️⃣\``.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -161,7 +161,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -173,14 +173,14 @@ module.exports = {
               try {
                 client.settings.set(reaction.message.guild.id, "nochannel", "leave.channel")
                 return reaction.message.channel.send(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> Disabled the leave **Message**`)
+                  .setTitle(`Disabled the leave **Message**`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`If Someone joins this Server, no message will be sent into a Channel!\nSet a Channel with: \`${prefix}setup-leave\` --> Pick 1️⃣ --> Pick 1️⃣`.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -230,7 +230,7 @@ module.exports = {
                 tempmsg.react("⬜")
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                  .setTitle("ERROR | Missing Permissions to add Reactions")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -250,14 +250,14 @@ module.exports = {
                     try {
                       client.settings.set(message.guild.id, false, "leave.image")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> I will now send no Image with the leave Message`)
+                        .setTitle(`I will now send no Image with the leave Message`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with__out__ an image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -270,14 +270,14 @@ module.exports = {
                     try {
                       client.settings.set(message.guild.id, true, "leave.image")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> I will now send an Image with the leave Message`)
+                        .setTitle(`I will now send an Image with the leave Message`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.custom") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }\n\nIf Someone joins this Server, a message **with an image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -306,14 +306,14 @@ module.exports = {
                             client.settings.set(message.guild.id, "no", "leave.custom")
                             client.settings.set(message.guild.id, url, "leave.background")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom Background image`)
+                              .setTitle(`I will now use your Custom Background image`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.custom") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }\n\nIf Someone joins this Server, a message **with an image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | Your Attachment is not a valid Image!")
+                              .setTitle("Error | Your Attachment is not a valid Image!")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -324,14 +324,14 @@ module.exports = {
                             client.settings.set(message.guild.id, "no", "leave.custom")
                             client.settings.set(message.guild.id, url, "leave.background")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom Background image`)
+                              .setTitle(`I will now use your Custom Background image`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.custom") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }\n\nIf Someone joins this Server, a message **with an image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | You didn't entered a valid Link!")
+                              .setTitle("Error | You didn't entered a valid Link!")
                               .setDescription("Please retry the whole process")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
@@ -352,7 +352,7 @@ module.exports = {
                       })
                     if (timeouterror)
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -365,14 +365,14 @@ module.exports = {
                       client.settings.set(message.guild.id, true, "leave.image")
                       client.settings.get(message.guild.id, "transparent", "leave.background")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> I will now send an Auto generated Image with an transparent Background, including your Guild Avatar`)
+                        .setTitle(`I will now send an Auto generated Image with an transparent Background, including your Guild Avatar`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -398,14 +398,14 @@ module.exports = {
                           if (collected.first().attachments.every(attachIsImage)) {
                             client.settings.set(message.guild.id, url, "leave.custom")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom image`)
+                              .setTitle(`I will now use your Custom image`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.custom") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }\n\nIf Someone joins this Server, a message **with an image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | Your Attachment is not a valid Image!")
+                              .setTitle("Error | Your Attachment is not a valid Image!")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -415,14 +415,14 @@ module.exports = {
                             url = collected.first().content;
                             client.settings.set(message.guild.id, url, "leave.custom")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom Image`)
+                              .setTitle(`I will now use your Custom Image`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.custom") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }\n\nIf Someone joins this Server, a message **with an image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | You didn't entered a valid Link!")
+                              .setTitle("Error | You didn't entered a valid Link!")
                               .setDescription("Please retry the whole process")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
@@ -443,7 +443,7 @@ module.exports = {
                       })
                     if (timeouterror)
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -456,14 +456,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.custom")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.frame"), "leave.frame")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.frame") ? "Enabled the Frame for the Automated leave Image" : "Disabled the Frame for the Automated leave Image"}`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.frame") ? "Enabled the Frame for the Automated leave Image" : "Disabled the Frame for the Automated leave Image"}`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -477,14 +477,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.custom")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.discriminator"), "leave.discriminator")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.discriminator") ? "Enabled the Discrimantor (4 Numbers with #) for the Automated leave Image" : "Disabled the Discrimantor (4 Numbers with #) for the Automated leave Image"}`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.discriminator") ? "Enabled the Discrimantor (4 Numbers with #) for the Automated leave Image" : "Disabled the Discrimantor (4 Numbers with #) for the Automated leave Image"}`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -498,14 +498,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.custom")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.membercount"), "leave.membercount")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.membercount") ? "Enabled the MemberCount Text for the Automated leave Image" : "Disabled the MemberCount Text for the Automated leave Image"}`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.membercount") ? "Enabled the MemberCount Text for the Automated leave Image" : "Disabled the MemberCount Text for the Automated leave Image"}`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -519,14 +519,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.custom")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.servername"), "leave.servername")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.servername") ? "Enabled Servername Text Frame for the Automated leave Image" : "Disabled the Servername Text for the Automated leave Image"}`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.servername") ? "Enabled Servername Text Frame for the Automated leave Image" : "Disabled the Servername Text for the Automated leave Image"}`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -540,14 +540,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.custom")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.pb"), "leave.pb")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.pb") ? "Enabled Profile Picture for the Automated leave Image" : "Disabled Profile Picture for the Automated leave Image"}`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.pb") ? "Enabled Profile Picture for the Automated leave Image" : "Disabled Profile Picture for the Automated leave Image"}`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -575,7 +575,7 @@ module.exports = {
                       tempmsg.react("⬛")
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                        .setTitle("ERROR | Missing Permissions to add Reactions")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -601,14 +601,14 @@ module.exports = {
                         try {
                           client.settings.set(message.guild.id, color, "leave.framecolor")
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle(`<:yes:833101995723194437> CHANGED THE COLOR FOR THE FRAME`)
+                            .setTitle(`CHANGED THE COLOR FOR THE FRAME`)
                             .setColor(color)
                             .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                             .setFooter(es.footertext, es.footericon)
                           );
                         } catch (e) {
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                            .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                             .setColor(es.wrongcolor)
                             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                             .setFooter(es.footertext, es.footericon)
@@ -621,7 +621,7 @@ module.exports = {
                       })
                     if (timeouterror)
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -633,7 +633,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -658,14 +658,14 @@ module.exports = {
                   try {
                     client.settings.set(message.guild.id, message.content, "leave.msg")
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:yes:833101995723194437> The new leave Message is:`)
+                      .setTitle(`The new leave Message is:`)
                       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                       .setDescription(`If Someone joins this Server, this message will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL YET"}!\n\n${message.content.replace("{user}", message.author)}`.substr(0, 2048))
                       .setFooter(es.footertext, es.footericon)
                     );
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                      .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                       .setColor(es.wrongcolor)
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                       .setFooter(es.footertext, es.footericon)
@@ -677,7 +677,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -689,14 +689,14 @@ module.exports = {
               try {
                 cclient.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.invite"), "leave.invite")
                 return reaction.message.channel.send(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.invite") ? "Enabled Invite Information" : "Disabled INvite INformation"}`)
+                  .setTitle(`${client.settings.get(message.guild.id, "leave.invite") ? "Enabled Invite Information" : "Disabled INvite INformation"}`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`If Someone joins this Server, a message with Invite Information will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "Not defined yet"}!\nEdit the message with: \`${prefix}setup-leave  --> Pick 1️⃣ --> Pick 4️⃣\``.substr(0, 2048))
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -709,7 +709,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -760,7 +760,7 @@ module.exports = {
           tempmsg.react("5️⃣")
         } catch (e) {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -779,13 +779,13 @@ module.exports = {
               try {
                 client.settings.set(message.guild.id, true, "leave.dm")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> I will now send leave-Messages to a new User in his DMS`)
+                  .setTitle(`I will now send leave-Messages to a new User in his DMS`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -797,13 +797,13 @@ module.exports = {
               try {
                 client.settings.set(message.guild.id, false, "leave.dm")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> I will now send **NO** leave-Messages to a new User in his DMS`)
+                  .setTitle(`I will now send **NO** leave-Messages to a new User in his DMS`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -851,7 +851,7 @@ module.exports = {
                 tempmsg.react("⬜")
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                  .setTitle("ERROR | Missing Permissions to add Reactions")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -871,13 +871,13 @@ module.exports = {
                     try {
                       client.settings.set(message.guild.id, false, "leave.imagedm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> I will now send no Image with the leave Message (DM)`)
+                        .setTitle(`I will now send no Image with the leave Message (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -890,13 +890,13 @@ module.exports = {
                     try {
                       client.settings.set(message.guild.id, true, "leave.imagedm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> I will now send an Image with the leave Message (DM)`)
+                        .setTitle(`I will now send an Image with the leave Message (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -925,14 +925,14 @@ module.exports = {
                             client.settings.set(message.guild.id, "no", "leave.customdm")
                             client.settings.set(message.guild.id, url, "leave.backgrounddm")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom Background image (dm)`)
+                              .setTitle(`I will now use your Custom Background image (dm)`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.customdm") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | Your Attachment is not a valid Image!")
+                              .setTitle("Error | Your Attachment is not a valid Image!")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -943,14 +943,14 @@ module.exports = {
                             client.settings.set(message.guild.id, "no", "leave.customdm")
                             client.settings.set(message.guild.id, url, "leave.backgrounddm")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom Background image`)
+                              .setTitle(`I will now use your Custom Background image`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.customdm") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | You didn't entered a valid Link!")
+                              .setTitle("Error | You didn't entered a valid Link!")
                               .setDescription("Please retry the whole process")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
@@ -971,7 +971,7 @@ module.exports = {
                       })
                     if (timeouterror)
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -984,13 +984,13 @@ module.exports = {
                       client.settings.set(message.guild.id, true, "leave.imagedm")
                       client.settings.get(message.guild.id, "transparent", "leave.backgrounddm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> I will now send an Auto generated Image with an transparent Background, including your Guild Avatar (DM)`)
+                        .setTitle(`I will now send an Auto generated Image with an transparent Background, including your Guild Avatar (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1016,14 +1016,14 @@ module.exports = {
                           if (collected.first().attachments.every(attachIsImage)) {
                             client.settings.set(message.guild.id, url, "leave.customdm")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom image (DM)`)
+                              .setTitle(`I will now use your Custom image (DM)`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.customdm") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | Your Attachment is not a valid Image!")
+                              .setTitle("Error | Your Attachment is not a valid Image!")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -1033,14 +1033,14 @@ module.exports = {
                             url = collected.first().content;
                             client.settings.set(message.guild.id, url, "leave.customdm")
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> I will now use your Custom Image (DM)`)
+                              .setTitle(`I will now use your Custom Image (DM)`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setDescription(`I will be using ${client.settings.get(message.guild.id, "leave.customdm") === "no" ? "an Auto generated Image with User Data": "Your defined, custom Image" }`.substr(0, 2048))
                               .setFooter(es.footertext, es.footericon)
                             );
                           } else {
                             return reaction.message.channel.send(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> Error | You didn't entered a valid Link!")
+                              .setTitle("Error | You didn't entered a valid Link!")
                               .setDescription("Please retry the whole process")
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
@@ -1061,7 +1061,7 @@ module.exports = {
                       })
                     if (timeouterror)
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -1074,13 +1074,13 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.customdm")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.framedm"), "leave.framedm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.framedm") ? "Enabled the Frame for the Automated leave Image" : "Disabled the Frame for the Automated leave Image"} (DM)`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.framedm") ? "Enabled the Frame for the Automated leave Image" : "Disabled the Frame for the Automated leave Image"} (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1094,14 +1094,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.customdm")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.discriminatordm"), "leave.discriminatordm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.discriminatordm") ? "Enabled the Discrimantor (4 Numbers with #) for the Automated leave Image" : "Disabled the Discrimantor (4 Numbers with #) for the Automated leave Image"} (DM)`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.discriminatordm") ? "Enabled the Discrimantor (4 Numbers with #) for the Automated leave Image" : "Disabled the Discrimantor (4 Numbers with #) for the Automated leave Image"} (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1115,14 +1115,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.customdm")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.membercountdm"), "leave.membercountdm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.membercountdm") ? "Enabled the MemberCount Text for the Automated leave Image" : "Disabled the MemberCount Textthe Automated leave Image"} (DM)`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.membercountdm") ? "Enabled the MemberCount Text for the Automated leave Image" : "Disabled the MemberCount Textthe Automated leave Image"} (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1136,14 +1136,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.customdm")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.servernamedm"), "leave.servernamedm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.servernamedm") ? "Enabled Servername Text Frame for the Automated leave Image" : "Disabled the Servername Text for the Automated leave Image"} (DM)`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.servernamedm") ? "Enabled Servername Text Frame for the Automated leave Image" : "Disabled the Servername Text for the Automated leave Image"} (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1157,14 +1157,14 @@ module.exports = {
                       client.settings.set(message.guild.id, "no", "leave.custom")
                       client.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.pbdm"), "leave.pbdm")
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.pbdm") ? "Enabled Profile Picture for the Automated leave Image" : "Disabled Profile Picture for the Automated leave Image"} (DM)`)
+                        .setTitle(`${client.settings.get(message.guild.id, "leave.pbdm") ? "Enabled Profile Picture for the Automated leave Image" : "Disabled Profile Picture for the Automated leave Image"} (DM)`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                         .setFooter(es.footertext, es.footericon)
                       );
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1193,7 +1193,7 @@ module.exports = {
                       tempmsg.react("⬛")
                     } catch (e) {
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                        .setTitle("ERROR | Missing Permissions to add Reactions")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -1219,14 +1219,14 @@ module.exports = {
                         try {
                           client.settings.set(message.guild.id, color, "leave.framecolordm")
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle(`<:yes:833101995723194437> CHANGED THE COLOR FOR THE FRAME (DM)`)
+                            .setTitle(`CHANGED THE COLOR FOR THE FRAME (DM)`)
                             .setColor(color)
                             .setDescription(`If Someone joins this Server, a message **with an automated image** will be sent into ${message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) ? message.guild.channels.cache.get(client.settings.get(message.guild.id, "leave.channel")) : "NO CHANNEL DEFINED YET"}`.substr(0, 2048))
                             .setFooter(es.footertext, es.footericon)
                           );
                         } catch (e) {
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                            .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                             .setColor(es.wrongcolor)
                             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                             .setFooter(es.footertext, es.footericon)
@@ -1239,7 +1239,7 @@ module.exports = {
                       })
                     if (timeouterror)
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -1251,7 +1251,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -1276,14 +1276,14 @@ module.exports = {
                   try {
                     client.settings.set(message.guild.id, message.content, "leave.dm_msg")
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:yes:833101995723194437> The new leave Message is: (DM)`)
+                      .setTitle(`The new leave Message is: (DM)`)
                       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                       .setDescription(`${message.content.replace("{user}", message.author)}`.substr(0, 2048))
                       .setFooter(es.footertext, es.footericon)
                     );
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                      .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                       .setColor(es.wrongcolor)
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                       .setFooter(es.footertext, es.footericon)
@@ -1295,7 +1295,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -1307,13 +1307,13 @@ module.exports = {
               try {
                 cclient.settings.set(message.guild.id, !client.settings.get(message.guild.id, "leave.invitedm"), "leave.invite")
                 return reaction.message.channel.send(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> ${client.settings.get(message.guild.id, "leave.invitedm") ? "Enabled Invite Information" : "Disabled INvite INformation"}`)
+                  .setTitle(`${client.settings.get(message.guild.id, "leave.invitedm") ? "Enabled Invite Information" : "Disabled INvite INformation"}`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -1326,7 +1326,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -1374,7 +1374,7 @@ module.exports = {
           tempmsg.react("3️⃣")
         } catch (e) {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -1407,13 +1407,13 @@ module.exports = {
                   if (role) {
                     var leaveroles = client.settings.get(message.guild.id, "leave.roles")
                     if (leaveroles.includes(role.id)) return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is already registered as an leave Role`)
+                      .setTitle(`ERROR | The role: \`${role.name}\` is already registered as an leave Role`)
                       .setColor(es.wrongcolor)
                       .setFooter(es.footertext, es.footericon)
                     );
                     client.settings.push(message.guild.id, role.id, "leave.roles");
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:yes:833101995723194437> The role: \`${role.name}\` is now registered as an leave Role`)
+                      .setTitle(`The role: \`${role.name}\` is now registered as an leave Role`)
                       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                       .setDescription(`Everyone who joins will get those Roles now:\n<@&${client.settings.get(message.guild.id, "leave.roles").join(">\n<@&")}>`.substr(0, 2048))
                       .setFooter(es.footertext, es.footericon)
@@ -1427,7 +1427,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -1452,13 +1452,13 @@ module.exports = {
                   if (role) {
                     var leaveroles = client.settings.get(message.guild.id, "leave.roles")
                     if (!leaveroles.includes(role.id)) return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:no:833101993668771842> ERROR | The role: \`${role.name}\` is not registered as an leave Role yet`)
+                      .setTitle(`ERROR | The role: \`${role.name}\` is not registered as an leave Role yet`)
                       .setColor(es.wrongcolor)
                       .setFooter(es.footertext, es.footericon)
                     );
                     client.settings.remove(message.guild.id, role.id, "leave.roles");
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle(`<:yes:833101995723194437> Remove the role: \`${role.name}\` from the leave Roles`)
+                      .setTitle(`Remove the role: \`${role.name}\` from the leave Roles`)
                       .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                       .setDescription(`Everyone who joins will get those Roles now:\n<@&${client.settings.get(message.guild.id, "leave.roles").join(">\n<@&")}>`.substr(0, 2048))
                       .setFooter(es.footertext, es.footericon)
@@ -1472,7 +1472,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -1493,7 +1493,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -1511,7 +1511,7 @@ module.exports = {
 
       } else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -1520,18 +1520,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

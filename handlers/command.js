@@ -4,7 +4,7 @@ const {
 const ascii = require("ascii-table");
 let table = new ascii("");
 table.setHeading("Command", "Load status");
-console.log("Welcome to SERVICE HANDLER /--/ By https://xg-bot.netlify.app /--/ Discord: XG#2846".yellow);
+console.log("Welcome to SERVICE HANDLER /--/ By https://Limsathya /--/ Discord: XG#2846".yellow);
 module.exports = (client) => {
   try {
     readdirSync("./commands/").forEach((dir) => {
@@ -37,7 +37,7 @@ module.exports = (client) => {
       default: {
           botsCanWin: false,
           exemptPermissions: ['MANAGE_MESSAGES', 'ADMINISTRATOR'],
-          embedColor: require("../botconfig/embed.json").color,
+          embedColor: require("../base-system/embed.json").color,
           reaction: '🎉',
           messages: {
               giveaway: '🎉 **GIVEAWAY** 🎉',
@@ -63,12 +63,4 @@ module.exports = (client) => {
   // We now have a giveawaysManager property to access the manager everywhere!
   client.giveawaysManager = manager;
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

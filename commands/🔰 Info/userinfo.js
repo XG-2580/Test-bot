@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 const moment = require('moment');
 const { GetUser, GetGlobalUser } = require("../../handlers/functions")
 const flags = {
@@ -60,7 +60,7 @@ module.exports = {
       }else{
         user = message.author;
       }
-      if(!user || user == null || user.id == null || !user.id) return message.reply("<a:Deny:863000078690811905> Could Not Find The USER")
+      if(!user || user == null || user.id == null || !user.id) return message.reply("Could Not Find The USER")
       try{
         const member = message.guild.members.cache.get(user.id);
         const roles = member.roles;
@@ -69,7 +69,7 @@ module.exports = {
         //create the EMBED
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-        embeduserinfo.setAuthor("Information about:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://xg-bot.netlify.app")
+        embeduserinfo.setAuthor("Information about:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://discord.gg/sakshyam")
         embeduserinfo.addField('**<:dot:863291467879153716> Username:**',`<@${member.user.id}>\n\`${member.user.tag}\``,true)
         embeduserinfo.addField('**<:dot:863291467879153716> ID:**',`\`${member.id}\``,true)
         embeduserinfo.addField('**<:dot:863291467879153716> Avatar:**',`[\`Link to avatar\`](${member.user.displayAvatarURL({ format: "png" })})`,true)
@@ -103,12 +103,12 @@ module.exports = {
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(user.displayAvatarURL({ dynamic: true, size: 512 }))
         embeduserinfo.setAuthor("Information about:   " + user.username + "#" + user.discriminator, user.displayAvatarURL({ dynamic: true }), "https://discord.gg/FQGXbypRf8")
-        embeduserinfo.addField('**<:arrow:832598861813776394> Username:**',`<@${user.id}>\n\`${user.tag}\``,true)
-        embeduserinfo.addField('**<:arrow:832598861813776394> ID:**',`\`${user.id}\``,true)
-        embeduserinfo.addField('**<:arrow:832598861813776394> Avatar:**',`[\`Link to avatar\`](${user.displayAvatarURL({ format: "png" })})`,true)
-        embeduserinfo.addField('**<:arrow:832598861813776394> Flags:**',`\`${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
-        embeduserinfo.addField('**<:arrow:832598861813776394> Status:**',`\`${statuses[user.presence.status]} ${user.presence.status}\``,true)
-        embeduserinfo.addField('**<:arrow:832598861813776394> Is a Bot:**',`\`${user.bot ? "✔️" : "❌"}\``,true)
+        embeduserinfo.addField('** Username:**',`<@${user.id}>\n\`${user.tag}\``,true)
+        embeduserinfo.addField('** ID:**',`\`${user.id}\``,true)
+        embeduserinfo.addField('** Avatar:**',`[\`Link to avatar\`](${user.displayAvatarURL({ format: "png" })})`,true)
+        embeduserinfo.addField('** Flags:**',`\`${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}\``,true)
+        embeduserinfo.addField('** Status:**',`\`${statuses[user.presence.status]} ${user.presence.status}\``,true)
+        embeduserinfo.addField('** Is a Bot:**',`\`${user.bot ? "✔️" : "❌"}\``,true)
         var userstatus = "Not having an activity";
         if(activity){
           if(activity.type === "CUSTOM_STATUS"){
@@ -119,8 +119,8 @@ module.exports = {
             userstatus = `\`${activity.type.toLowerCase().charAt(0).toUpperCase() + activity.type.toLowerCase().slice(1)} ${activity.name}\``
           }
         }
-        embeduserinfo.addField('**<:arrow:832598861813776394> Activity:**',`${userstatus}`)
-        embeduserinfo.addField('**<:arrow:832598861813776394> Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
+        embeduserinfo.addField('** Activity:**',`${userstatus}`)
+        embeduserinfo.addField('** Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
         embeduserinfo.setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         embeduserinfo.setFooter(es.footertext, es.footericon)
         //send the EMBED
@@ -138,12 +138,4 @@ module.exports = {
     }
   }
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

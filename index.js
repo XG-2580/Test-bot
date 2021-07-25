@@ -2,14 +2,14 @@ const Discord = require("discord.js");
 const colors = require("colors");
 const Enmap = require("enmap");
 const fs = require("fs");
-const Emoji = require("./botconfig/emojis.json")
-const config = require("./botconfig/config.json")
+const Emoji = require("./base-system/emoji.json")
+const config = require('./config.json');
 const express = require('express');
-const db = require('better-sqlite3')
+
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Bot online!')
+  res.send('Client ON')
 });
 
 app.listen(3000, () => {
@@ -28,9 +28,9 @@ const client = new Discord.Client({
   presence: {
     afk: false,
     activity: {
-      name: `${require("./botconfig/config.json").status.text}`.replace("{prefix}", require("./botconfig/config.json").prefix), 
-      type: require("./botconfig/config.json").status.type, 
-      url: require("./botconfig/config.json").status.url
+      name: `${require('config.json').status.text}`.replace("{prefix}", require('config.json').prefix), 
+      type: require('config.json').status.type, 
+      url: require('config.json').status.url
     },
     status: "online"
   }
@@ -49,7 +49,7 @@ client.adenabled = true;
 client.statusad = {
   name: `-help`,
   type: "PLAYING", 
-  url: "https://xg-bot.netlify.app"
+  url: "https://xg-bot.netlify.app/"
 };
 client.spacedot = "・";
 client.textad = "-help";
@@ -67,6 +67,15 @@ function requirehandlers(){
     try{ require(`./handlers/${handler}`)(client); }catch (e){ console.log(e) }
   });
 }requirehandlers();
+
+function requiresociallogs(){
+  client.socialhandlers = Array(
+    "twitterfeed", /*"twitterfeed2",*/ "livelog", "youtube", "tiktok"
+  );
+  client.socialhandlers.forEach(handler=>{
+    try{ require(`./social_log/${handler}`)(client); }catch (e){ console.log(e) }
+  })
+}requiresociallogs();
 
 function requireallhandlers(){
   client.allhandlers = Array(

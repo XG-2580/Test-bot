@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 const fs = require('fs');
 const fetch = require('node-fetch');
 var {
@@ -23,7 +23,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`You are not allowed to run this Command`)
           .setDescription(`You need to be one of those guys: ${config.ownerIDS.map(id => `<@${id}>`)}`)
         );
     try {
@@ -37,7 +37,7 @@ module.exports = {
           client.user.setAvatar(`./image.jpg`)
           .then(user => {
             return message.channel.send(new MessageEmbed()
-            .setTitle(`<:yes:833101995723194437> Successfully, changed the Bot avatar!`)
+            .setTitle(`Successfully, changed the Bot avatar!`)
             .setColor(es.color)
             .setFooter(es.footertext, es.footericon)
           );
@@ -46,13 +46,13 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> Something went Wrong`)
+            .setTitle(`Something went Wrong`)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
           );
           });
         } else {
           return message.channel.send(new MessageEmbed()
-            .setTitle(`<:no:833101993668771842> ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` / \`jpg\``)
+            .setTitle(`ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` / \`jpg\``)
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
           );
@@ -71,7 +71,7 @@ module.exports = {
 
           }
           return message.channel.send(new MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Successfully, changed the Bot avatar!`)
+          .setTitle(`Successfully, changed the Bot avatar!`)
           .setColor(es.color)
           .setFooter(es.footertext, es.footericon)
         );
@@ -80,14 +80,14 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> Something went Wrong`)
+          .setTitle(`Something went Wrong`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
         });
         
       } else {
         return message.channel.send(new MessageEmbed()
-            .setTitle(`<:no:833101993668771842> ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` / \`jpg\` / \`webp\``)
+            .setTitle(`ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` / \`jpg\` / \`webp\``)
             .setDescription(`Useage: \`${prefix}changeavatar <AVATARLINK/IMAGE>\``)
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
@@ -111,18 +111,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

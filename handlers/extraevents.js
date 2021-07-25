@@ -1,4 +1,4 @@
-const config = require("../botconfig/config.json")
+const config = require(".config.json")
 module.exports = client => {
     
   process.on('unhandledRejection', (reason, p) => {

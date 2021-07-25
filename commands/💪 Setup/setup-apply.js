@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require("discord.js");
 var Discord = require("discord.js");
-var config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-var emojis = require("../../botconfig/emojis.json");
+var config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+var emojis = require("../../base-system/emoji.json");
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -352,7 +352,7 @@ module.exports = {
         tempmsg.react("5️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor("RED")
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -389,7 +389,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -429,7 +429,7 @@ module.exports = {
                 errored === true
               })
             if (errored)
-              return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+              return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                 timeout: 7500
               }))
 
@@ -494,7 +494,7 @@ module.exports = {
                       }).catch(error => {
 
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                          .setTitle("ERROR | Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -668,7 +668,7 @@ module.exports = {
                                 }).catch(error => {
                                   
                                   return message.reply(new Discord.MessageEmbed()
-                                    .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                                    .setTitle("ERROR | Your Time ran out")
                                     .setColor(es.wrongcolor)
                                     .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                                     .setFooter(es.footertext, es.footericon)
@@ -703,7 +703,7 @@ module.exports = {
                                     );
                                     var guildrole = message.guild.roles.cache.get(role)
 
-                                    if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                                    if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                                       dynamic: true
                                     })))
 
@@ -731,7 +731,7 @@ module.exports = {
                                 }).catch(error => {
                                   
                                   return message.reply(new Discord.MessageEmbed()
-                                    .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                                    .setTitle("ERROR | Your Time ran out")
                                     .setColor(es.wrongcolor)
                                     .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                                     .setFooter(es.footertext, es.footericon)
@@ -742,7 +742,7 @@ module.exports = {
                           }).catch(error => {
                             
                             return message.reply(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                              .setTitle("ERROR | Your Time ran out")
                               .setColor(es.wrongcolor)
                               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                               .setFooter(es.footertext, es.footericon)
@@ -777,19 +777,19 @@ module.exports = {
                     message.channel.send(new Discord.MessageEmbed()
                       .setColor("RED")
                       .setFooter(es.footertext, es.footericon)
-                      .setTitle("<:no:833101993668771842> ERROR | INVALID INPUT | cancelled")
+                      .setTitle("ERROR | INVALID INPUT | cancelled")
                       .setDescription("Please PING A TEXT CHANNEL, thanks\nRetry...")
                     ).then(msg => msg.delete({
                       timeout: 7500
                     }))
-                    throw "<:no:833101993668771842> ERROR";
+                    throw "ERROR";
                   }
                 })
                 .catch(e => {
                   errored === true
                 })
               if (errored)
-                return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                   timeout: 7500
                 }))
 
@@ -809,19 +809,19 @@ module.exports = {
                     message.channel.send(new Discord.MessageEmbed()
                       .setColor("RED")
                       .setFooter(es.footertext, es.footericon)
-                      .setTitle("<:no:833101993668771842> ERROR | INVALID INPUT | cancelled")
+                      .setTitle("ERROR | INVALID INPUT | cancelled")
                       .setDescription("Please PING A TEXT CHANNEL, thanks\nRetry...")
                     ).then(msg => msg.delete({
                       timeout: 7500
                     }))
-                    throw "<:no:833101993668771842> ERROR";
+                    throw "ERROR";
                   }
                 })
                 .catch(e => {
                   errored === true
                 })
               if (errored)
-                return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                   timeout: 7500
                 }))
 
@@ -863,7 +863,7 @@ module.exports = {
                 errored === true
               })
               if (errored)
-                return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                   timeout: 7500
                 }))
 
@@ -1035,7 +1035,7 @@ module.exports = {
                         errored === true
                       })
                       if (errored)
-                        return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                        return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                           timeout: 7500
                         }))
 
@@ -1068,7 +1068,7 @@ module.exports = {
                           );
                           var guildrole = message.guild.roles.cache.get(role)
 
-                          if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                          if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                             dynamic: true
                           })))
 
@@ -1096,7 +1096,7 @@ module.exports = {
                         errored === true
                       })
                       if (errored)
-                        return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                        return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                           timeout: 7500
                         }))
                     })
@@ -1105,7 +1105,7 @@ module.exports = {
                   errored === true
                 })
                 if (errored)
-                  return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                  return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                     timeout: 7500
                   }))
 
@@ -1155,7 +1155,7 @@ module.exports = {
               tempmsg.react("✋")
             } catch (e) {
               return message.reply(new Discord.MessageEmbed()
-                .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                .setTitle("ERROR | Missing Permissions to add Reactions")
                 .setColor("RED")
                 .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                 .setFooter(es.footertext, es.footericon)
@@ -1200,7 +1200,7 @@ module.exports = {
                       }).catch(error => {
                         
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                          .setTitle("ERROR | Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -1222,7 +1222,7 @@ module.exports = {
                       if (!role) return message.channel.send(`COULD NOT FIND THE ROLE!`)
                       var guildrole = message.guild.roles.cache.get(role)
 
-                      if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                      if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                         dynamic: true
                       })))
 
@@ -1234,14 +1234,14 @@ module.exports = {
                           dynamic: true
                         })))
                       } else {
-                        return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                        return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                           dynamic: true
                         })))
                       }
                     }).catch(error => {
                       
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -1266,7 +1266,7 @@ module.exports = {
                     }).catch(error => {
                       
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -1291,7 +1291,7 @@ module.exports = {
                     }).catch(error => {
                       
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -1316,7 +1316,7 @@ module.exports = {
                     tempmsg2.react("5️⃣")
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                      .setTitle("ERROR | Missing Permissions to add Reactions")
                       .setColor("RED")
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -1343,7 +1343,7 @@ module.exports = {
                     })
                   if (timeouterror)
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                      .setTitle("ERROR | Your Time ran out")
                       .setColor(es.wrongcolor)
                       .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -1365,7 +1365,7 @@ module.exports = {
                         }).catch(error => {
                           
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                            .setTitle("ERROR | Your Time ran out")
                             .setColor(es.wrongcolor)
                             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                             .setFooter(es.footertext, es.footericon)
@@ -1387,7 +1387,7 @@ module.exports = {
                         if (!role) return message.channel.send(`COULD NOT FIND THE ROLE!`)
                         var guildrole = message.guild.roles.cache.get(role)
 
-                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                           dynamic: true
                         })))
 
@@ -1399,14 +1399,14 @@ module.exports = {
                             dynamic: true
                           })))
                         } else {
-                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                             dynamic: true
                           })))
                         }
                       }).catch(error => {
                         
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                          .setTitle("ERROR | Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -1458,7 +1458,7 @@ module.exports = {
                               )
                             } else {
                               return message.channel.send(new Discord.MessageEmbed()
-                                .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                                .setTitle(`ERROR | Could not your message as a backgroundimage`)
                                 .setColor("RED")
                                 .setFooter(es.footertext, es.footericon)
                               );
@@ -1474,7 +1474,7 @@ module.exports = {
                             )
                           } else {
                             return message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                              .setTitle(`ERROR | Could not your message as a backgroundimage`)
                               .setColor("RED")
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -1494,7 +1494,7 @@ module.exports = {
                       })
                     } catch (e) {
                       return message.channel.send(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor("RED")
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1523,7 +1523,7 @@ module.exports = {
                     tempmsg2.react("5️⃣")
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                      .setTitle("ERROR | Missing Permissions to add Reactions")
                       .setColor("RED")
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -1550,7 +1550,7 @@ module.exports = {
                     })
                   if (timeouterror)
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                      .setTitle("ERROR | Your Time ran out")
                       .setColor(es.wrongcolor)
                       .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -1572,7 +1572,7 @@ module.exports = {
                         }).catch(error => {
                           
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                            .setTitle("ERROR | Your Time ran out")
                             .setColor(es.wrongcolor)
                             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                             .setFooter(es.footertext, es.footericon)
@@ -1600,7 +1600,7 @@ module.exports = {
                         );
                         var guildrole = message.guild.roles.cache.get(role)
 
-                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                           dynamic: true
                         })))
 
@@ -1612,14 +1612,14 @@ module.exports = {
                             dynamic: true
                           })))
                         } else {
-                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                             dynamic: true
                           })))
                         }
                       }).catch(error => {
                         
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                          .setTitle("ERROR | Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -1673,7 +1673,7 @@ module.exports = {
                               )
                             } else {
                               return message.channel.send(new Discord.MessageEmbed()
-                                .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                                .setTitle(`ERROR | Could not your message as a backgroundimage`)
                                 .setColor("RED")
                                 .setFooter(es.footertext, es.footericon)
                               );
@@ -1689,7 +1689,7 @@ module.exports = {
                             )
                           } else {
                             return message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                              .setTitle(`ERROR | Could not your message as a backgroundimage`)
                               .setColor("RED")
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -1709,7 +1709,7 @@ module.exports = {
                       })
                     } catch (e) {
                       return message.channel.send(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor("RED")
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1737,7 +1737,7 @@ module.exports = {
                     tempmsg2.react("5️⃣")
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                      .setTitle("ERROR | Missing Permissions to add Reactions")
                       .setColor("RED")
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -1764,7 +1764,7 @@ module.exports = {
                     })
                   if (timeouterror)
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                      .setTitle("ERROR | Your Time ran out")
                       .setColor(es.wrongcolor)
                       .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -1786,7 +1786,7 @@ module.exports = {
                         }).catch(error => {
                           
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                            .setTitle("ERROR | Your Time ran out")
                             .setColor(es.wrongcolor)
                             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                             .setFooter(es.footertext, es.footericon)
@@ -1814,7 +1814,7 @@ module.exports = {
                         );
                         var guildrole = message.guild.roles.cache.get(role)
 
-                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                           dynamic: true
                         })))
 
@@ -1826,14 +1826,14 @@ module.exports = {
                             dynamic: true
                           })))
                         } else {
-                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                             dynamic: true
                           })))
                         }
                       }).catch(error => {
                         
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                          .setTitle("ERROR | Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -1885,7 +1885,7 @@ module.exports = {
                               )
                             } else {
                               return message.channel.send(new Discord.MessageEmbed()
-                                .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                                .setTitle(`ERROR | Could not your message as a backgroundimage`)
                                 .setColor("RED")
                                 .setFooter(es.footertext, es.footericon)
                               );
@@ -1901,7 +1901,7 @@ module.exports = {
                             )
                           } else {
                             return message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                              .setTitle(`ERROR | Could not your message as a backgroundimage`)
                               .setColor("RED")
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -1921,7 +1921,7 @@ module.exports = {
                       })
                     } catch (e) {
                       return message.channel.send(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor("RED")
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -1931,7 +1931,7 @@ module.exports = {
                   }
 
                   default:
-                    return message.channel.send(new Discord.MessageEmbed().setColor("RED").setTitle("<:no:833101993668771842> ERROR please enter a valid Option").setDescription(`Valid Options are: \`message\`, \`setimage\`, \`delimage\`, \`setrole\`, \`delrole\`\n\n\nExample usage: \`${prefix}editsetup emojithree message\` --> follow steps / \`${prefix}editsetup emojithree setrole\` --> follow steps`))
+                    return message.channel.send(new Discord.MessageEmbed().setColor("RED").setTitle("ERROR please enter a valid Option").setDescription(`Valid Options are: \`message\`, \`setimage\`, \`delimage\`, \`setrole\`, \`delrole\`\n\n\nExample usage: \`${prefix}editsetup emojithree message\` --> follow steps / \`${prefix}editsetup emojithree setrole\` --> follow steps`))
                     break;
                   }
                 }
@@ -1952,7 +1952,7 @@ module.exports = {
                     tempmsg2.react("5️⃣")
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                      .setTitle("ERROR | Missing Permissions to add Reactions")
                       .setColor("RED")
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -1979,7 +1979,7 @@ module.exports = {
                     })
                   if (timeouterror)
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                      .setTitle("ERROR | Your Time ran out")
                       .setColor(es.wrongcolor)
                       .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -2001,7 +2001,7 @@ module.exports = {
                         }).catch(error => {
                           
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                            .setTitle("ERROR | Your Time ran out")
                             .setColor(es.wrongcolor)
                             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                             .setFooter(es.footertext, es.footericon)
@@ -2029,7 +2029,7 @@ module.exports = {
                         );
                         var guildrole = message.guild.roles.cache.get(role)
 
-                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                           dynamic: true
                         })))
 
@@ -2041,14 +2041,14 @@ module.exports = {
                             dynamic: true
                           })))
                         } else {
-                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                             dynamic: true
                           })))
                         }
                       }).catch(error => {
                         
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                          .setTitle("ERROR | Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -2100,7 +2100,7 @@ module.exports = {
                               )
                             } else {
                               return message.channel.send(new Discord.MessageEmbed()
-                                .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                                .setTitle(`ERROR | Could not your message as a backgroundimage`)
                                 .setColor("RED")
                                 .setFooter(es.footertext, es.footericon)
                               );
@@ -2116,7 +2116,7 @@ module.exports = {
                             )
                           } else {
                             return message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                              .setTitle(`ERROR | Could not your message as a backgroundimage`)
                               .setColor("RED")
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -2136,7 +2136,7 @@ module.exports = {
                       })
                     } catch (e) {
                       return message.channel.send(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor("RED")
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -2145,7 +2145,7 @@ module.exports = {
                   }
 
                   default:
-                    return message.channel.send(new Discord.MessageEmbed().setColor("RED").setTitle("<:no:833101993668771842> ERROR please enter a valid Option").setDescription(`Valid Options are: \`message\`, \`setimage\`, \`delimage\`, \`setrole\`, \`delrole\`\n\n\nExample usage: \`${prefix}editsetup emojifour message\` --> follow steps / \`${prefix}editsetup emojifour setrole\` --> follow steps`))
+                    return message.channel.send(new Discord.MessageEmbed().setColor("RED").setTitle("ERROR please enter a valid Option").setDescription(`Valid Options are: \`message\`, \`setimage\`, \`delimage\`, \`setrole\`, \`delrole\`\n\n\nExample usage: \`${prefix}editsetup emojifour message\` --> follow steps / \`${prefix}editsetup emojifour setrole\` --> follow steps`))
                     break;
                   }
                 }
@@ -2167,7 +2167,7 @@ module.exports = {
                     tempmsg2.react("5️⃣")
                   } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+                      .setTitle("ERROR | Missing Permissions to add Reactions")
                       .setColor("RED")
                       .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -2194,7 +2194,7 @@ module.exports = {
                     })
                   if (timeouterror)
                     return message.reply(new Discord.MessageEmbed()
-                      .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                      .setTitle("ERROR | Your Time ran out")
                       .setColor(es.wrongcolor)
                       .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                       .setFooter(es.footertext, es.footericon)
@@ -2216,7 +2216,7 @@ module.exports = {
                         }).catch(error => {
                           
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                            .setTitle("ERROR | Your Time ran out")
                             .setColor(es.wrongcolor)
                             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                             .setFooter(es.footertext, es.footericon)
@@ -2244,7 +2244,7 @@ module.exports = {
                         );
                         var guildrole = message.guild.roles.cache.get(role)
 
-                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                        if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                           dynamic: true
                         })))
 
@@ -2256,14 +2256,14 @@ module.exports = {
                             dynamic: true
                           })))
                         } else {
-                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                          return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                             dynamic: true
                           })))
                         }
                       }).catch(error => {
                         
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                          .setTitle("ERROR | Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -2312,7 +2312,7 @@ module.exports = {
                               )
                             } else {
                               return message.channel.send(new Discord.MessageEmbed()
-                                .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                                .setTitle(`ERROR | Could not your message as a backgroundimage`)
                                 .setColor("RED")
                                 .setFooter(es.footertext, es.footericon)
                               );
@@ -2328,7 +2328,7 @@ module.exports = {
                             )
                           } else {
                             return message.channel.send(new Discord.MessageEmbed()
-                              .setTitle(`<:no:833101993668771842> ERROR | Could not your message as a backgroundimage`)
+                              .setTitle(`ERROR | Could not your message as a backgroundimage`)
                               .setColor("RED")
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -2348,7 +2348,7 @@ module.exports = {
                       })
                     } catch (e) {
                       return message.channel.send(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor("RED")
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -2358,7 +2358,7 @@ module.exports = {
                   }
 
                   default:
-                    return message.channel.send(new Discord.MessageEmbed().setColor("RED").setTitle("<:no:833101993668771842> ERROR please enter a valid Option").setDescription(`Valid Options are: \`message\`, \`setimage\`, \`delimage\`, \`setrole\`, \`delrole\`\n\n\nExample usage: \`${prefix}editsetup emojifive message\` --> follow steps / \`${prefix}editsetup emojifive setrole\` --> follow steps`))
+                    return message.channel.send(new Discord.MessageEmbed().setColor("RED").setTitle("ERROR please enter a valid Option").setDescription(`Valid Options are: \`message\`, \`setimage\`, \`delimage\`, \`setrole\`, \`delrole\`\n\n\nExample usage: \`${prefix}editsetup emojifive message\` --> follow steps / \`${prefix}editsetup emojifive setrole\` --> follow steps`))
                     break;
                   }
                 }
@@ -2550,7 +2550,7 @@ module.exports = {
                           }).catch(error => {
                             
                             return message.reply(new Discord.MessageEmbed()
-                              .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                              .setTitle("ERROR | Your Time ran out")
                               .setColor(es.wrongcolor)
                               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                               .setFooter(es.footertext, es.footericon)
@@ -2566,7 +2566,7 @@ module.exports = {
                     }).catch(error => {
                       
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -2595,7 +2595,7 @@ module.exports = {
                       if (!role) return message.channel.send(`COULD NOT FIND THE ROLE!`)
                       var guildrole = message.guild.roles.cache.get(role)
 
-                      if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                      if (!message.guild.me.roles) return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                         dynamic: true
                       })))
 
@@ -2607,14 +2607,14 @@ module.exports = {
                           dynamic: true
                         })))
                       } else {
-                        return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("<:no:833101993668771842> ERROR | Could not Access the Role", message.author.displayAvatarURL({
+                        return message.channel.send(new Discord.MessageEmbed().setFooter(es.footertext, es.footericon).setColor("RED").setDescription("Make sure that the Role is under me!").setAuthor("ERROR | Could not Access the Role", message.author.displayAvatarURL({
                           dynamic: true
                         })))
                       }
                     }).catch(error => {
                       
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -2783,7 +2783,7 @@ module.exports = {
                     }).catch(error => {
                       
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -2873,7 +2873,7 @@ module.exports = {
                     }).catch(error => {
                       
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -2910,19 +2910,19 @@ module.exports = {
                           message.channel.send(new Discord.MessageEmbed()
                             .setColor("RED")
                             .setFooter(es.footertext, es.footericon)
-                            .setTitle("<:no:833101993668771842> ERROR | INVALID INPUT | cancelled")
+                            .setTitle("ERROR | INVALID INPUT | cancelled")
                             .setDescription("Please PING A TEXT CHANNEL, thanks\nRetry...")
                           ).then(msg => msg.delete({
                             timeout: 7500
                           }))
-                          throw "<:no:833101993668771842> ERROR";
+                          throw "ERROR";
                         }
                       })
                       .catch(e => {
                         errored === true
                       })
                     if (errored)
-                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                         timeout: 7500
                       }))
 
@@ -2956,7 +2956,7 @@ module.exports = {
                       errored === true
                     })
                     if (errored)
-                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                         timeout: 7500
                       }))
 
@@ -2991,7 +2991,7 @@ module.exports = {
                       errored === true
                     })
                     if (errored)
-                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                         timeout: 7500
                       }))
                   } catch (e) {
@@ -2999,7 +2999,7 @@ module.exports = {
                     message.channel.send(new Discord.MessageEmbed()
                       .setColor("RED")
                       .setFooter(es.footertext, es.footericon)
-                      .setTitle("<:no:833101993668771842> ERROR | ERROR")
+                      .setTitle("ERROR | ERROR")
                       .setDescription("```" + e.message + "```")
                     ).then(msg => msg.delete({
                       timeout: 7500
@@ -3026,19 +3026,19 @@ module.exports = {
                           message.channel.send(new Discord.MessageEmbed()
                             .setColor("RED")
                             .setFooter(es.footertext, es.footericon)
-                            .setTitle("<:no:833101993668771842> ERROR | INVALID INPUT | cancelled")
+                            .setTitle("ERROR | INVALID INPUT | cancelled")
                             .setDescription("Please PING A TEXT CHANNEL, thanks\nRetry...")
                           ).then(msg => msg.delete({
                             timeout: 7500
                           }))
-                          throw "<:no:833101993668771842> ERROR";
+                          throw "ERROR";
                         }
                       })
                       .catch(e => {
                         errored === true
                       })
                     if (errored)
-                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+                      return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                         timeout: 7500
                       }))
                     apply_for_here.set(message.guild.id, f_applychannel, "f_channel_id")
@@ -3049,7 +3049,7 @@ module.exports = {
                     message.channel.send(new Discord.MessageEmbed()
                       .setColor("RED")
                       .setFooter(es.footertext, es.footericon)
-                      .setTitle("<:no:833101993668771842> ERROR | ERROR")
+                      .setTitle("ERROR | ERROR")
                       .setDescription("```" + e.message + "```")
                     ).then(msg => msg.delete({
                       timeout: 7500
@@ -3073,7 +3073,7 @@ module.exports = {
                 errored === true
               })
             if (errored)
-              return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("<:no:833101993668771842> ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
+              return message.channel.send(new Discord.MessageEmbed().setColor("RED").setFooter(es.footertext, es.footericon).setTitle("ERROR | TIME RAN OUT / INVALID INPUT | cancelled").setDescription("```" + e.message + "```")).then(msg => msg.delete({
                 timeout: 7500
               }))
 
@@ -3085,7 +3085,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -3095,7 +3095,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${e.stack}\`\`\``)
       );
     }
@@ -3105,7 +3105,7 @@ module.exports = {
  * @INFO
  * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
+ * Work for Milrato Development | https://Limsathya
  * @INFO
  * Please mention Him / Milrato Development, when using this Code!
  * @INFO

@@ -1,19 +1,16 @@
-//Here the command starts
-const config = require("../../botconfig/config.json")
-var ee = require("../../botconfig/embed.json")
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
 const fetch = require("node-fetch");
 const { MessageEmbed } = require(`discord.js`);
 module.exports = {
-	//definition
-	name: "compile", //the name of the command 
-	category: "⌨️ Programming", //the category this will be listed at, for the help cmd
-	aliases: [""], //every parameter can be an alias
-	cooldown: 4, //this will set it to a 4 second cooldown
-	usage: "compile <Code>", //this is for the help command for EACH cmd
-  	description: "Compile Code", //the description of the command
+    name: "compile",
+    category: "⌨️ Programming",
+    aliases: [""],
+    cooldown: 5,
+    usage: "compile <Code>",
+    description: "Compile Code",
 
-	//running the command with the parameters: client, message, args, user, text, prefix
-  	run: async (client, message, args, user, text, prefix) => {
+    run: async (client, message, args, user, text, prefix) => {
 		let es = client.settings.get(message.guild.id, "embed")
 		try {
 			  
@@ -46,7 +43,7 @@ module.exports = {
 				return message.channel.send({embed: new MessageEmbed()
 					.setColor(es.wrongcolor)
 					.setFooter(es.footertext, es.footericon)
-					.setTitle(`<:no:833101993668771842> You didn't provide a Valid Code`)
+					.setTitle(`You didn't provide a Valid Code`)
 					.setDescription(`Usage:\n${prefix}compile` + "\\`\\`\\`lang\nCode\n\\`\\`\\`\nCodeBlock language will be used to determine how to compile the code.")
 				});
 
@@ -54,7 +51,7 @@ module.exports = {
 				return message.channel.send({embed: new MessageEmbed()
 					.setColor(es.wrongcolor)
 					.setFooter(es.footertext, es.footericon)
-					.setTitle(`<:no:833101993668771842> You provide an Invalid Language`)
+					.setTitle(`You provide an Invalid Language`)
 					.setDescription(`Supported ones: **${Object.keys(possiblecommands).join(", ")}**`)
 				});
 
@@ -81,11 +78,10 @@ module.exports = {
 			console.log(String(e.stack).bgRed)
 			return message.channel.send(new MessageEmbed()
 			  .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-			  .setTitle(`<:no:833101993668771842> An error occurred`)
+			  .setTitle(`An error occurred`)
 			  .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
 			);
 		  }
 	
 	}
 }
-//-CODED-BY-XG#2846-//

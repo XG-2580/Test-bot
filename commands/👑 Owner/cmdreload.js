@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 const fs = require('fs');
 var {
   databasing,
@@ -48,19 +48,19 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> Could not find: \`${args[0]}\``)
+          .setTitle(`Could not find: \`${args[0]}\``)
         );
       }
       if (reload)
         return message.channel.send(new MessageEmbed()
           .setColor(es.color)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:yes:833101995723194437> Reloaded \`${args[0]}\``)
+          .setTitle(`Reloaded \`${args[0]}\``)
         );
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Could not reload: \`${args[0]}\``)
+        .setTitle(`Could not reload: \`${args[0]}\``)
       );
     } catch (e) {
       console.log(String(e.stack).bgRed)
@@ -73,12 +73,4 @@ module.exports = {
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

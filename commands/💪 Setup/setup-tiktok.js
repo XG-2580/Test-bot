@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -50,7 +50,7 @@ module.exports = {
         tempmsg.react("4️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -75,7 +75,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -98,7 +98,7 @@ module.exports = {
             if(msg && msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first()){
               client.social_log.set(message.guild.id, msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first().id, "tiktok.dc_channel")
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<a833101995723194437> I will now send all tiktok Notifications in \`${msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first().name}\``)
+                .setTitle(`I will now send all tiktok Notifications in \`${msg.mentions.channels.filter(ch=>ch.guild.id==msg.guild.id).first().name}\``)
                 .setDescription("DONT FORGET TO ADD A **tiktok_CHANNELS**!!!")
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
@@ -115,7 +115,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -124,7 +124,7 @@ module.exports = {
       } else if (temptype == "add") {
         if(client.social_log.get(message.guild.id, "tiktok.channels").length >= 3) 
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | You've reached the maximum amount of tiktok Channels")
+            .setTitle("ERROR | You've reached the maximum amount of tiktok Channels")
             .setColor(es.wrongcolor)
             .setDescription(`Remove some others first...`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -153,14 +153,14 @@ https://www.tiktok.com/@milratodev`)
               if(Channel.includes("video")) Channel = Channel.split("/")[0]
               if(client.social_log.get(message.guild.id, "tiktok.channels").includes(Channel))
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | The tiktok Channel is already setup!")
+                  .setTitle("ERROR | The tiktok Channel is already setup!")
                   .setColor(es.wrongcolor)
                   .setFooter(es.footertext, es.footericon)
                 );
               client.social_log.push(message.guild.id, Channel, "tiktok.channels")
 
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<a833101995723194437> added the Channel ${Channel}`)
+                .setTitle(`added the Channel ${Channel}`)
                 .setDescription("You can change the default message via the **\"edit\"**")
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
@@ -177,7 +177,7 @@ https://www.tiktok.com/@milratodev`)
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -185,7 +185,7 @@ https://www.tiktok.com/@milratodev`)
       } else if (temptype == "remove") {
         if(client.social_log.get(message.guild.id, "tiktok.channels").length <= 0) 
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | You havent setup any tiktok Channels yet!")
+            .setTitle("ERROR | You havent setup any tiktok Channels yet!")
             .setColor(es.wrongcolor)
             .setDescription(`Add some others first...`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -215,7 +215,7 @@ https://www.tiktok.com/@milratodev`)
             client.social_log.remove(message.guild.id, channel, "tiktok.channels")
 
             return message.reply(new Discord.MessageEmbed()
-              .setTitle(`<a833101995723194437> removed the Channel ${channel}`)
+              .setTitle(`removed the Channel ${channel}`)
               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
               .setFooter(es.footertext, es.footericon)
             );
@@ -225,7 +225,7 @@ https://www.tiktok.com/@milratodev`)
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -233,7 +233,7 @@ https://www.tiktok.com/@milratodev`)
       } else if (temptype == "edit") {
         if(client.social_log.get(message.guild.id, "tiktok.channels").length <= 0) 
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | You havent setup any tiktok Channels yet!")
+            .setTitle("ERROR | You havent setup any tiktok Channels yet!")
             .setColor(es.wrongcolor)
             .setDescription(`Add some others first...`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -286,7 +286,7 @@ https://www.tiktok.com/@milratodev`)
               if(msg && msg.content ){
                 client.tiktok.set(channel, msg.content, "message")  
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Changed the message for the Channel ${channel}`)
+                  .setTitle(`Changed the message for the Channel ${channel}`)
                   .setDescription("New Message:\n" + msg.content)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
@@ -304,7 +304,7 @@ https://www.tiktok.com/@milratodev`)
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -316,14 +316,14 @@ https://www.tiktok.com/@milratodev`)
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
           );
       }  else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -333,18 +333,10 @@ https://www.tiktok.com/@milratodev`)
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by XG#2846
- * @INFO
- * Work for XG | https://xg-bot.netlify.app/
- * @INFO
- * Please mention XG#2846, when using this Code!
- * @INFO
- */
+

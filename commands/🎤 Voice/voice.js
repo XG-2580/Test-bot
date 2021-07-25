@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const Discord = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
 module.exports = {
     name: "voice",
     category: "🎤 Voice",
@@ -15,7 +15,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -30,7 +30,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -47,7 +47,7 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           vc.overwritePermissions([{
@@ -73,7 +73,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -83,7 +83,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -99,7 +99,7 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           vc.updateOverwrite(message.guild.id, {
@@ -122,7 +122,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -132,7 +132,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -148,32 +148,32 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}kick @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
           if (!member || member == null || member == undefined) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}kick @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           if (!member.voice.channel)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> Your pinged user, is not connected to a Channel")
+              .setTitle("Your pinged user, is not connected to a Channel")
               .setFooter(es.footertext, es.footericon)
             )
           if (member.voice.channel.id != channel.id)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> Your pinged user, is not connected in your Channel")
+              .setTitle("Your pinged user, is not connected in your Channel")
               .setFooter(es.footertext, es.footericon)
             )
           try {
@@ -186,7 +186,7 @@ module.exports = {
           } catch (e) {
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> An Error occurred")
+              .setTitle("An Error occurred")
               .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
               .setFooter(es.footertext, es.footericon)
             )
@@ -194,7 +194,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -204,7 +204,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -220,19 +220,19 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}invite @User [optional Message]\``)
             .setFooter(es.footertext, es.footericon)
           )
           let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
           if (!member || member == null || member == undefined) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}invite @User [optional Message]\``)
             .setFooter(es.footertext, es.footericon)
           )
@@ -257,7 +257,7 @@ module.exports = {
                 ).catch(e => {
                   return message.reply(new Discord.MessageEmbed()
                     .setColor(es.wrongcolor)
-                    .setTitle(`<:no:833101993668771842> Error | Couldn't Dm \`${member.user.tag}\``)
+                    .setTitle(`Error | Couldn't Dm \`${member.user.tag}\``)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
                   )
@@ -273,7 +273,7 @@ module.exports = {
           } catch (e) {
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> An Error occurred")
+              .setTitle("An Error occurred")
               .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
               .setFooter(es.footertext, es.footericon)
             )
@@ -281,7 +281,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -291,7 +291,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -307,19 +307,19 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}ban @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
           if (!member || member == null || member == undefined) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}ban @User\``)
             .setFooter(es.footertext, es.footericon)
           )
@@ -334,7 +334,7 @@ module.exports = {
             } catch (e) {
               message.reply(new Discord.MessageEmbed()
                 .setColor(es.wrongcolor)
-                .setTitle("<:no:833101993668771842> An Error occurred")
+                .setTitle("An Error occurred")
                 .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                 .setFooter(es.footertext, es.footericon)
               )
@@ -360,7 +360,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -370,7 +370,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -386,19 +386,19 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}unban @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
           if (!member || member == null || member == undefined) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}unban @User\``)
             .setFooter(es.footertext, es.footericon)
           )
@@ -422,7 +422,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -432,7 +432,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -448,19 +448,19 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}trust @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
           if (!member || member == null || member == undefined) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}trust @User\``)
             .setFooter(es.footertext, es.footericon)
           )
@@ -484,7 +484,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -494,7 +494,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -510,19 +510,19 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}untrust @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
           if (!member || member == null || member == undefined) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}untrust @User\``)
             .setFooter(es.footertext, es.footericon)
           )
@@ -546,7 +546,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -556,7 +556,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -572,27 +572,27 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(
             new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<:no:833101993668771842> You have to include the limit you want to set to")
+            .setTitle("You have to include the limit you want to set to")
           );
           if (isNaN(args[0])) return message.reply(
             new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<:no:833101993668771842> You have to include the limit you want to set to | It MUST be a **Numer**")
+            .setTitle("You have to include the limit you want to set to | It MUST be a **Numer**")
           );
           let userlimit = Number(args[0]);
           if (userlimit > 99 || userlimit < 0) return message.reply(
             new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<:no:833101993668771842> Your included Number is not in the valid Range (`0` - `99`)")
+            .setTitle("Your included Number is not in the valid Range (`0` - `99`)")
           );
           channel.setUserLimit(userlimit).then(vc => {
             return message.reply(new Discord.MessageEmbed()
@@ -604,7 +604,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -614,7 +614,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -630,20 +630,20 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(
             new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<:no:833101993668771842> You have to include the limit you want to set to")
+            .setTitle("You have to include the limit you want to set to")
           );
           if (isNaN(args[0])) return message.reply(
             new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<:no:833101993668771842> You have to include the limit you want to set to | It MUST be a **Numer**")
+            .setTitle("You have to include the limit you want to set to | It MUST be a **Numer**")
           );
           let maxbitrate = 96000;
           let boosts = message.guild.premiumSubscriptionCount;
@@ -655,7 +655,7 @@ module.exports = {
             new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> Your included Number is not in the valid Range (\`8000\` - \`${maxbitrate}\`)`)
+            .setTitle(`Your included Number is not in the valid Range (\`8000\` - \`${maxbitrate}\`)`)
           );
           channel.setBitrate(userlimit).then(vc => {
             return message.reply(new Discord.MessageEmbed()
@@ -667,7 +667,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -677,7 +677,7 @@ module.exports = {
         } = message.member.voice;
         if (!channel) return message.reply(new Discord.MessageEmbed()
           .setColor(es.wrongcolor)
-          .setTitle("<:no:833101993668771842> You have to be in a VoiceChannel, for this Command")
+          .setTitle("You have to be in a VoiceChannel, for this Command")
           .setFooter(es.footertext, es.footericon)
         )
         client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false)
@@ -693,32 +693,32 @@ module.exports = {
           if (!owner)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> You have to be the Owner of the **temp.** VoiceChannel!")
+              .setTitle("You have to be the Owner of the **temp.** VoiceChannel!")
               .setFooter(es.footertext, es.footericon)
             )
           if (!args[0]) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}promote @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first() || message.guild.members.cache.get(args[0]);
           if (!member || member == null || member == undefined) return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> Please add a User via Ping / ID!")
+            .setTitle("Please add a User via Ping / ID!")
             .setDescription(`Useage: \`${prefix}promote @User\``)
             .setFooter(es.footertext, es.footericon)
           )
           if (!member.voice.channel)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> Your pinged user, is not connected to a Channel")
+              .setTitle("Your pinged user, is not connected to a Channel")
               .setFooter(es.footertext, es.footericon)
             )
           if (member.voice.channel.id != channel.id)
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> Your pinged user, is not connected in your Channel")
+              .setTitle("Your pinged user, is not connected in your Channel")
               .setFooter(es.footertext, es.footericon)
             )
           try {
@@ -746,7 +746,7 @@ module.exports = {
           } catch (e) {
             return message.reply(new Discord.MessageEmbed()
               .setColor(es.wrongcolor)
-              .setTitle("<:no:833101993668771842> An Error occurred")
+              .setTitle("An Error occurred")
               .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
               .setFooter(es.footertext, es.footericon)
             )
@@ -754,7 +754,7 @@ module.exports = {
         } else {
           return message.reply(new Discord.MessageEmbed()
             .setColor(es.wrongcolor)
-            .setTitle("<:no:833101993668771842> You have to be in a **temp.** VoiceChannel, for this Command!")
+            .setTitle("You have to be in a **temp.** VoiceChannel, for this Command!")
             .setFooter(es.footertext, es.footericon)
           )
         }
@@ -771,7 +771,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> An error occurred`)
+          .setTitle(`An error occurred`)
           .setDescription(`\`\`\`${e.stack}\`\`\``)
         );
     }
@@ -781,7 +781,7 @@ module.exports = {
   * @INFO
   * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
   * @INFO
-  * Work for Milrato Development | https://xg-bot.netlify.app
+  * Work for Milrato Development | https://Limsathya
   * @INFO
   * Please mention Him / Milrato Development, when using this Code!
   * @INFO

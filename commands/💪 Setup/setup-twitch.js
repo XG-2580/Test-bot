@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -40,7 +40,7 @@ module.exports = {
         tempmsg.react("5️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -67,7 +67,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -130,7 +130,7 @@ module.exports = {
                             }, "twitch.channels")
                           
                           return message.reply(new Discord.MessageEmbed()
-                            .setTitle("<a833101995723194437> ADDED the USER to the STREAMER LIST ")
+                            .setTitle("ADDED the USER to the STREAMER LIST ")
                             .setDescription("DONT FORGET TO ADD A TWITCH_DISCORD_CHANNEL!!!")
                             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                             .setFooter(es.footertext, es.footericon)
@@ -148,7 +148,7 @@ module.exports = {
                       })
                     if (timeouterror)
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                        .setTitle("ERROR | Your Time ran out")
                         .setColor(es.wrongcolor)
                         .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                         .setFooter(es.footertext, es.footericon)
@@ -166,7 +166,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                  .setTitle("ERROR | Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -184,7 +184,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -192,7 +192,7 @@ module.exports = {
 
       } else if (temptype == "manage") {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | THIS IS NOT FINISHED YET PLEASE STAND BY")
+          .setTitle("ERROR | THIS IS NOT FINISHED YET PLEASE STAND BY")
           .setColor(es.wrongcolor)
           .setDescription(`If you want to delete the USERS DM: \`XG#2846\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -215,7 +215,7 @@ module.exports = {
             if (message.content.toLowerCase() == "no") {
               client.social_log.set(message.guild.id, "", "twitch.channelID")
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<a833101995723194437> Disabled the Twitch Logger System!`)
+                .setTitle(`Disabled the Twitch Logger System!`)
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
               );
@@ -225,13 +225,13 @@ module.exports = {
               try {
                 client.social_log.set(message.guild.id, channel.id, "twitch.channelID")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I will now send all Twtich-logs into: \`${channel.name}\``)
+                  .setTitle(`I will now send all Twtich-logs into: \`${channel.name}\``)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -246,7 +246,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -270,7 +270,7 @@ module.exports = {
             if (message.content.toLowerCase() == "no") {
               client.social_log.set(message.guild.id, "", "twitch.roleID_GIVE")
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<a833101995723194437> Disabled the Twitch Logger Role Granting!`)
+                .setTitle(`Disabled the Twitch Logger Role Granting!`)
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
               );
@@ -280,13 +280,13 @@ module.exports = {
               try {
                 client.social_log.set(message.guild.id, channel.id, "twitch.roleID_GIVE")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I will now give to all Streaming Members the Role: \`${channel.name}\``)
+                  .setTitle(`I will now give to all Streaming Members the Role: \`${channel.name}\``)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -301,7 +301,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -325,7 +325,7 @@ module.exports = {
             if (message.content.toLowerCase() == "no") {
               client.social_log.set(message.guild.id, "", "twitch.roleID_PING")
               return message.reply(new Discord.MessageEmbed()
-                .setTitle(`<a833101995723194437> Disabled the Twitch Logger Role PINGING!`)
+                .setTitle(`Disabled the Twitch Logger Role PINGING!`)
                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                 .setFooter(es.footertext, es.footericon)
               );
@@ -335,13 +335,13 @@ module.exports = {
               try {
                 client.social_log.set(message.guild.id, channel.id, "twitch.roleID_PING")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I will now ping the Role: \`${channel.name}\` when someone goes live`)
+                  .setTitle(`I will now ping the Role: \`${channel.name}\` when someone goes live`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -356,7 +356,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -364,7 +364,7 @@ module.exports = {
 
       } else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -374,18 +374,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by XG#2846
- * @INFO
- * Work for XG | https://xg-bot.netlify.app/
- * @INFO
- * Please mention XG#2846, when using this Code!
- * @INFO
- */
+

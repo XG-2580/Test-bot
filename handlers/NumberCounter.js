@@ -1,7 +1,7 @@
 //import the config.json file
-const config = require("../botconfig/config.json")
-var ee = require(`../botconfig/embed.json`);
-var emoji = require(`../botconfig/emojis.json`);
+const config = require(".config.json")
+var ee = require(`../base-system/embed.json`);
+var emoji = require(`../base-system/emoji.json`);
 var {
     MessageEmbed, MessageAttachment
 } = require(`discord.js`);

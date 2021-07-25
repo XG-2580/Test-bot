@@ -1,9 +1,9 @@
 const {
   MessageEmbed
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 const {
   getRandomInt, GetGlobalUser, GetUser
 } = require("../../handlers/functions")
@@ -32,7 +32,7 @@ module.exports = {
       }else{
         user = message.author;
       }
-      if(!user || user == null || user.id == null || !user.id) return message.reply("<a:Deny:863000078690811905> Could not find the USER")
+      if(!user || user == null || user.id == null || !user.id) return message.reply("Could not find the USER")
 
       client.stats.ensure(message.guild.id + user.id, {
         ban: [],
@@ -74,18 +74,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<a:Deny:863000078690811905> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr([], 2000)}\`\`\``)
       );
     }
   }
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

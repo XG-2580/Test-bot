@@ -1,8 +1,8 @@
 const {
   MessageEmbed, Message
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
 const {
   databasing
 } = require("../../handlers/functions");
@@ -38,7 +38,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       var channel = message.mentions.channels.filter(ch=>ch.guild.id==message.guild.id).first() || message.guild.channels.cache.get(args[0]) || message.channel;
@@ -47,14 +47,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You didn't ping a Valid Channel`)
+          .setTitle(`You didn't ping a Valid Channel`)
           .setDescription(`Usage: \`${prefix}copymessage <#Channel> <Message_ID>\``)
         );
         if (!id || id.length != 18)
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> You didn't add a Valid Message ID`)
+          .setTitle(`You didn't add a Valid Message ID`)
           .setDescription(`Usage: \`${prefix}copymessage <#Channel> <Message_ID>\``)
         );
 
@@ -66,7 +66,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> There is nothing to update`)
+          .setTitle(`There is nothing to update`)
         );
         }
         if(msg.embeds[0]){
@@ -80,7 +80,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:yes:833101995723194437> Updated the Embed in:`)
+          .setTitle(`Updated the Embed in:`)
           .setDescription(`<#${channel.id}>`)
         ).then(msg=>{
           msg.delete({timeout: 3000}).catch(e=>{console.log("Prevented a bug".gray)})
@@ -90,7 +90,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> An error occurred`)
+          .setTitle(`An error occurred`)
           .setDescription(`\`\`\`${e.stack}\`\`\``)
         );
       })
@@ -117,7 +117,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${e.stack}\`\`\``)
       );
     }
@@ -127,7 +127,7 @@ module.exports = {
  * @INFO
  * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
+ * Work for Milrato Development | https://Limsathya
  * @INFO
  * Please mention Him / Milrato Development, when using this Code!
  * @INFO

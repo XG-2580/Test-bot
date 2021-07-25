@@ -2,9 +2,9 @@ const { fail } = require("assert");
 const {
   MessageEmbed
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require("../../botconfig/emojis.json");
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require("../../base-system/emoji.json");
 const ms = require("ms")
 const {
   databasing, delay
@@ -24,7 +24,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You are not allowed to run this Command`)
+          .setTitle(`You are not allowed to run this Command`)
           .setDescription(`You need to be a Server Administrator`)
         );
       let member = message.mentions.members.filter(member=>member.guild.id==message.guild.id).first();
@@ -34,7 +34,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> You didn't provide a Text`)
+          .setTitle(`You didn't provide a Text`)
           .setDescription(`Usage: \`${prefix}dm <@USER/@ROLE> <Your Text>\``)
         );
         message.delete().catch(e => console.log("Couldn't delete msg, this is a catch to prevent crash"))
@@ -48,13 +48,13 @@ module.exports = {
           message.channel.send(new MessageEmbed()
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<a833101995723194437> Successfully Dmed ${member.user.username}`)
+            .setTitle(`Successfully Dmed ${member.user.username}`)
           )
         }catch{
           message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle("<833101993668771842> Unable to Dm this User, this is probably because he either blocked me or turned his Dms off!")
+            .setTitle("Unable to Dm this User, this is probably because he either blocked me or turned his Dms off!")
           )
         }
       }
@@ -64,7 +64,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> You didn't provide a Text`)
+            .setTitle(`You didn't provide a Text`)
             .setDescription(`Usage: \`${prefix}dm <@USER/@ROLE> <Your Text>\``)
           );
         var members = message.guild.members.cache.filter(member=> member.roles.cache.has(role.id) && !member.user.bot).array();  
@@ -75,7 +75,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<833101993668771842> Found no Members!`)
+            .setTitle(`Found no Members!`)
             .setDescription(`Most of the Times this means, no one has this ROLE! But you can retry..`)
           );
         let seconds = Number(members.length) * 1500;
@@ -109,7 +109,7 @@ module.exports = {
         await message.channel.send({content: `<@${message.author.id}>`, embed: new MessageEmbed()
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<a833101995723194437> SUCCESS, send a Dm to \`${succeeded.length}\` / \`${failed.length + succeeded.length}\` Members`)
+          .setTitle(`SUCCESS, send a Dm to \`${succeeded.length}\` / \`${failed.length + succeeded.length}\` Members`)
           .setDescription(failed.length > 0 ? `**FAILED MEMBERS:**\n> ${failed.map(r => `\`${r}\``).join("\n")}`.substr(0, 2048) : "**FAILED MEMBERS:**\n> No one Failed")
           .addField("\u200b", "*If a Member is Failed it probably is because he either blocked me or turned his Dms off*")
         })
@@ -117,7 +117,7 @@ module.exports = {
       else {
         return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> You need to ping a ROLE or a MEMBER`)
+        .setTitle(`You need to ping a ROLE or a MEMBER`)
         .setDescription(`Useage: ${prefix}dm <@USER/@ROLE> <TEXT>`)
       );
       }
@@ -141,7 +141,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(e).substr(0, 2048)}\`\`\``)
       );
     }
@@ -149,10 +149,10 @@ module.exports = {
 }
 /**
  * @INFO
- * Bot Coded by XG#2846| https://github.com/Tomato6966/Discord-Js-Handler-Template
+ * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for XG | https://xg-bot.netlify.app/
+ * Work for Milrato Development | https://Limsathya
  * @INFO
- * Please mention XG#2846, when using this Code!
+ * Please mention Him / Milrato Development, when using this Code!
  * @INFO
  */

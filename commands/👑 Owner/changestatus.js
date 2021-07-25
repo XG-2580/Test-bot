@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 const fs = require('fs');
 var {
   databasing,
@@ -22,7 +22,7 @@ module.exports = {
     if (!config.ownerIDS.some(r => r.includes(message.author.id)))
       return message.channel.send({embed: new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+        .setTitle(`You are not allowed to run this Command`)
         .setDescription(`You need to be one of those guys: ${config.ownerIDS.map(id => `<@${id}>`)}`)
       });
     try {
@@ -48,7 +48,7 @@ module.exports = {
         tempmsg.react("🟢")
       } catch (e) {
         return message.reply({embed: new MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -74,7 +74,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply({embed: new MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(timeouterror)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -102,7 +102,7 @@ module.exports = {
               type: config.status.type,
               url: config.status.url
             })
-            fs.writeFile(`./botconfig/config.json`, JSON.stringify(status, null, 3), (e) => {
+            fs.writeFile(`config.json`, JSON.stringify(status, null, 3), (e) => {
               if (e) {
                 console.log(String(e.stack).red);
                 return message.channel.send({embed: new MessageEmbed()
@@ -123,7 +123,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(timeouterror)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -173,7 +173,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(timeouterror)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -186,7 +186,7 @@ module.exports = {
           type: temptype,
           url: config.status.url
         })
-        fs.writeFile(`./botconfig/config.json`, JSON.stringify(status, null, 3), (e) => {
+        fs.writeFile(`config.json`, JSON.stringify(status, null, 3), (e) => {
           if (e) {
             console.log(String(e.stack).red);
             return message.channel.send({embed: new MessageEmbed()
@@ -263,7 +263,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(timeouterror)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -289,13 +289,13 @@ module.exports = {
               return message.channel.send({embed: new MessageEmbed()
                 .setFooter(es.footertext, es.footericon)
                 .setColor(es.wrongcolor)
-                .setTitle(`<:no:833101993668771842> NOT A VALID URL`)
+                .setTitle(`NOT A VALID URL`)
               })
             if (!msg.includes("twitch"))
               return message.channel.send({embed: new MessageEmbed()
                 .setFooter(es.footertext, es.footericon)
                 .setColor(es.wrongcolor)
-                .setTitle(`<:no:833101993668771842> NOT A VALID TWITCH URL`)
+                .setTitle(`NOT A VALID TWITCH URL`)
               })
             let status = config
             status.status.url = msg;
@@ -303,7 +303,7 @@ module.exports = {
               type: config.status.type,
               url: msg
             })
-            fs.writeFile(`./botconfig/config.json`, JSON.stringify(status, null, 3), (e) => {
+            fs.writeFile(`config.json`, JSON.stringify(status, null, 3), (e) => {
               if (e) {
                 console.log(String(e.stack).red);
                 return message.channel.send({embed: new MessageEmbed()
@@ -324,7 +324,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply({embed: new MessageEmbed()
-            .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(timeouterror)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -332,7 +332,7 @@ module.exports = {
 
       } else {
         return message.reply({embed: new MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         });
@@ -342,18 +342,9 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send({embed: new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       });
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */

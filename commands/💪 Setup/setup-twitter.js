@@ -2,9 +2,9 @@ var {
     MessageEmbed
   } = require(`discord.js`);
   var Discord = require(`discord.js`);
-  var config = require(`../../botconfig/config.json`);
-  var ee = require(`../../botconfig/embed.json`);
-  var emoji = require(`../../botconfig/emojis.json`);
+  var config = require(`../.config.json`);
+  var ee = require(`../../base-system/embed.json`);
+  var emoji = require(`../../base-system/emoji.json`);
   var fs = require("fs");
   var {
     databasing,
@@ -46,7 +46,7 @@ var {
         tempmsg.react("2️⃣")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -70,7 +70,7 @@ var {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -81,7 +81,7 @@ var {
 
         if(add == "second")
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<833101993668771842> ERROR | SECOND TWITTER IS DISABLED")
+          .setTitle("ERROR | SECOND TWITTER IS DISABLED")
           .setColor(es.wrongcolor)
           .setDescription(`Due to rate limits, the second Twitter Log got disabled! SORRY!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -103,7 +103,7 @@ var {
           tempmsg.react("5️⃣")
         } catch (e) {
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Missing Permissions to add Reactions")
+            .setTitle("ERROR | Missing Permissions to add Reactions")
             .setColor(es.wrongcolor)
             .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -130,7 +130,7 @@ var {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | Your Time ran out")
+            .setTitle("ERROR | Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -163,7 +163,7 @@ var {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -191,7 +191,7 @@ var {
                 client.social_log.set(message.guild.id, username, `${add}twitter.TWITTER_USER_NAME_ONLY_THOSE`)
                 //require("../../social_log/twitterfeed").creat_twit(client);
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> I will now watch for new Posts in this account: \`${TwitterName}\``)
+                  .setTitle(`I will now watch for new Posts in this account: \`${TwitterName}\``)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setDescription(`**IF YOU TWITTER IS NOT THE SAME, THEN MANUALLY DEFINE THE ID THROUGH COMMAND!!!**\n\n**Make sure that you defined a \`Discord Channel\` too! Otherwise it won't post things!**\n\nYou need to have The TWITTERNAME, TWITTERID, and DISCORDCHANNEl and MESSAGE to be right, so that the autoposter works!`)
                   .addField("**NOTE THERE MIGHT BE AN UP TO 7 MINUTES DELAY!** (because of Rate limits)", "When posting a new Twit")
@@ -200,7 +200,7 @@ var {
                 );
             } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                 .setColor(es.wrongcolor)
                 .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                 .setFooter(es.footertext, es.footericon)
@@ -229,7 +229,7 @@ var {
                         client.social_log.set(message.guild.id, channel.id, `${add}twitter.DISCORD_CHANNEL_ID`)
                         //require("../../social_log/twitterfeed").creat_twit(client);
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle(`<a833101995723194437> I will now post Twitter Messages in \`${channel.name}\``)
+                          .setTitle(`I will now post Twitter Messages in \`${channel.name}\``)
                           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                           .setDescription(`\n\nYou need to have The TWITTERNAME, TWITTERID, and DISCORDCHANNEl and MESSAGE to be right, so that the autoposter works!`)
                           .addField("**NOTE THERE MIGHT BE AN UP TO 7 MINUTES DELAY!** (because of Rate limits)", "When posting a new Twit")
@@ -237,7 +237,7 @@ var {
                         );
                     } catch (e) {
                         return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -252,7 +252,7 @@ var {
               })
             if (timeouterror)
               return message.reply(new Discord.MessageEmbed()
-                .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                .setTitle("ERROR | Your Time ran out")
                 .setColor(es.wrongcolor)
                 .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                 .setFooter(es.footertext, es.footericon)
@@ -276,7 +276,7 @@ var {
                   client.social_log.set(message.guild.id, collected.first().content, `${add}twitter.infomsg`)
                   //require("../../social_log/twitterfeed").creat_twit(client);
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> I will now post The Twitter Messages with the Twitter Post: `)
+                    .setTitle(`I will now post The Twitter Messages with the Twitter Post: `)
                     .setDescription(`${collected.first().content.replace("{url}", "https://twitter.com/MilratoDev").replace("{Twittername}", "Tomato6966")}\n\nNote that this is just an **example**\n\nYou need to have The TWITTERNAME, TWITTERID, and DISCORDCHANNEl and MESSAGE to be right, so that the autoposter works!`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .addField("**NOTE THERE MIGHT BE AN UP TO 7 MINUTES DELAY!** (because of Rate limits)", "When posting a new Twit")
@@ -285,7 +285,7 @@ var {
 
                 } catch (e) {
                     return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                    .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                     .setColor(es.wrongcolor)
                     .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                     .setFooter(es.footertext, es.footericon)
@@ -297,7 +297,7 @@ var {
               })
             if (timeouterror)
               return message.reply(new Discord.MessageEmbed()
-                .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                .setTitle("ERROR | Your Time ran out")
                 .setColor(es.wrongcolor)
                 .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                 .setFooter(es.footertext, es.footericon)
@@ -308,7 +308,7 @@ var {
                   client.social_log.set(message.guild.id, !client.social_log.get(message.guild.id, `${add}twitter.REETWET`), `${add}twitter.REETWET`)
                   //require("../../social_log/twitterfeed").creat_twit(client);
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<a833101995723194437> ${client.social_log.get(message.guild.id, `${add}twitter.REETWET`) ? "Enabled Showing Retweets": "Disabled Showing Retweets"}`)
+                    .setTitle(`${client.social_log.get(message.guild.id, `${add}twitter.REETWET`) ? "Enabled Showing Retweets": "Disabled Showing Retweets"}`)
                     .setDescription(`${client.social_log.get(message.guild.id, `${add}twitter.REETWET`) ? "I will now post Retweets too!": "I will not Post Retweets!"}`)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .addField("**NOTE THERE MIGHT BE AN UP TO 7 MINUTES DELAY!** (because of Rate limits)", "When posting a new Twit")
@@ -334,7 +334,7 @@ var {
                 client.social_log.set(message.guild.id, collected.first().content, `${add}twitter.TWITTER_USER_ID`)
                 //require("../../social_log/twitterfeed").creat_twit(client);
                 message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<a833101995723194437> Set the TWITTER USER ID TO: \`${collected.first().content}\``.substr(0, 256))
+                  .setTitle(`Set the TWITTER USER ID TO: \`${collected.first().content}\``.substr(0, 256))
                   .setDescription(`You need to have The TWITTERNAME, TWITTERID, and DISCORDCHANNEl and MESSAGE to be right, so that the autoposter works!`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
@@ -356,7 +356,7 @@ var {
                       client.social_log.set(message.guild.id, collected.first().content, `${add}twitter.TWITTER_USER_NAME_ONLY_THOSE`)
                       //require("../../social_log/twitterfeed").creat_twit(client);
                       return message.reply(new Discord.MessageEmbed()
-                        .setTitle(`<a833101995723194437> Set the TWITTER USER Name TO: \`${collected.first().content}\``.substr(0, 256))
+                        .setTitle(`Set the TWITTER USER Name TO: \`${collected.first().content}\``.substr(0, 256))
                         .setDescription(`${collected.first().content.replace("{url}", `https://twitter.com/${collected.first().content}`).replace("{Twittername}", collected.first().content)}\n\nNote that this is just an **example**\n\nYou need to have The TWITTERNAME, TWITTERID, and DISCORDCHANNEl and MESSAGE to be right, so that the autoposter works!`)
                         .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                         .addField("**NOTE THERE MIGHT BE AN UP TO 7 MINUTES DELAY!** (because of Rate limits)", "When posting a new Twit")
@@ -364,7 +364,7 @@ var {
                       );
                     } catch (e) {
                         return message.reply(new Discord.MessageEmbed()
-                        .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                        .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                         .setColor(es.wrongcolor)
                         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                         .setFooter(es.footertext, es.footericon)
@@ -376,7 +376,7 @@ var {
                   })
                 if (timeouterror)
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle("<833101993668771842> ERROR | Your Time ran out")
+                    .setTitle("ERROR | Your Time ran out")
                     .setColor(es.wrongcolor)
                     .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                     .setFooter(es.footertext, es.footericon)
@@ -385,7 +385,7 @@ var {
 
               } catch (e) {
                   return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<833101993668771842> ERROR | Something went wrong, please contact: `XG#2846`")
+                  .setTitle("ERROR | Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -397,7 +397,7 @@ var {
             })
           if (timeouterror)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle("<833101993668771842> ERROR | Your Time ran out")
+              .setTitle("ERROR | Your Time ran out")
               .setColor(es.wrongcolor)
               .setDescription(`Cancelled the Operation!`.substr(0, 2000))
               .setFooter(es.footertext, es.footericon)
@@ -405,7 +405,7 @@ var {
   
        } else {
             return message.reply(new Discord.MessageEmbed()
-            .setTitle("<833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+            .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
             );
@@ -416,7 +416,7 @@ var {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<833101993668771842> Something went Wrong`)
+          .setTitle(`Something went Wrong`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
       }
@@ -424,11 +424,11 @@ var {
   };
   /**
    * @INFO
-   * Bot Coded by XG#2846| https://github.com/MilratoDev/discord-js-lavalink-Music-Bot-erela-js
+   * Bot Coded by XG#2846 | https://github.com/MilratoDev/discord-js-lavalink-Music-Bot-erela-js
    * @INFO
-   * Work for XG | https://xg-bot.netlify.app/
+   * Work for Milrato Development | https://Limsathya
    * @INFO
-   * Please mention XG#2846, when using this Code!
+   * Please mention Him / Milrato Development, when using this Code!
    * @INFO
    */
   

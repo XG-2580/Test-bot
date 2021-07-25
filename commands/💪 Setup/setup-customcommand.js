@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing,
   edit_msg,
@@ -45,7 +45,7 @@ module.exports = {
         tempmsg.react("📑");
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> Missing Permission to add Reactions")
+          .setTitle("Missing Permission to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -70,7 +70,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> Your Time ran out")
+          .setTitle("Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -80,7 +80,7 @@ module.exports = {
       if (temptype == "add") {
         if(client.customcommands.get(message.guild.id, "commands").length > 19)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> You've reached the maximum Custom Commands Amount!")
+            .setTitle("You've reached the maximum Custom Commands Amount!")
             .setColor(es.wrongcolor)
             .setDescription(`You cannot have more then **20** Custom Commands`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -174,7 +174,7 @@ module.exports = {
                         })
                       if (timeouterror)
                         return message.reply(new Discord.MessageEmbed()
-                          .setTitle("<:no:833101993668771842> Your Time ran out")
+                          .setTitle("Your Time ran out")
                           .setColor(es.wrongcolor)
                           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                           .setFooter(es.footertext, es.footericon)
@@ -189,7 +189,7 @@ module.exports = {
                 })
               if (timeouterror)
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> Your Time ran out")
+                  .setTitle("Your Time ran out")
                   .setColor(es.wrongcolor)
                   .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                   .setFooter(es.footertext, es.footericon)
@@ -205,7 +205,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> Your Time ran out")
+            .setTitle("Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -258,13 +258,13 @@ module.exports = {
               try {
                 client.customcommands.remove(message.guild.id, thecmd, "commands")
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle(`<:yes:833101995723194437> I successfully deleted \`${thecmd.name}\`!`)
+                  .setTitle(`I successfully deleted \`${thecmd.name}\`!`)
                   .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                   .setFooter(es.footertext, es.footericon)
                 );
               } catch (e) {
                 return message.reply(new Discord.MessageEmbed()
-                  .setTitle("<:no:833101993668771842> Something went wrong, please contact: `XG#2846`")
+                  .setTitle("Something went wrong, please contact: `XG#2846`")
                   .setColor(es.wrongcolor)
                   .setDescription(`\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``)
                   .setFooter(es.footertext, es.footericon)
@@ -279,7 +279,7 @@ module.exports = {
           })
         if (timeouterror)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle("<:no:833101993668771842> Your Time ran out")
+            .setTitle("Your Time ran out")
             .setColor(es.wrongcolor)
             .setDescription(`Cancelled the Operation!`.substr(0, 2000))
             .setFooter(es.footertext, es.footericon)
@@ -295,7 +295,7 @@ module.exports = {
             try{
               var string = `${cuc[i].output}`;
               if(string.length > 250) string = string.substr(0, 250) + " ..."
-              embed.addField(`<:arrow:832598861813776394> \`${cuc[i].name}\` | ${cuc[i].embed ? "✅ Embed" : "❌ Embed"}`, ">>> "+ string)
+              embed.addField(` \`${cuc[i].name}\` | ${cuc[i].embed ? "✅ Embed" : "❌ Embed"}`, ">>> "+ string)
             }catch (e){
               console.log(e)
             }
@@ -313,7 +313,7 @@ module.exports = {
           try{
             var string = `${cuc[i].output}`;
             if(string.length > 50) string = string.substr(0, 50) + " ..."
-            embed.addField(`<:arrow:832598861813776394> \`${cuc[i].name}\` | ${cuc[i].embed ? "✅ Embed" : "❌ Embed"}`, ">>> "+ string)
+            embed.addField(` \`${cuc[i].name}\` | ${cuc[i].embed ? "✅ Embed" : "❌ Embed"}`, ">>> "+ string)
           }catch (e){
             console.log(e)
           }
@@ -321,7 +321,7 @@ module.exports = {
         tempmsg = await tempmsg.edit({embed: embed})
       } else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> PLEASE CONTACT `XG#2846`")
+          .setTitle("PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -331,18 +331,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

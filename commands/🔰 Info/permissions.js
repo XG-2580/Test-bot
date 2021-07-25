@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 const moment = require('moment');
 const { GetUser, GetGlobalUser } = require("../../handlers/functions")
 module.exports = {
@@ -25,14 +25,14 @@ module.exports = {
       }else{
         user = message.author;
       }
-      if(!user || user == null || user.id == null || !user.id) message.reply("<:no:833101993668771842> Could not find the USER")
+      if(!user || user == null || user.id == null || !user.id) message.reply("Could not find the USER")
       try{
         const member = message.guild.members.cache.get(user.id);
         //create the EMBED
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-        embeduserinfo.setAuthor("Permissions from:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://xg-bot.netlify.app")
-        embeduserinfo.addField('**<:arrow:832598861813776394> Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
+        embeduserinfo.setAuthor("Permissions from:   " + member.user.username + "#" + member.user.discriminator, member.user.displayAvatarURL({ dynamic: true }), "https://clan.Limsathya")
+        embeduserinfo.addField('** Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
         embeduserinfo.setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         embeduserinfo.setFooter(es.footertext, es.footericon)
         //send the EMBED
@@ -41,8 +41,8 @@ module.exports = {
         //create the EMBED
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(user.displayAvatarURL({ dynamic: true, size: 512 }))
-        embeduserinfo.setAuthor("Permissions from:   " + user.username + "#" + user.discriminator, user.displayAvatarURL({ dynamic: true }), "https://xg-bot.netlify.app")
-        embeduserinfo.addField('**<:arrow:832598861813776394> Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
+        embeduserinfo.setAuthor("Permissions from:   " + user.username + "#" + user.discriminator, user.displayAvatarURL({ dynamic: true }), "https://clan.Limsathya")
+        embeduserinfo.addField('** Permissions:**',`${message.member.permissions.toArray().map(p=>`\`${p}\``).join(", ")}`)
         embeduserinfo.setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
         embeduserinfo.setFooter(es.footertext, es.footericon)
         //send the EMBED
@@ -54,18 +54,10 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> ERROR | An error occurred`)
+        .setTitle(`ERROR | An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

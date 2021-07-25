@@ -1,8 +1,7 @@
 const { MessageEmbed } = require("discord.js");
-const config = require(`../../botconfig/config.json`);
-
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const { parseMilliseconds, duration, GetUser, nFormatter, ensure_economy_user } = require("../../handlers/functions")
 module.exports = {
   name: "balance",
@@ -16,7 +15,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -34,7 +33,7 @@ module.exports = {
         user = message.author;
       }
       if (!user || user == null || user.id == null || !user.id) user = message.author
-      if (user.bot) return message.reply("<:no:833101993668771842> **A Discord Bot can not have Economy!**")
+      if (user.bot) return message.reply("**A Discord Bot can not have Economy!**")
       //ensure the economy data
       ensure_economy_user(client, message.guild.id, user.id)
       
@@ -82,7 +81,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
@@ -90,9 +89,9 @@ module.exports = {
 };
 /**
 * @INFO
-* Bot Coded by Limsathya
+* Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
 * @INFO
-* Work for Milrato Development | https://xg-bot.netlify.app
+* Work for Milrato Development | https://Limsathya
 * @INFO
 * Please mention Him / Milrato Development, when using this Code!
 * @INFO

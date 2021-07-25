@@ -1,9 +1,9 @@
 const {
   MessageEmbed
 } = require(`discord.js`);
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 const {
   databasing
 } = require("../../handlers/functions");
@@ -21,13 +21,13 @@ module.exports = {
       if(!warnmember && args[0] && args[0].length == 18) {
         let tmp = await client.users.fetch(args[0])
         if(tmp) warnmember = tmp;
-        if(!tmp) return message.reply("<:no:833101993668771842> I failed finding that User...")
+        if(!tmp) return message.reply("I failed finding that User...")
       }
       else if(!warnmember && args[0]){
         let alluser = message.guild.members.cache.map(member=> String(member.user.username).toLowerCase())
         warnmember = alluser.find(user => user.includes(args[0].toLowerCase()))
         warnmember = message.guild.members.cache.find(me => (me.user.username).toLowerCase() == warnmember)
-        if(!warnmember || warnmember == null || !warnmember.id) return message.reply("<:no:833101993668771842> I failed finding that User...")
+        if(!warnmember || warnmember == null || !warnmember.id) return message.reply("I failed finding that User...")
         warnmember = warnmember.user;
       }
       else {
@@ -37,7 +37,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> Please add a Member you want to see the warnings of!`)
+          .setTitle(`Please add a Member you want to see the warnings of!`)
           .setDescription(`Useage: \`${prefix}warn @User [Reason]\``)
         );
 
@@ -57,7 +57,7 @@ module.exports = {
             .setColor(es.wrongcolor)
             .setFooter(`He/She has: ${client.userProfiles.get(warnmember.id, 'warnings') ? client.userProfiles.get(warnmember.id, 'warnings').filter(v=>v.guild == message.guild.id).length : 0} in ${message.guild.name}`, "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/275/globe-with-meridians_1f310.png")
             
-            .setTitle(`<:no:833101993668771842> \`${warnmember.username}\` has no Global-Warnings`)
+            .setTitle(`\`${warnmember.username}\` has no Global-Warnings`)
           );
 
         let warnings = warnData
@@ -104,7 +104,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> An error occurred`)
+          .setTitle(`An error occurred`)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
         );
       }
@@ -112,18 +112,10 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

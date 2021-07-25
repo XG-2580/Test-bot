@@ -1,7 +1,7 @@
- const config = require(`../../botconfig/config.json`);
+ const config = require(`../.config.json`);
  const ms = require(`ms`);
- var ee = require(`../../botconfig/embed.json`)
- const emoji = require(`../../botconfig/emojis.json`);
+ var ee = require(`../../base-system/embed.json`)
+ const emoji = require(`../../base-system/emoji.json`);
  const map = new Map();
  const {
    MessageEmbed
@@ -23,7 +23,7 @@
       if(!message.guild.me.hasPermission("MANAGE_ROLES"))      
       return message.channel.send(new Discord.MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle("<:no:833101993668771842> I am missing the permission to `MANAGE ROLES`!")
+        .setTitle("I am missing the permission to `MANAGE ROLES`!")
       )
        let adminroles = client.settings.get(message.guild.id, "adminroles")
        let cmdroles = client.settings.get(message.guild.id, "cmdadminroles.addroletoeveryone")
@@ -45,28 +45,28 @@
          return message.channel.send(new MessageEmbed()
            .setColor(es.wrongcolor)
            .setFooter(es.footertext, es.footericon)
-           .setTitle(`<:no:833101993668771842> You are not allowed to run this Command`)
+           .setTitle(`You are not allowed to run this Command`)
            .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
          );
        if (map.get(message.guild.id))
          return message.channel.send(new MessageEmbed()
            .setColor(es.wrongcolor)
            .setFooter(es.footertext, es.footericon)
-           .setTitle(`<:no:833101993668771842> There is an active \`addroletoeveryone\` Command already executing in this Server!`)
+           .setTitle(`There is an active \`addroletoeveryone\` Command already executing in this Server!`)
          );
        let role = message.mentions.roles.filter(role=>role.guild.id==message.guild.id).first() || message.guild.roles.cache.get(args[0]);
        if (!role || role == null || role == undefined || role.name == null || role.name == undefined)
          return message.channel.send(new MessageEmbed()
            .setColor(es.wrongcolor)
            .setFooter(es.footertext, es.footericon)
-           .setTitle(`<:no:833101993668771842> please ping a ROLE!`)
+           .setTitle(`please ping a ROLE!`)
            .setDescription(` Usage: \`${prefix}addroletoeveryone @ROLE\``)
          );
        if (message.member.roles.highest.position <= role.position)
          return message.channel.send(new MessageEmbed()
            .setColor(es.wrongcolor)
            .setFooter(es.footertext, es.footericon)
-           .setTitle(`<:no:833101993668771842> I cannot give that Role to all Members, because it's higher then your highest ROLE!`)
+           .setTitle(`I cannot give that Role to all Members, because it's higher then your highest ROLE!`)
          );
        await message.guild.members.fetch();
        var members = message.guild.members.cache.filter(member => !member.roles.cache.has(role.id)).array();
@@ -74,7 +74,7 @@
          return message.channel.send(new MessageEmbed()
            .setColor(es.wrongcolor)
            .setFooter(es.footertext, es.footericon)
-           .setTitle(`<:no:833101993668771842> Found no Members!`)
+           .setTitle(`Found no Members!`)
            .setDescription(`Most of the Times this means, **everyone** already has this ROLE! But you can retry..`)
          );
        let seconds = (Number(members.length) * 1500);
@@ -139,7 +139,7 @@
        return message.channel.send(new MessageEmbed()
          .setColor(es.wrongcolor)
          .setFooter(es.footertext, es.footericon)
-         .setTitle(`<:no:833101993668771842> An error occurred`)
+         .setTitle(`An error occurred`)
          .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
        );
      }
@@ -147,9 +147,9 @@
  };
  /**
   * @INFO
-  * Bot Coded by Limsathya
+  * Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
   * @INFO
-  * Work for Milrato Development | https://xg-bot.netlify.app
+  * Work for Milrato Development | https://Limsathya
   * @INFO
   * Please mention Him / Milrato Development, when using this Code!
   * @INFO

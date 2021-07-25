@@ -4,7 +4,7 @@ let all_finished_reactions = [
 ]
 var moment = require('moment'); // require
 //import the config.json file
-const config = require("../botconfig/config.json")
+const config = require(".config.json")
 //import the Discord Library
 const Discord = require("discord.js");
 

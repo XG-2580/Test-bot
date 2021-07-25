@@ -8,9 +8,9 @@ module.exports = (client) => {
 
 /**
 * @INFO
-* Bot Coded by Limsathya
+* Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
 * @INFO
-* Work for Milrato Development | https://xg-bot.netlify.app
+* Work for Milrato Development | https://Limsathya
 * @INFO
 * Please mention Him / Milrato Development, when using this Code!
 * @INFO

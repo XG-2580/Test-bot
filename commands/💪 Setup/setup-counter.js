@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -41,7 +41,7 @@ module.exports = {
         tempmsg.react("📑")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -67,7 +67,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -92,7 +92,7 @@ module.exports = {
           if(channel){
             client.settings.set(message.guild.id, channel.id, `counter`)
             return message.reply(new Discord.MessageEmbed()
-              .setTitle(`<:yes:833101995723194437> The Channel: \`${channel.name}\` is now registered as the Number-Counter-Chat`)
+              .setTitle(`The Channel: \`${channel.name}\` is now registered as the Number-Counter-Chat`)
               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
               .setDescription(`Posting now, every Minute`.substr(0, 2048))
               .setFooter(es.footertext, es.footericon)
@@ -107,7 +107,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -115,7 +115,7 @@ module.exports = {
       } else if (temptype == "disable") {
           client.settings.set(message.guild.id, "no", `counter`)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle(`<:yes:833101995723194437> Disabled the Number-Counter-Chat`)
+            .setTitle(`Disabled the Number-Counter-Chat`)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setDescription(`I will not send automatic NSFW Images to a Channel anymore`.substr(0, 2048))
             .setFooter(es.footertext, es.footericon)
@@ -123,7 +123,7 @@ module.exports = {
       } else if (temptype == "resetNumber") {
           client.settings.set(message.guild.id, 0, `counternum`)
           return message.reply(new Discord.MessageEmbed()
-            .setTitle(`<:yes:833101995723194437> Resetted the Number to 0`)
+            .setTitle(`Resetted the Number to 0`)
             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
             .setDescription(`People now need to count from 1 again!`.substr(0, 2048))
             .setFooter(es.footertext, es.footericon)
@@ -131,14 +131,14 @@ module.exports = {
       } else if (temptype == "thesettings") {
         let thesettings = client.settings.get(message.guild.id, `counter`)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Settings of the Number-Counter-Chat`)
+          .setTitle(`Settings of the Number-Counter-Chat`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setDescription(`**Channel:** ${thesettings == "no" ? "Not Setupped" : `<#${thesettings}> | \`${thesettings}\``}\n\n**Current Number:** \`${client.settings.get(message.guild.id, "counternum")}\`\n**Nest Number:** \`${Number(client.settings.get(message.guild.id, "counternum")) + 1}\``.substr(0, 2048))
           .setFooter(es.footertext, es.footericon)
         );
     } else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -148,18 +148,9 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */

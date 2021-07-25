@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require("discord.js");
-const config = require("../../botconfig/config.json")
-var ee = require("../../botconfig/embed.json")
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json")
+var ee = require("../../base-system/embed.json")
+const emoji = require(`../../base-system/emoji.json`);
 const moment = require("moment")
 module.exports = {
   name: "membercount",
@@ -51,12 +51,4 @@ module.exports = {
     }
   }
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

@@ -5,9 +5,9 @@ const {
   MessageEmbed,
   MessageAttachment
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 module.exports = {
   name: "remind",
   aliases: ["remindme"],
@@ -20,7 +20,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -28,7 +28,7 @@ module.exports = {
     return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<:no:833101993668771842> please add a TIME!`)
+      .setTitle(`please add a TIME!`)
       .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
     );
     let newargs = args.join(" ").split("++")
@@ -43,7 +43,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<:no:833101993668771842> please add a valid TIME!`)
+          .setTitle(`please add a valid TIME!`)
           .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
         );
       }
@@ -54,13 +54,13 @@ module.exports = {
     if (returntime > 2073600000) return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<:no:833101993668771842> The time limit is 24 Days!`)
+      .setTitle(`The time limit is 24 Days!`)
       .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
     );
     if (returntime == 0) return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<:no:833101993668771842> please add a TIME!`)
+      .setTitle(`please add a TIME!`)
       .setDescription(` Usage: \`${prefix}remind <Time+Format(e.g: 10m)> ++ TEXT\`\n\nExample: \`${prefix}remind 10m 32s ++ Remind me!!\``)
     );
     const now = new Date();

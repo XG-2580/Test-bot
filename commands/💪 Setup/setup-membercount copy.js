@@ -2,9 +2,9 @@ var {
   MessageEmbed
 } = require(`discord.js`);
 var Discord = require(`discord.js`);
-var config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-var emoji = require(`../../botconfig/emojis.json`);
+var config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+var emoji = require(`../../base-system/emoji.json`);
 var {
   databasing
 } = require(`../../handlers/functions`);
@@ -52,7 +52,7 @@ module.exports = {
         tempmsg.react("📑")
       } catch (e) {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Missing Permissions to add Reactions")
+          .setTitle("ERROR | Missing Permissions to add Reactions")
           .setColor(es.wrongcolor)
           .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -78,7 +78,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -87,7 +87,7 @@ module.exports = {
       if(temptype == "toggle"){
         client.setups.set(message.guild.id, !client.setups.get(message.guild.id, `membercount.enabled`), `membercount.enabled`)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> The Member Counter Setup is now ${d2p(client.setups.get(message.guild.id, `membercount.enabled`))}!`)
+          .setTitle(`The Member Counter Setup is now ${d2p(client.setups.get(message.guild.id, `membercount.enabled`))}!`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
           .setDescription(`If you setupped the Member Counter 1, 2, or/and 3 it will change the Name every 10 Minutes!`.substr(0, 2048))
           .setFooter(es.footertext, es.footericon)
@@ -127,7 +127,7 @@ module.exports = {
             if(temptype == "3") client.setups.set(message.guild.id, channel.id, `membercount.channel3`)
 
             message.reply(new Discord.MessageEmbed()
-              .setTitle(`<:yes:833101995723194437> The Channel: \`${channel.name}\` is now registered as the Member Counter for Counter-${temptype}`)
+              .setTitle(`The Channel: \`${channel.name}\` is now registered as the Member Counter for Counter-${temptype}`)
               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
               .setDescription(`Current Name: \`${curmessage}\``.substr(0, 2048))
               .setFooter(es.footertext, es.footericon)
@@ -173,7 +173,7 @@ module.exports = {
                     .replace(/{bots}/i, message.guild.members.cache.filter(member => member.user.bot).size)
                   )
                   return message.reply(new Discord.MessageEmbed()
-                    .setTitle(`<:yes:833101995723194437> The Channel: \`${channel.name}\` will now be renamed to: \`${name}\``)
+                    .setTitle(`The Channel: \`${channel.name}\` will now be renamed to: \`${name}\``)
                     .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                     .setDescription(`Example: \`${String(name)
                       .replace(/{user}/i, message.guild.memberCount)
@@ -195,7 +195,7 @@ module.exports = {
               })
             if (timeouterror)
               return message.reply(new Discord.MessageEmbed()
-                .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+                .setTitle("ERROR | Your Time ran out")
                 .setColor(es.wrongcolor)
                 .setDescription(`Cancelled the Operation!`.substr(0, 2000))
                 .setFooter(es.footertext, es.footericon)
@@ -210,7 +210,7 @@ module.exports = {
         })
       if (timeouterror)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | Your Time ran out")
+          .setTitle("ERROR | Your Time ran out")
           .setColor(es.wrongcolor)
           .setDescription(`Cancelled the Operation!`.substr(0, 2000))
           .setFooter(es.footertext, es.footericon)
@@ -222,9 +222,9 @@ module.exports = {
         let thesettings = client.setups.get(message.guild.id, `membercount`)
         console.log(thesettings)
         return message.reply(new Discord.MessageEmbed()
-          .setTitle(`<:yes:833101995723194437> Settings of the Member Counter Setup`)
+          .setTitle(`Settings of the Member Counter Setup`)
           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
-          .setDescription(`**Enabled: ${thesettings.enabled ? "<:yes:833101995723194437>" : "<:no:833101993668771842>"}
+          .setDescription(`**Enabled: ${thesettings.enabled ? "<a:yes:833101995723194437>" : "<:no:833101993668771842>"}
 
 **Channel-1: ${thesettings.channel1 == "no" ? "Not Setupped" : `<#${thesettings.channel1}> | \`${thesettings.channel1}\``}**\n**Message of Channel-1:** \`${thesettings.message1.replace(/{user}/i, message.guild.memberCount)
   .replace(/{member}/i, message.guild.members.cache.filter(member => !member.user.bot).size)
@@ -255,7 +255,7 @@ module.exports = {
         );
       } else {
         return message.reply(new Discord.MessageEmbed()
-          .setTitle("<:no:833101993668771842> ERROR | PLEASE CONTACT `XG#2846`")
+          .setTitle("ERROR | PLEASE CONTACT `XG#2846`")
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
         );
@@ -265,18 +265,9 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> Something went Wrong`)
+        .setTitle(`Something went Wrong`)
         .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
       );
     }
   },
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */

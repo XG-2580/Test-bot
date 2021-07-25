@@ -5,9 +5,9 @@ const {
   MessageEmbed,
   MessageAttachment
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
+const emoji = require(`../../base-system/emoji.json`);
 module.exports = {
   name: "calc",
   aliases: ["calculate"],
@@ -20,7 +20,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }
@@ -30,7 +30,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
       .setColor(es.wrongcolor)
       .setFooter(es.footertext, es.footericon)
-      .setTitle(`<:no:833101993668771842> You must provide a equation to be solved on the calculator`)
+      .setTitle(`You must provide a equation to be solved on the calculator`)
       .setDescription(` Usage: \`${prefix}calc <Input>\`\n\nExample: \`${prefix}calc 10 + 4*5\`\n\nHey try out: \`${prefix}calculator\``)
       );
 

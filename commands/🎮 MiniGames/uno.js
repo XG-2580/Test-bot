@@ -4,9 +4,9 @@ const {
     MessageEmbed,
     MessageAttachment
   } = require("discord.js");
-  const config = require("../../botconfig/config.json");
-  var ee = require("../../botconfig/embed.json");
-  const emoji = require(`../../botconfig/emojis.json`);
+  const config = require("../.config.json");
+  var ee = require("../../base-system/embed.json");
+  const emoji = require(`../../base-system/emoji.json`);
   const fetch = require("node-fetch");
 module.exports = {
     name: "uno",
@@ -20,7 +20,7 @@ module.exports = {
           return message.channel.send(new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(es.footertext, es.footericon)
-            .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+            .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
             .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
           );
         }
@@ -28,7 +28,7 @@ module.exports = {
             return message.channel.send(new MessageEmbed()
                 .setColor(es.wrongcolor)
                 .setFooter(es.footertext, es.footericon)
-                .setTitle("<:no:833101993668771842> Error | Please enter a valid type")
+                .setTitle("Error | Please enter a valid type")
                 .setDescription(`**Valid Types:**\n\`join\`, \`creategame\`, \`leave\`, \`startgame\`, \`endgame\`, \`play\`, \`UNO\`,
 \`draw\`, \`cards\`, \`table\`, \`viewwinners\`, \`settings\`, \`viewsettings\``)
             );
@@ -50,7 +50,7 @@ module.exports = {
                     return message.channel.send(new MessageEmbed()
                     .setColor(es.wrongcolor)
                     .setFooter(es.footertext, es.footericon)
-                    .setTitle("<:no:833101993668771842> Error | Please enter a valid type")
+                    .setTitle("Error | Please enter a valid type")
                     .setDescription(`**Valid Types:**\n\`join\`, \`creategame\`, \`leave\`, \`startgame\`, \`endgame\`, \`play\`, \`UNO\`, \`draw\`, \`cards\`, \`table\`, \`viewwinners\`, \`settings\`, \`viewsettings\``)
                 );
                 }

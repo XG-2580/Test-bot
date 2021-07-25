@@ -1,7 +1,7 @@
 const randomPuppy = require('random-puppy');
 const request = require('node-fetch');
 const fs = require("fs")
-const config = require("../../botconfig/config.json")
+const config = require("../.config.json")
 const Discord = require('discord.js');
 const {MessageEmbed} = require('discord.js')
 const booru = require('booru');
@@ -17,7 +17,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }

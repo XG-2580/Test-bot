@@ -1,7 +1,7 @@
 const client = require('nekos.life');
 const Discord = require('discord.js')
 const neko = new client();
-const config = require("../../botconfig/config.json")
+const config = require("../.config.json")
 const {MessageEmbed} = require('discord.js')
 module.exports = {
   name: "futanari",
@@ -13,7 +13,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor)
         .setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> THIS COMMAND IS CURRENTLY DISABLED`)
+        .setTitle(`THIS COMMAND IS CURRENTLY DISABLED`)
         .setDescription(`An Admin can enable it with: \`${prefix}setup-commands\``)
       );
     }

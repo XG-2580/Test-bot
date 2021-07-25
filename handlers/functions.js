@@ -5,10 +5,10 @@ const {
   MessageEmbed,
   MessageAttachment
 } = require("discord.js");
-const emoji = require("../botconfig/emojis.json");
-const config = require("../botconfig/config.json");
-const ee = require("../botconfig/embed.json");
-const radios = require("../botconfig/radiostations.json");
+const emoji = require("../base-system/emoji.json");
+const config = require(".config.json");
+const ee = require("../base-system/embed.json");
+const radios = require("../base-system/radiostations.json");
 const ms = require("ms")
 const officegen = require('officegen')
 const fs = require('fs')
@@ -88,7 +88,7 @@ function isValidURL(string) {
   return url;
 };
 function GetUser(message, arg){
-  var errormessage = "<:no:833101993668771842> I failed finding that User...";
+  var errormessage = "I failed finding that User...";
   return new Promise(async (resolve, reject) => {
     var args = arg, client = message.client;
     if(!client || !message) return reject("CLIENT IS NOT DEFINED")
@@ -120,7 +120,7 @@ function GetUser(message, arg){
   })
 }
 function GetRole(message, arg){
-  var errormessage = "<:no:833101993668771842> I failed finding that Role...";
+  var errormessage = "I failed finding that Role...";
   return new Promise(async (resolve, reject) => {
     var args = arg, client = message.client;
     if(!client || !message) return reject("CLIENT IS NOT DEFINED")
@@ -146,7 +146,7 @@ function GetRole(message, arg){
   })
 }
 function GetGlobalUser(message, arg){
-  var errormessage = "<:no:833101993668771842> I failed finding that User...";
+  var errormessage = "I failed finding that User...";
   return new Promise(async (resolve, reject) => {
     var args = arg, client = message.client;
     if(!client || !message) return reject("CLIENT IS NOT DEFINED")
@@ -885,7 +885,7 @@ async function autoplay(client, player, type) {
     //if nothing is found, send error message, plus if there  is a delay for the empty QUEUE send error message TOO
     if (!response || response.loadType === 'LOAD_FAILED' || response.loadType !== 'PLAYLIST_LOADED') {
       let embed = new MessageEmbed()
-        .setTitle("<:no:833101993668771842> Found nothing related for the latest Song!")
+        .setTitle("Found nothing related for the latest Song!")
         .setDescription(config.settings.LeaveOnEmpty_Queue.enabled && type != "skip" ? `I'll leave the Channel: \`${client.channels.cache.get(player.voiceChannel).name}\` in: \`${ms(config.settings.LeaveOnEmpty_Queue.time_delay, { long: true })}\`, If the Queue stays Empty! ` : `I left the Channel: \`${client.channels.cache.get(player.voiceChannel).name}\` because the Queue was empty for: \`${ms(config.settings.LeaveOnEmpty_Queue.time_delay, { long: true })}\``)
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon);
       client.channels.cache.get(player.textChannel).send(embed).catch(e => console.log("THIS IS TO PREVENT A CRASH"))
@@ -1535,7 +1535,7 @@ async function check_voice_channels(client) {
                           create_join_to_create_Channel(client, themember.voice, j + 1);
                       }
                   }else {
-                      console.log("NO MEMBERS")
+                      //console.log("NO MEMBERS")
                   }
               }catch (e){
                   console.log(e)
@@ -1587,7 +1587,7 @@ function create_join_to_create_Channel(client, user, type) {
   if (!user.guild.me.hasPermission("MANAGE_CHANNELS")) {
     allowed = false;
     try {
-      user.member.user.send("${user.member.user} | <:no:833101993668771842> Error | Please give me the permission, `MANGE CHANNELS` --> I need to be able to create Channels ...")
+      user.member.user.send("${user.member.user} | Error | Please give me the permission, `MANGE CHANNELS` --> I need to be able to create Channels ...")
     } catch {
       try {
         let channel = guild.channels.cache.find(
@@ -1595,7 +1595,7 @@ function create_join_to_create_Channel(client, user, type) {
           channel.type === "text" &&
           channel.permissionsFor(guild.me).has("SEND_MESSAGES")
         );
-        channel.send(`${user.member.user} | <:no:833101993668771842> Error | Please give me the permission, \`MANGE CHANNELS\` --> I need to be able to create Channels ...`).catch(e => console.log("THIS IS TO PREVENT A CRASH"))
+        channel.send(`${user.member.user} | Error | Please give me the permission, \`MANGE CHANNELS\` --> I need to be able to create Channels ...`).catch(e => console.log("THIS IS TO PREVENT A CRASH"))
       } catch {}
     }
   }
@@ -1790,15 +1790,7 @@ async function create_transcript(message, client, msglimit) {
   // Async call to generate the output file:
   return docx.generate(out)
 }
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+
 
 
 

@@ -1,9 +1,9 @@
 const {
   MessageEmbed
 } = require(`discord.js`);
-const config = require(`../../botconfig/config.json`);
-var ee = require(`../../botconfig/embed.json`);
-const emoji = require(`../../botconfig/emojis.json`);
+const config = require(`../.config.json`);
+var ee = require(`../../base-system/embed.json`);
+const emoji = require(`../../base-system/emoji.json`);
 module.exports = {
   name: `speed`,
   category: `👀 Filter`,
@@ -18,21 +18,21 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`<:no:833101993668771842> Please include the Multiplicator`)
+          .setTitle(`Please include the Multiplicator`)
           .setDescription(`Usage: \`${prefix}speed <Multiplicator>\`\n\nExample: \`${prefix}speed 1.5\``)
         );
       if(isNaN(args[0]))
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`<:no:833101993668771842> The Multiplicator must be a Number`)
+          .setTitle(`The Multiplicator must be a Number`)
           .setDescription(`Usage: \`${prefix}speed <Multiplicator>\`\n\nExample: \`${prefix}speed 1.5\``)
         );
       if(Number(args[0]) >= 3 || Number(args[0]) <= 0)
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`<:no:833101993668771842> Multiplicator out of range | Must be between 0 and 3`)
+          .setTitle(`Multiplicator out of range | Must be between 0 and 3`)
           .setDescription(`Usage: \`${prefix}speed <Multiplicator>\`\n\nExample: \`${prefix}speed 1.5\``)
         );
       player.node.send({
@@ -56,7 +56,7 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<:yes:833101995723194437> Speed set to \`${args[0]}\``)
+        .setTitle(`Speed set to \`${args[0]}\``)
         .setDescription(`Note: *It might take up to 5 seconds until you hear the Filter*`)
       );
     } catch (e) {
@@ -64,18 +64,10 @@ module.exports = {
       return message.channel.send(new MessageEmbed()
         .setColor(ee.wrongcolor)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${e.message}\`\`\``)
       );
     }
   }
 };
-/**
- * @INFO
- * Bot Coded by Limsathya
- * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+

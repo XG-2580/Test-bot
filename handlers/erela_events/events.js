@@ -3,9 +3,9 @@ var {
     } = require("discord.js"),
     ms = require("ms"),
 
-    config = require("../../botconfig/config.json"),
-    emoji = require("../../botconfig/emojis.json"),
-    ee = require("../../botconfig/embed.json"),
+    config = require("../.config.json"),
+    emoji = require("../../base-system/emoji.json"),
+    ee = require("../../base-system/embed.json"),
   
     {
       createBar,
@@ -32,7 +32,7 @@ var {
             } catch {}
             try {
               embed.setDescription(`**Commands bound to: ** <#${client.channels.cache.get(player.textChannel).id}>`)
-              embed.addField(`<840259659163893820> Music Powered by Limsathya`, `**[Invite their Public Bot](https://discord.com/api/oauth2/authorize?client_id=784364932149280778&permissions=8&scope=bot)  •  [WEBSITE](https://xg-bot.netlify.app)  •  [Get your OWN BOT](https://discord.gg/FQGXbypRf8)**`)
+              embed.addField(`<:Milrato:840259659163893820> Music Powered by Limsathya`, `**[Invite their Public Bot](https://discord.com/api/oauth2/authorize?client_id=784364932149280778&permissions=8&scope=bot)  •  [WEBSITE](https://Limsathya)  •  [Get your OWN BOT](https://discord.gg/FQGXbypRf8)**`)
             } catch {}
 
             await client.channels.cache.get(player.textChannel).send(embed.setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)).catch(e=>console.log("this prevents a crash"));
@@ -172,13 +172,13 @@ var {
                       channel
                     } = member.voice;
                     //if not in a Voice Channel return!
-                    if (!channel) return message.channel.send(new MessageEmbed().setColor(es.wrongcolor).setFooter(es.footertext, es.footericon).setTitle(`<:no:833101993668771842> You need to join a voice channel.`));
+                    if (!channel) return message.channel.send(new MessageEmbed().setColor(es.wrongcolor).setFooter(es.footertext, es.footericon).setTitle(`You need to join a voice channel.`));
                     //get the lavalink erela.js player information
                     var player = client.manager.players.get(message.guild.id);
                     //if no player return
-                    if(!player || player == undefined) return message.channel.send(new MessageEmbed().setColor(es.wrongcolor).setFooter(es.footertext, es.footericon).setTitle(`<:no:833101993668771842> I am not playing anything in this Server`));
+                    if(!player || player == undefined) return message.channel.send(new MessageEmbed().setColor(es.wrongcolor).setFooter(es.footertext, es.footericon).setTitle(`I am not playing anything in this Server`));
                     //if there is a player and the user is not in the same channel as the Bot return information message
-                    if (player && channel.id !== player.voiceChannel) return message.channel.send(new MessageEmbed().setColor(es.wrongcolor).setFooter(es.footertext, es.footericon).setTitle(`<:no:833101993668771842> I am already playing somewhere else!`).setDescription(`You can listen to me in: ${message.guild.channels.cache.get(player.VoiceChannel).name}`));
+                    if (player && channel.id !== player.voiceChannel) return message.channel.send(new MessageEmbed().setColor(es.wrongcolor).setFooter(es.footertext, es.footericon).setTitle(`I am already playing somewhere else!`).setDescription(`You can listen to me in: ${message.guild.channels.cache.get(player.VoiceChannel).name}`));
                     //switch case for every single reaction emoji someone
                     var reactionemoji = reaction.emoji.id || reaction.emoji.name;
                     switch (reactionemoji) {
@@ -261,7 +261,7 @@ var {
                           return message.channel.send(new MessageEmbed()
                             .setColor(es.wrongcolor)
                             .setFooter(es.footertext, es.footericon)
-                            .setTitle(`<:no:833101993668771842> There is no previous song yet!`)
+                            .setTitle(`There is no previous song yet!`)
                           ).then(msg => {
                             if(msg && msg.deletable) msg.delete({
                                 timeout: 4000
@@ -299,7 +299,7 @@ var {
                               message.channel.send(new MessageEmbed()
                                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<:yes:833101995723194437> Added your Vote!`)
+                                .setTitle(`Added your Vote!`)
                                 .setDescription(`There are now: ${player.get("votes")} of ${voteamount} needed Votes\n\n> Amount reached! Skipping ${emoji.msg.skip_track}`)
                               );
                               if (player.queue.size == 0) {
@@ -311,7 +311,7 @@ var {
                               return message.channel.send(new MessageEmbed()
                                 .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                                 .setFooter(es.footertext, es.footericon)
-                                .setTitle(`<:yes:833101995723194437> Added your Vote!`)
+                                .setTitle(`Added your Vote!`)
                                 .setDescription(`There are now: ${player.get("votes")} of ${voteamount} needed Votes`)
                               );
                             }
@@ -321,7 +321,7 @@ var {
                             return message.channel.send(new MessageEmbed()
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
-                              .setTitle(`<:yes:833101995723194437> Removed your Vote!`)
+                              .setTitle(`Removed your Vote!`)
                               .setDescription(`There are now: ${player.get("votes")} of ${voteamount} needed Votes`)
                             );
                           }
@@ -334,7 +334,7 @@ var {
                             player.destroy();
                             //send success message
                             return message.channel.send(new MessageEmbed()
-                              .setTitle(`<:yes:833101995723194437> ${emoji.msg.stop} Stopped and left your Channel`)
+                              .setTitle(`${emoji.msg.stop} Stopped and left your Channel`)
                               .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                               .setFooter(es.footertext, es.footericon)
                             );
@@ -343,7 +343,7 @@ var {
                           player.stop();
                           //send success message
                           return message.channel.send(new MessageEmbed()
-                            .setTitle(`<:yes:833101995723194437> ${emoji.msg.skip_track} Skipped to the next Song`)
+                            .setTitle(`${emoji.msg.skip_track} Skipped to the next Song`)
                             .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                             .setFooter(es.footertext, es.footericon)
                           );
@@ -449,7 +449,7 @@ var {
                           player.setTrackRepeat(!player.trackRepeat);
                           //set queue repeat mode on
                           player.setQueueRepeat(!player.queueRepeat);
-                          //send informational message
+                          
                           message.channel.send(new MessageEmbed()
                             .setTitle(`${emoji.msg.repeat_mode} Queue Loop is now ${player.queueRepeat ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`}.`)
                             .setDescription(`And Track Loop is now ${player.trackRepeat ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`}.`)
@@ -468,7 +468,7 @@ var {
                           player.setTrackRepeat(false);
                           //set queue repeat mode off
                           player.setQueueRepeat(false);
-                          //send informational message
+                          
                           message.channel.send(new MessageEmbed()
                             .setTitle(`${emoji.msg.repeat_mode} Queue Loop is now ${player.queueRepeat ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`}.`)
                             .setDescription(`And Track Loop is now ${player.trackRepeat ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`}.`)
@@ -486,7 +486,7 @@ var {
                         player.set("autoplay", !player.get("autoplay"))
                         //Send Success Message
                         message.channel.send(new MessageEmbed()
-                          .setTitle(`<:yes:833101995723194437> ${player.get("autoplay") ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`} Autoplay`)
+                          .setTitle(`${player.get("autoplay") ? `${emoji.msg.enabled} Enabled` : `${emoji.msg.disabled} Disabled`} Autoplay`)
                           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
                           .setFooter(es.footertext, es.footericon)
                         ).then(msg => {
@@ -501,7 +501,7 @@ var {
                       case String(emoji.react.shuffle):
                         //shuffle the Queue
                         player.queue.shuffle();
-                        //send informational message
+                        
                         message.channel.send(new MessageEmbed()
                           .setTitle(`${emoji.msg.shuffle} The queue is now shuffled.`)
                           .setColor(es.color).setThumbnail(es.thumb ? es.footericon : null)
@@ -677,9 +677,9 @@ var {
   };
   /**
    * @INFO
-   * Bot Coded by Limsathya
+   * Bot Coded by XG#2846 | https://github.com/Tomato6966/discord-js-lavalink-Music-Bot-erela-js
    * @INFO
-   * Work for Milrato Development | https://xg-bot.netlify.app
+   * Work for Milrato Development | https://Limsathya
    * @INFO
    * Please mention Him / Milrato Development, when using this Code!
    * @INFO

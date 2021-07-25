@@ -1,8 +1,8 @@
 const {
   MessageEmbed
 } = require("discord.js");
-const config = require("../../botconfig/config.json");
-var ee = require("../../botconfig/embed.json");
+const config = require("../.config.json");
+var ee = require("../../base-system/embed.json");
 const {
   databasing
 } = require("../../handlers/functions");
@@ -38,14 +38,14 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<a:Deny:863000078690811905> You are not allowed to run this Command`)
+          .setTitle(`You are not allowed to run this Command`)
           .setDescription(`${adminroles.length > 0 ? "You need one of those Roles: " + adminroles.map(role => `<@&${role}>`).join(" | ") + cmdrole.join("")  : `No Admin Roles Setupped yet! Do it with: \`${prefix}setup-admin\``}`)
         );
       if (!args[0])
         return message.channel.send(new MessageEmbed()
           .setColor(es.wrongcolor)
           .setFooter(es.footertext, es.footericon)
-          .setTitle(`<a:Deny:863000078690811905> You Didn't Provide a Title, Nor a Description`)
+          .setTitle(`You Didn't Provide a Title, Nor a Description`)
           .setDescription(`Usage: \`${prefix}embed <TITLE> ++ <DESCRIPTION>\``)
         );
       let userargs = args.join(" ").split("++");
@@ -124,7 +124,7 @@ module.exports = {
       console.log(String(e.stack).bgRed)
       return message.channel.send(new MessageEmbed()
         .setColor(es.wrongcolor).setFooter(es.footertext, es.footericon)
-        .setTitle(`<:no:833101993668771842> An error occurred`)
+        .setTitle(`An error occurred`)
         .setDescription(`\`\`\`${e.stack}\`\`\``)
       );
     }
@@ -134,7 +134,7 @@ module.exports = {
  * @INFO
  * Bot Coded by XG#2846 | https://github.com/Tomato6966/Discord-Js-Handler-Template
  * @INFO
- * Work for Milrato Development | https://xg-bot.netlify.app
+ * Work for Milrato Development | https://Limsathya
  * @INFO
  * Please mention Him / Milrato Development, when using this Code!
  * @INFO

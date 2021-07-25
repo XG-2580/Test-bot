@@ -1,5 +1,5 @@
-const config = require("../botconfig/config.json")
-const ee = require("../botconfig/embed.json")
+const config = require(".config.json")
+const ee = require("../base-system/embed.json")
 const Discord = require("discord.js")
 const Canvas = require("canvas");
 Canvas.registerFont('Genta.ttf', {
